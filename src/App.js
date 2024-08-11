@@ -51,6 +51,10 @@ function AppContent() {
               <Element name="home">
                 <Home />
               </Element>
+              <div
+                className="blank-box"
+                style={{ background: 'linear-gradient(to bottom, #cbddff, white)' }}
+              />
               <Element name="about">
                 <About />
               </Element>

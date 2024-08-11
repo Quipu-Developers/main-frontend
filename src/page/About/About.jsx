@@ -1,83 +1,147 @@
+import React, { useRef, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './About.css';
 
 function About() {
+  const navigate = useNavigate();
+  const scrollContainerRef = useRef(null);
+  const [dropdown, IsDropdown] = useState(false);
+
+    const handleWheel = (e) => {
+        if (scrollContainerRef.current) {
+            const { deltaY } = e;
+            e.preventDefault();
+            scrollContainerRef.current.scrollLeft += 8 * deltaY;
+        }
+    };
+
+    useEffect(() => {
+        const container = scrollContainerRef.current;
+        if (container) {
+            container.addEventListener('wheel', handleWheel);
+        }
+
+        return () => {
+            if (container) {
+                container.removeEventListener('wheel', handleWheel);
+            }
+        };
+    }, []);
+
   return (
-    <div className="About-container">
-      <div className="w-90">
-        <p className="about-title">About</p>
-      </div>
-      <div className="w-90">
-        <p>
-          안녕하세요! 서울시립대학교 중앙 컴퓨터 학술 동아리{' '}
-          <span>
-            <button className="quipu-button">QUIPU</button>
-          </span>
-          입니다.
-          <br></br>
-          '퀴푸'는 문자 없이 끈과 매듭으로 정보를 기록하고 전달하는 고대 잉카 제국에서 사용된
-          시스템을 뜻합니다.
-          <br></br>
-          이러한 어원에 따른 QUIPU의 핵심 키워드 세 가지를 소개합니다!
-        </p>
-      </div>
-      <div className="w-90" style={{ marginTop: '40px' }}>
-        <p className="about-title">Our Keyword</p>
-      </div>
-      <div className="w-90">
-        <div className="w-30">
-          <p>Potential</p>
-        </div>
-        <div className="w-60">
-          <p>
-            퀴푸의 매듭은 각각 다른 정보와 지식을 담고 있듯이, QUIPU 구성원 각자의 잠재력이 모여 더
-            큰 가치를 창출합니다.
-          </p>
+    <div className="about-container">
+      {/* 메인 */}
+      <div className="about-main">
+        <img src={process.env.PUBLIC_URL + '/About-img/main.png'} alt="Main Visual" />
+        <div className="about-main-text">
+          <h1><span style={{ color: '#0066FF' }}>A</span>bout</h1>
+          <p>안녕하세요!</p>
+          <p>서울시립대학교 중앙 컴퓨터 학술 동아리 <span id='about-logo'>QUIPU</span> 입니다.</p>
+          <p>‘퀴푸’는 문자 없이 끈과 매듭으로 정보를 기록하고 전달하는 고대 잉카 제국에서 사용된 시스템을 뜻합니다.</p>
+          <p>이러한 어원에 따른 <span id='about-logo'>QUIPU</span>의 핵심 키워드 세 가지를 소개합니다!</p>
         </div>
       </div>
-      <div className="w-90 harmony">
-        <div className="w-60">
-          <p>
-            서로 다른 매듭과 실이 하나의 퀴푸를 완성시키듯, QUIPU는 개개인의 다양성을 조화롭게 엮어
-            공동의 목표를 향해 나아갑니다.
-          </p>
+
+      {/* 키워드 */}
+      <div className="about-keyword">
+        <h1>Our <span style={{ color: '#0066FF' }}>Key</span>word</h1>
+        <div 
+          className="about-keyword-slide"
+          ref={scrollContainerRef} 
+        >
+          <div className="about-keyword-slide-text slide__1">
+            <h4>Potential</h4>
+            <p>퀴푸의 매듭은 각각 다른 정보를 담고 있듯이,</p>
+            <p>QUIPU 구성원 각자의 잠재력이 모여 더 큰 가치를 창출합니다.</p>
+          </div>
+          <div className="about-keyword-slide-text slide__2">
+            <h4>Challenging</h4>
+            <p>퀴푸의 매듭은 각각 다른 정보를 담고 있듯이,</p>
+            <p>QUIPU 구성원 각자의 잠재력이 모여 더 큰 가치를 창출합니다.</p>
+          </div>
+          <div className="about-keyword-slide-text slide__3">
+            <h4>Passion</h4>
+            <p>퀴푸의 매듭은 각각 다른 정보를 담고 있듯이,</p>
+            <p>QUIPU 구성원 각자의 잠재력이 모여 더 큰 가치를 창출합니다.</p>
+          </div>
         </div>
-        <div className="w-30">
-          <p>Harmony</p>
+      </div>
+
+      {/* 활동, 액티비티 */}
+      <div className="about-activity">
+        <h1><span style={{color:'#0066FF'}}>A</span>ctivity</h1>
+
+        <div className="about-activity-content">
+
+          <div className="about-activity-left">
+            <div className="about-activity-img">
+              <img src={process.env.PUBLIC_URL + '/About-img/quipu-activity1.png'} alt='활동1' />
+            </div>
+            <div className="about-activity-left-text">
+              <p>그 밖에도 <span>MT, 개총</span> 등 다양한 친목 활동을 하면서</p>
+              <p><span>네트워크</span>를 형성할 수 있습니다!</p>
+            </div>
+          </div>
+
+          <div className="about-activity-right">
+            <div className="about-activity-right-text">
+              <p><span id='about-logo'>QUIPU</span> 에서는 <span>프로그래밍 언어 기초 공부</span>,</p>
+              <p><span>개발, 공모전</span> 등 컴퓨터와 관련하여</p>
+              <p>다양하게 스터디를 개설하거나 스터디에 참여할 수 있습니다.</p>
+            </div>
+            <div className="about-activity-img">
+              <img src={process.env.PUBLIC_URL + '/About-img/quipu-activity2.png'} alt='활동2' />
+              <div className="about-activity-right-img-border"></div>
+            </div>
+          </div>
+
         </div>
       </div>
-      <div className="w-90">
-        <div className="w-30">
-          <p>Variety</p>
+
+      {/* 테크스택 */}
+      <div className="about-tech">
+        <div className="about-tech-top">          
+          <h4>특히 <span id='about-logo'>QUIPU</span>의 주 활동인 <span>웹 개발 프로젝트</span>에서는</h4>
+          <h4><span>React.js, Node.js, GitHub, AWS</span>와 같은 기술 스택을 사용하여 다양한 프로젝트를 진행합니다.</h4>
         </div>
-        <div className="w-60">
-          <p>
-            퀴푸에 사용된 다양한 색상과 길이의 실처럼, QUIPU는 다양한 배경과 생각을 가진 사람들이
-            모여 새로운 아이디어와 혁신을 만들어냅니다.
-          </p>
+
+        <div className="about-tech-stack">
+          <h1>Our Tech Stack</h1>
+          <div className="about-tech-stack-list">
+            <img src="https://techstack-generator.vercel.app/react-icon.svg" alt="icon" />
+            <img src="https://techstack-generator.vercel.app/restapi-icon.svg" alt="icon"  />
+            <img src="https://techstack-generator.vercel.app/github-icon.svg" alt="icon" />
+            <img src="https://techstack-generator.vercel.app/aws-icon.svg" alt="icon" />
+            
+            <div className="about-tech-stack-rectangle rectangle__1" />
+            <div className="about-tech-stack-rectangle rectangle__2" />
+          </div>
         </div>
       </div>
-      <div className="w-90" style={{ marginTop: '40px' }}>
-        <p className="about-title">Welcome!</p>
+
+      {/* 퀴푸 개발팀, 퀴푸뎁, 퀴푸디브 */}
+      <div className="about-dev">
+        <p>퀴푸에서 해온 웹 개발 프로젝트의 과정과 참여자들의 인터뷰를 보고 싶다면,</p>
+        <p>아래 <span>'QUIPU-DEV'</span> 버튼을 눌러주세요!</p>
+
+        <div 
+          className="about-dev-button"
+          onClick={()=>IsDropdown(!dropdown)}
+        >
+          <h4>QUIPU-DEV</h4>
+          { dropdown !== true &&
+            <img src={process.env.PUBLIC_URL + '/About-img/pointer.png'} alt='pointer'/>
+          }
+          { dropdown === true &&
+            <div className="about-dev-button-list">
+              <p>Showcase</p>
+              <p>Interview</p>
+            </div>
+          }
+        </div>
       </div>
-      <div className="w-90">
-        <p>
-          QUIPU에서는 프로그래밍 언어 기초 공부, 개발, 공모전 등 컴퓨터와 관련하여 다양하게 스터디를
-          개설하거나 스터디에 참여할 수 있습니다.
-          <br></br>
-          자유롭고 협력적인 분위기로 개개인이 성장할 수 있는 환경을 조성하는 것을 목표로 하며,
-          교내에서 컴퓨터와 관련하여 다양한 경험을 쌓을 수 있도록 노력하고 있습니다.
-          <br></br>
-          컴퓨터에 관심있는 서울시립대 학우분들 모두 환영합니다!
-        </p>
-      </div>
-      <div
-        className="w-90 leaders"
-        style={{ justifyContent: 'center', marginTop: '50px', marginBottom: '50px' }}
-      >
-        <p>회장 차준섭&nbsp;|&nbsp;</p>
-        <p>부회장 하진혁&nbsp;|&nbsp;</p>
-        <p>총무 정민욱</p>
-      </div>
+
+      <div className='whyscroll' />
     </div>
   );
 }
