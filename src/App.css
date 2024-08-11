@@ -61,7 +61,7 @@
   /* 드롭다운 버튼 */
   .navbar__menu--pc h4 {
     border-radius: 7px;
-    padding: 5px 13px;
+    padding: 5px 13px 2px 13px;
     font-weight: 700;
     margin: 0 5px;
     font-size: 18px;
