@@ -166,15 +166,57 @@
         position: relative;
     }
 
+    @media (max-height:900px) and (min-height: 600px) {
+        .showcasemainMobile-section2 {
+            height: 60vh;
+        }
+        .section2-gallery1{
+            height: 17vh;
+        }
+        .section2-text{
+            top: 14vh !important;
+            height: 17vh;
+        }
+        .section2-gallery2{
+            height: 17vh;
+            top: 29vh !important;
+        }
+        .section2-gallery3{
+            height: 17vh;
+            top: 42vh !important;
+        }
+    }
+    @media (min-height: 900px) {
+        .showcasemainMobile-section2 {
+            height: 64vh;
+        }
+        .section2-gallery1{
+            height: 17vh;
+        }
+        .section2-text{
+            top: 16vh !important;
+            height: 17vh;
+            & p{
+                font-size: 0.5rem !important;
+            }
+        }
+        .section2-gallery2{
+            height: 16vh;
+            top: 31vh !important;
+        }
+        .section2-gallery3{
+            height: 18vh;
+            top: 44vh !important;
+        }
+    }
+
     .section2-gallery1 {
         z-index: 1;
         background: linear-gradient(0deg, rgba(241, 204, 132, 0.22), rgba(241, 204, 132, 0.22));
         display: inline-flex;
-        height: 30vh;
-        aspect-ratio: 1.3 / 1;
         align-items: center;
         justify-content: center;
-        padding: 1%;
+        padding: 2%;
         position: absolute; /* 절대 위치로 설정하여 겹침 */
     }
     
@@ -185,8 +227,6 @@
 
     .section2-text{
         z-index: 2;
-        height: 30vh;
-        aspect-ratio: 1.3 / 1;
         background-color: white;
         display: inline-flex;
         width: 60%;
@@ -201,17 +241,15 @@
     .section2-text h4 {
         color: #18101096;
         font-family: "Lora";
-        font-size: 0.3rem;
+        font-size: 0.7rem;
     }
     .section2-text p {
         color: #01010196;
         font-family: "Lora";
-        font-size: 0.3rem;
+        font-size: 0.4rem;
     }
     .section2-gallery2{
         z-index: 1;
-        height: 30vh;
-        aspect-ratio: 1.3 / 1;
         top: 45vh;
         background: linear-gradient(0deg, rgba(241, 204, 132, 0.22), rgba(241, 204, 132, 0.22));
         display: inline-flex;
@@ -226,8 +264,6 @@
     }
     .section2-gallery3{
         z-index: 2;
-        height: 30vh;
-        aspect-ratio: 1.4 / 1;  
         top: 65vh;
         background: white;
         border: 1px solid #0000001A;
