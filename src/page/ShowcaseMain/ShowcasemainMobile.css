@@ -5,7 +5,7 @@
         flex-direction: column;
         align-items: center;
         width: 100%;
-        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
         top: 0;
         overflow-y: auto;
     }
@@ -41,71 +41,71 @@
     }
 
     .ShowcasemainMobile-Dropdown {
-        padding: 2px;
+        box-sizing: border-box;
         box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.1);
         font-family: "Lora";
         font-size: 1rem;
         font-weight: 500;
         color: #835286;
-        text-align: left;
         background-color: #FFFFFF;
         width: 25%;
-        margin: 3vh;
+        padding: 2px 1%;
+        margin: 3vh 2.5% 0 2.5%;
         border: 1.5px solid #567FBB57;
         border-top-left-radius: 1vh;
         border-top-right-radius: 1vh;
         position: relative;
-        /* position을 relative로 변경 */
         z-index: 10;
     }
-
-    .ShowcasemainMobile-Dropdown p{
+    
+    .showcasemainMobile-Dropdown-top {
+        cursor: pointer;
+        width: 100%;
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
+        align-items: center;
     }
 
     .Dropdown-list {
-        position: absolute;
-        left: 0;
-        height: 100px;
+        box-sizing: border-box;
         list-style-type: none;
-        width: 100%;
-        margin-top: 2px;
+        width: calc(100% + 2.67px);
+        height: 80px;
+        position: absolute;
+        top: calc(100% + 2.5px);
+        left: -1.3px;
+        overflow-x: hidden;
+        overflow-y: auto;
         background: #FFFFFF;
-        font: #835286B2;
         font-family: "Lora";
         font-size: 1rem;
-        border-top: 1.5px solid #567FBB57;
-        z-index: 10;
+        border: 1.5px solid #567FBB57;
         border-bottom-left-radius: 1vh;
         border-bottom-right-radius: 1vh;
 
         & li {
-            border: 1.5px solid #567FBB57;
             cursor: pointer;
-            border-bottom: 1.5px solid #567FBB57;
             width: 100%;
-            padding: 3% 0;
-            transition: 0.3s background-color ease;
+            padding: 3%;
+            transition: all 0.3s ease;
+            color: #835286B2;
+            border-bottom: 1.5px solid #567FBB57;
+
+            &:nth-last-child(1) {
+                border-bottom: none;
+            }
 
             &:hover {
                 background-color: #FBF3FF;
-            }
-
-            &:nth-child(6) {
-                border-bottom: none;
+                color: #835286;
             }
         }
 
-        & ::-webkit-scrollbar {
+        &::-webkit-scrollbar {
             display: none;
         }
     }
-
-    .Dropdown-list:hover {
-        background: #FBF3FF;
-    }
-
 
     .showcasemainMobile-main {
         width: 100%;
@@ -127,6 +127,7 @@
         border: 1.5px solid #835E86;
         color: #835E86;
         font: 1rem bold 'Nexon Lv2 Gothic';
+        transition: all 0.3s ease;
     }
 
     .showcasemainMobile-main button:hover {

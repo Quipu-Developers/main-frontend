@@ -11,7 +11,7 @@ function Dropdown({ setIndex }) { // setIndex를 props로 받음
       {showcase_data.map((item, idx) => (
         <li key={idx} onClick={() => { setIndex(idx) }}>
           {item.project_name} {/* item.project_name으로 변경 */}
-        </li> 
+        </li>
       ))}
     </div>
   );
@@ -26,22 +26,25 @@ function ShowcasemainMobile() {
 
   const handleIndexClick = () => {
     navigate(`/quipu-dev/${index}`);
-};
+  };
 
   return (
     <div className="showcasemainMobile">
       <div className='showcasemainMobile-nav'>
-      <section className="showcasemainMobile-logo"><NavLink to="/">QUIPU</NavLink></section>
+        <section className="showcasemainMobile-logo"><NavLink to="/">QUIPU</NavLink></section>
       </div>
       <div className="showcasemainMobile-header">
-      <ul
+        <ul
           className="ShowcasemainMobile-Dropdown"
           onClick={() => {
             setView(!view);
           }}
         >
-          <p>Drop down {view ? '▲' : '▼'}</p>
-          {view && <Dropdown setIndex={setIndex}/>} {/* setIndex를 Dropdown에 전달 */}
+          <div className="showcasemainMobile-Dropdown-top">
+            <p>{showcase_data[index].project_name}</p>
+            <p>{view ? '▲' : '▼'}</p>
+          </div>
+          {view && <Dropdown setIndex={setIndex} />} {/* setIndex를 Dropdown에 전달 */}
         </ul>
       </div>
       <div className="showcasemainMobile-main">
@@ -57,18 +60,18 @@ function ShowcasemainMobile() {
         </div>
         <div className='showcasemainMobile-section2'>
           <div className='section2-gallery1'>
-          <img src={showcase_data[index].main_img[1]} alt={`Image for ${showcase_data[index].project_name}`} />
+            <img src={showcase_data[index].main_img[1]} alt={`Image for ${showcase_data[index].project_name}`} />
 
           </div>
           <div className='section2-text'>
-          <h4>{showcase_data[index].goal}</h4>
-          <p>{showcase_data[index].this_project}</p>
+            <h4>{showcase_data[index].goal}</h4>
+            <p>{showcase_data[index].this_project}</p>
           </div>
           <div className='section2-gallery2'>
-          <img src={showcase_data[index].main_img[2]} alt={`Image for ${showcase_data[index].project_name}`} />
+            <img src={showcase_data[index].main_img[2]} alt={`Image for ${showcase_data[index].project_name}`} />
           </div>
           <div className='section2-gallery3'>
-          <img src={showcase_data[index].main_img[3]} alt={`Image for ${showcase_data[index].project_name}`} />
+            <img src={showcase_data[index].main_img[3]} alt={`Image for ${showcase_data[index].project_name}`} />
           </div>
         </div>
         <div className='showcasemainMobile-section3'>
