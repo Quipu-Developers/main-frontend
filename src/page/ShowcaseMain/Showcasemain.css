@@ -3,7 +3,7 @@
     height: calc(var(--vh, 1vh) * 100);
     overflow-y: auto;
     position: relative;
-    background-color: #f5f5f5;
+    background-color: white;
     font-family: "NEXON Lv2 Gothic";
     display: flex;
     flex-direction: column;
@@ -14,40 +14,30 @@
 .showcasemain-container {
     max-width: 1150px;
     width: 100%;
-    height: 100vh;
-    font-family: "NEXON Lv2 Gothic";
-    background-color: #f5f5f5;
+    height: 100%;
 }
 
 .showcasemain-nav {
-    height: 15%;
+    height: fit-content;
+    border-bottom: 1px solid #0000001A;
     width: 100%;
     display: flex;
     justify-content: start;
     align-items: center;
-    background-color: #f5f5f5;
 }
 
 .showcasemain-logo {
-    width: auto;
-    height: auto;
-    font-size: 64px;
-    padding-left: 30px;
-    font-weight: 400;
-    line-height: 75.39px;
-    text-align: left;
+    margin: 0.5% 3% 1% 3%;
     font-family: "Lora", serif;
     font-style: italic;
+    font-size: 3rem;
     font-weight: 700;
-    font-size: 50px;
-    line-height: 76.8px;
-    color: rgba(131, 94, 134, 1);
-    background-color: transparent;
+    text-align: left;
 }
 
 .showcasemain-logo a {
     text-decoration: none;
-    color: inherit;
+    color: rgba(131, 94, 134, 1);
 }
 
 .showcasemain {
@@ -56,7 +46,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f5f5f5;
 }
 
 .section1 {
@@ -66,7 +55,7 @@
     align-items: center;
     margin: 21px;
     width: 80%;
-    Height: 13%;
+    height: 13%;
     border: 1px solid #0C0B0B1A;
 }
 
@@ -92,7 +81,7 @@
     width: 90%;
 }
 
-.List {
+.showcasemain-list {
     padding: 1%;
     font-family: "Lora" !important;
     margin: 0 2%;
@@ -106,18 +95,18 @@
     color: #8F6E92;
     cursor: pointer;
     border: 2px solid transparent;
-    border-radius: 30px;
-    transition: border-color 0.5s ease;
+    border-radius: 100%;
+    transition: font-size 0.5s ease;
 }
 
-.List:hover {
-    border-color: #927195;
+.showcasemain-list:hover {
+    font-size: 2.5rem;
 }
 
 .gallery {
     min-width: 400px;
     width: 50%;
-    height: 380px;
+    height: 280px;
     border: 1px solid #0C0B0B1A;
     display: flex;
     flex-direction: row;
@@ -129,25 +118,26 @@
 .gallery1 {
     width: 95%;
     height: 95%;
-    border: 1px;
     background: linear-gradient(0deg, rgba(241, 204, 132, 0.22), rgba(241, 204, 132, 0.22));
+    border: 1px solid #0C0B0B1A;
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .gallery1 img {
     object-fit: cover;
-    width: 95%;
-    height: 95%;
+    width: 92%;
+    height: 92%;
 }
 
 .gallery2 {
+    border: 1px solid #0C0B0B1A;
+    width: 95%;
+    height: 95%;
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .gallery2 h3 {
@@ -165,6 +155,7 @@
     height: 46%;
     margin: 1%;
     background: linear-gradient(0deg, rgba(241, 204, 132, 0.22), rgba(241, 204, 132, 0.22));
+    border: 1px solid #0C0B0B1A;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -204,7 +195,7 @@
 .gallery4 {
     width: 95%;
     height: 95%;
-    border: 1px;
+    border: 1px solid #0C0B0B1A;
     background:
         linear-gradient(0deg, rgba(149, 124, 221, 0.23), rgba(149, 124, 221, 0.23));
     display: flex;
@@ -213,8 +204,8 @@
 }
 
 .gallery4 img{
-    width: 95%;
-    height: 95%;
+    width: 92%;
+    height: 92%;
     object-fit: cover;
 }
 
@@ -230,7 +221,8 @@
     border-radius: 29px;
     border: 1.5px solid #835E86;
     color: #835E86;
-    font: 1rem bold 'Nexon Lv2 Gothic';
+    font: 1rem bold;
+    font-family: "Lora";
     transition: all 0.5s ease;
 }
 
