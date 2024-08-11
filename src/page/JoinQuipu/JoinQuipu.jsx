@@ -12,7 +12,6 @@ function JoinQuipu() {
   const location = useLocation();
   const { selectedPage } = location.state || {};
 
-  const [response, setResponse] = useState('');
   const [hasReviewed, setHasReviewed] = useState(false);
   const [hasPaidFee, setHasPaidFee] = useState(false);
 
@@ -20,6 +19,7 @@ function JoinQuipu() {
   const [student_id, setStudent_id] = useState();
   const [major, setMajor] = useState('');
   const [phone_number, setPhone_number] = useState();
+  const [department, setDepartment] = useState('');
   const [motivation, setMotivation] = useState('');
   const [project_description, setProject_description] = useState('');
   const [github_profile, setGithub_profile] = useState('');
@@ -69,6 +69,7 @@ function JoinQuipu() {
   };
 
   const handleSubmit = async () => {
+    let res;
     // 일반 부원 폼 전송
     if (selectedPage === 'general') {
       const formData = {
@@ -81,10 +82,7 @@ function JoinQuipu() {
 
       console.log(formData);
 
-      const res = await sendGeneral({
-        formData,
-      });
-      setResponse(res);
+      res = await sendGeneral(formData);
     }
 
     //개발 부원 폼 전송
@@ -94,9 +92,10 @@ function JoinQuipu() {
         student_id: student_id,
         major: major,
         phone_number: phone_number,
+        department: department,
         motivation: motivation,
-        portfolio_pdf: pdf,
         project_description: project_description,
+        portfolio_pdf: pdf,
         github_profile: github_profile,
         github_email: github_email,
         slack_email: slack_email,
@@ -104,25 +103,23 @@ function JoinQuipu() {
       };
       console.log(formData);
 
-      const res = await sendDevelopment({
-        formData,
-      });
-      setResponse(res);
+      res = await sendDevelopment(formData);
     }
 
-    if (response.status === 200) {
+    if (res.status === 201) {
       setModalMessage('Welcome to Quipu!');
       setModalSubMessage('퀴푸의 회원이 되어주셔서 감사합니다.');
-    } else if (response.status === 400 || response.status === 401) {
-      setModalMessage(`${response.data}`);
+    } else if (res.status === 400) {
+      setModalMessage(`${res.data}`);
       setModalSubMessage('다시 확인해 주세요.');
-    } else if (response.status === 409) {
+    } else if (res.status === 409) {
       setModalMessage('이미 제출하셨습니다.');
       setModalSubMessage('다른 응답을 원하시면 퀴푸에 문의해주세요.');
     } else {
       setModalMessage('서버 오류입니다.');
       setModalSubMessage('다시 시도해보신 후 퀴푸에 문의해주세요.');
     }
+    setShowPopup(true);
   };
 
   useEffect(() => {
@@ -225,6 +222,7 @@ function JoinQuipu() {
                   onChange={(e) => setStudent_id(e.target.value)}
                 />
               </div>
+
               <div>
                 <p>학과</p>
                 <input
@@ -353,6 +351,17 @@ function JoinQuipu() {
                   placeholder="01012345678"
                   value={phone_number}
                   onChange={(e) => setPhone_number(e.target.value)}
+                />
+              </div>
+
+              <div>
+                <p>모집 분야</p>
+                <textarea
+                  onChange={(e) => {
+                    setDepartment(e.target.value);
+                  }}
+                  placeholder={'UI/UX 디자인, 프론트엔드, 백엔드 중 하나 골라주세요.'}
+                  value={department}
                 />
               </div>
 
