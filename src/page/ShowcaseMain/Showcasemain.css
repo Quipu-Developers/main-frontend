@@ -70,6 +70,19 @@
     border: 1px solid #0C0B0B1A;
 }
 
+@media (max-width: 900px) {
+    .section1 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 21px;
+            width: 86%;
+            Height: 13%;
+            border: 1px solid #0C0B0B1A;
+        }
+}
+
 .section2 {
     display: flex;
     flex-direction: row;
@@ -212,7 +225,7 @@
     align-items: center;
     margin: 2%;
     width: 7%;
-    height: 52px;
+    height: 5vh;
     border-radius: 29px;
     border: 1.5px solid #835E86;
     color: #835E86;
