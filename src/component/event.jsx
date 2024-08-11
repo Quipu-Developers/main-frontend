@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import '../page/Event/Event.css';
 
 export function RecruitBoard() {
@@ -52,17 +52,86 @@ export function RecruitBoard() {
   );
 }
 
-export function Button({ buttonName, path, state = null }) {
-  const navigate = useNavigate();
-  console.log(state);
+export function RouletteItem({ segments }) {
+  const labelColors = {
+    chicken: '#161D6F',
+    coupon: '#3797A4',
+    hamburger: '#7579E7',
+    drink: '#87CEEB',
+    boom: '#E3F6FF',
+  };
+
+  const totalItems = segments.reduce((acc, curr) => acc + curr.count, 0);
+
+  const percentageSegments = segments.map((segment) => ({
+    ...segment,
+    percentage: (segment.count / totalItems) * 100,
+  }));
+
+  const conicGradient = percentageSegments
+    .map((segment, index) => {
+      const start = percentageSegments
+        .slice(0, index)
+        .reduce((acc, curr) => acc + curr.percentage, 0);
+      const end = start + segment.percentage;
+      return `${labelColors[segment.label]} ${start}% ${end}%`;
+    })
+    .join(', ');
+
   return (
-    <button
-      onClick={() => {
-        navigate(path, { state: state });
-      }}
-      className="event-custom-button"
-    >
-      <p>{buttonName}</p>
-    </button>
+    <div className="roulette-item">
+      {/* 룰렛 테두리 */}
+      <div
+        style={{
+          width: '100%',
+          height: '100%',
+          borderRadius: '50%',
+          border: '4px solid #071952',
+          position: 'relative',
+          boxSizing: 'border-box',
+        }}
+      >
+        {/* 룰렛 내부 */}
+        <div
+          style={{
+            width: '100%',
+            height: '100%',
+            background: `conic-gradient(${conicGradient})`,
+            borderRadius: '50%',
+            position: 'relative',
+            zIndex: 1,
+          }}
+        />
+        {/* 룰렛 중앙 */}
+        <div
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            width: '15px',
+            height: '15px',
+            backgroundColor: 'white',
+            borderRadius: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 2,
+          }}
+        />
+      </div>
+      {/* 룰렛 화살표 */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '-29px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: 0,
+          height: 0,
+          borderLeft: '9px solid transparent',
+          borderRight: '9px solid transparent',
+          borderTop: '30px solid #FF0060',
+          zIndex: 3,
+        }}
+      />
+    </div>
   );
 }
