@@ -4,6 +4,7 @@ import { showcase_data } from '../../data/showcase_data.jsx';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ShowcasemainMobile from './showcaseMainMobile.jsx'; // ShowcasemainMobile 컴포넌트 임포트
+import { element } from 'three/examples/jsm/nodes/Nodes.js';
 
 function Showcasemain() {
     const [index, setIndex] = useState(0);
@@ -11,10 +12,12 @@ function Showcasemain() {
     const navigate = useNavigate();
 
     const handleIndexClick = () => {
-        navigate(`/quipu-dev/detail`, {state:{
-            projectname: showcase_data[index].project_name,
-            index: index
-        }});
+        navigate(`/quipu-dev/detail`, {
+            state: {
+                projectname: showcase_data[index].project_name,
+                index: index
+            }
+        });
     };
 
     const handleResize = () => {
@@ -36,18 +39,21 @@ function Showcasemain() {
 
     return (
         <div className='showcasemain-house'>
+            <div className='showcasemain-nav'>
+                <section className="showcasemain-logo"><NavLink to="/">QUIPU</NavLink></section>
+            </div>
             <div className='showcasemain-container'>
-                <div className='showcasemain-nav'>
-                    <section className="showcasemain-logo"><NavLink to="/">QUIPU</NavLink></section>
-                </div>
                 <div className='showcasemain'>
                     <div className='section1'>
-                        <div className='List' onClick={() => { setIndex(0) }}>{showcase_data[0].project_name}</div>
-                        <div className='List' onClick={() => { setIndex(1) }}>{showcase_data[1].project_name}</div>
-                        <div className='List' onClick={() => { setIndex(2) }}>{showcase_data[2].project_name}</div>
-                        <div className='List' onClick={() => { setIndex(3) }}>{showcase_data[3].project_name}</div>
-                        <div className='List' onClick={() => { setIndex(4) }}>{showcase_data[4].project_name}</div>
-                        <div className='List' onClick={() => { setIndex(5) }}>{showcase_data[5].project_name}</div>
+                        {showcase_data.map((element, index) => (
+                            <div
+                                className="showcasemain-list"
+                                key={index}
+                                onClick={() => setIndex(index)}
+                            >
+                                {showcase_data[index].project_name}
+                            </div>
+                        ))}
                     </div>
                     <div className='section2'>
                         <div className='gallery'>
@@ -83,7 +89,7 @@ function Showcasemain() {
                             </div>
                         </div>
                     </div>
-                    <h4 
+                    <h4
                         className="view-button"
                         onClick={handleIndexClick}
                     >
