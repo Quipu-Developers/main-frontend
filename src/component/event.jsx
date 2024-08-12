@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import '../page/Event/Event.css';
 
 export function RecruitBoard() {

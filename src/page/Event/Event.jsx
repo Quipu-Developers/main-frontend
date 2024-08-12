@@ -27,7 +27,6 @@ export function Start() {
   const handleEnter = async () => {
     const response = await canParticipation();
     if (response.status === 200) {
-      console.log(response.data);
       const remain_goods = response.data;
       navigate('/event/quiz', { state: remain_goods });
     } else if (response.status === 403) {

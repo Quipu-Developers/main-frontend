@@ -11,6 +11,7 @@ const Sphere = (props) => {
 
   return (
     <mesh {...props} ref={mesh}>
+      {/* eslint-disable-next-line */}
       <sphereGeometry args={[props.size, 100, 100]} />
       <meshPhysicalMaterial {...props.material} />
     </mesh>
@@ -34,6 +35,7 @@ const Torus = (props) => {
 
   return (
     <mesh {...props} ref={mesh}>
+      {/* eslint-disable-next-line */}
       <torusGeometry args={[props.size, props.tube, 32, 100]} />
       <meshPhysicalMaterial {...props.material} />
     </mesh>
@@ -57,6 +59,7 @@ const Capsule = (props) => {
 
   return (
     <mesh {...props} ref={mesh}>
+      {/* eslint-disable-next-line */}
       <capsuleGeometry args={[props.size, props.tube, 32, 32]} />
       <meshPhysicalMaterial {...props.material} />
     </mesh>
@@ -94,8 +97,11 @@ const Object3D1 = () => {
       }}
     >
       <CameraAspectUpdater />
+      {/* eslint-disable-next-line */}
       <ambientLight intensity={1.3} />
+      {/* eslint-disable-next-line */}
       <pointLight position={[-5, 0, 5]} intensity={100} />
+      {/* eslint-disable-next-line */}
       <pointLight position={[0, 10, 0]} intensity={100} />
 
       {/* 보라색 구 */}

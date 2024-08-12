@@ -48,10 +48,10 @@ function StudyCard({
       </div>
       <div className="studycard__member--container">
         {leaders.map(function (name, index) {
-          return <Member name={name} backgroundColor="#1C0093" color="white"></Member>;
+          return <Member key={index} name={name} backgroundColor="#1C0093" color="white"></Member>;
         })}
         {members.map(function (name, index) {
-          return <Member name={name} backgroundColor="#D5D5D5" color="black"></Member>;
+          return <Member key={index} name={name} backgroundColor="#D5D5D5" color="black"></Member>;
         })}
       </div>
       <button className="moreinfo-button" onClick={() => setModalOpen(true)}>
@@ -124,10 +124,14 @@ function StudyModal({
             </div>
             <div className="studycard__member--container" style={{ height: '30%' }}>
               {leaders.map(function (name, index) {
-                return <Member name={name} backgroundColor="#1C0093" color="white"></Member>;
+                return (
+                  <Member key={index} name={name} backgroundColor="#1C0093" color="white"></Member>
+                );
               })}
               {allMembers.map(function (name, index) {
-                return <Member name={name} backgroundColor="#D5D5D5" color="black"></Member>;
+                return (
+                  <Member key={index} name={name} backgroundColor="#D5D5D5" color="black"></Member>
+                );
               })}
             </div>
           </div>
@@ -138,6 +142,7 @@ function StudyModal({
                 {allImgs.map(function (src, index) {
                   return (
                     <img
+                      key={index}
                       src={process.env.PUBLIC_URL + src}
                       className="study__modal--img"
                       alt="스터디"
@@ -150,7 +155,7 @@ function StudyModal({
                 <p>▪️ {goal}</p>
                 <li>Details</li>
                 {details.map(function (detail, index) {
-                  return <p>▪️ {detail}</p>;
+                  return <p key={index}>▪️ {detail}</p>;
                 })}
                 {Object.entries(links || {}).map(([key, value]) => (
                   <p key={key}>

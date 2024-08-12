@@ -8,8 +8,8 @@ function Error() {
     navigate('/');
   };
   return (
-    <div class="error-container">
-      <div class="error-text-container">
+    <div className="error-container">
+      <div className="error-text-container">
         <h1>ERROR</h1>
         <h2>Please Try Again</h2>
         <p>예상치 못한 오류가 발생했습니다.</p>

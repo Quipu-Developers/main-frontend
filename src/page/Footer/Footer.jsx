@@ -12,7 +12,7 @@ export default function Footer() {
         <p>
           카카오톡&nbsp;|&nbsp;
           <a href="https://open.kakao.com/o/sO45q17f" target="_blank" rel="noopener noreferrer">
-            '퀴푸 문의 오픈톡방'
+            &apos;퀴푸 문의 오픈톡방&apos;
           </a>
           &nbsp;검색
         </p>
