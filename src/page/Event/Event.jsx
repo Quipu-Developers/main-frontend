@@ -90,6 +90,32 @@ export function Start() {
           </p>
         </div>
         <RouletteItem segments={splitSegments} />
+        <div className="roulette-gift-container">
+          <div className="roulette-gift">
+            <div>
+              <p>60</p>
+            </div>
+            <img src={process.env.PUBLIC_URL + '/Event-img/drink.png'} alt="drink" />
+          </div>
+          <div className="roulette-gift">
+            <div>
+              <p>02</p>
+            </div>
+            <img src={process.env.PUBLIC_URL + '/Event-img/chicken.png'} alt="chicken" />
+          </div>
+          <div className="roulette-gift">
+            <div style={{ right: '0px' }}>
+              <p>04</p>
+            </div>
+            <img src={process.env.PUBLIC_URL + '/Event-img/coupon.png'} alt="coupon" />
+          </div>
+          <div className="roulette-gift">
+            <div style={{ right: '0px' }}>
+              <p>06</p>
+            </div>
+            <img src={process.env.PUBLIC_URL + '/Event-img/hamburger.png'} alt="hamburger" />
+          </div>
+        </div>
       </div>
       <div className="event-small-block-container">
         <div className="event-small-block">서울시립대 학부생 모두 참여가능합니다!</div>
@@ -107,7 +133,7 @@ export function Quiz() {
   const navigate = useNavigate();
   const location = useLocation();
   const remain_goods = location.state || {};
-  const [isAnswer, setIsAnswer] = useState(false);
+  const [isAnswer, setIsAnswer] = useState(0);
   const [name, setName] = useState('');
   const [studentId, setStudentId] = useState('');
   const [isWaiting, setIsWaiting] = useState(false);
@@ -118,9 +144,8 @@ export function Quiz() {
     return studentIdValid && nameValid;
   };
 
-  const handleAnswer = (tf) => {
-    setIsAnswer(tf);
-    console.log('상품: ', tf);
+  const handleAnswer = (num) => {
+    setIsAnswer(num);
   };
 
   const handleSubmit = () => {
@@ -128,7 +153,7 @@ export function Quiz() {
       setIsWaiting(true);
 
       setTimeout(() => {
-        if (isAnswer) {
+        if (isAnswer === 3) {
           navigate('/event/roulette', {
             state: { remain_goods: remain_goods, apply_form: { name, studentId } },
           });
@@ -142,6 +167,7 @@ export function Quiz() {
   };
 
   if (isWaiting) {
+    // if (true) {
     return (
       <div className="event-big-block">
         <h4>결과를 기다리고 있어요 . . .</h4>
@@ -174,17 +200,20 @@ export function Quiz() {
           QUIZ.&nbsp;<div>퀴푸의 웹 개발팀 이름은 무엇일까요?</div>
           <img />
         </h5>
-        <div className="quiz-block" onClick={() => handleAnswer(false)}>
-          <div>1</div> QUIPU-CODE
+        <div className="quiz-block" onClick={() => handleAnswer(1)}>
+          <div style={isAnswer === 1 ? { backgroundColor: '#98ded9' } : undefined}>1</div>{' '}
+          QUIPU-CODE
         </div>
-        <div className="quiz-block" onClick={() => handleAnswer(false)}>
-          <div>2</div> QUIPU-TECH
+        <div className="quiz-block" onClick={() => handleAnswer(2)}>
+          <div style={isAnswer === 2 ? { backgroundColor: '#98ded9' } : undefined}>2</div>{' '}
+          QUIPU-TECH
         </div>
-        <div className="quiz-block" onClick={() => handleAnswer(true)}>
-          <div>3</div> QUIPU-DEV
+        <div className="quiz-block" onClick={() => handleAnswer(3)}>
+          <div style={isAnswer === 3 ? { backgroundColor: '#98ded9' } : undefined}>3</div> QUIPU-DEV
         </div>
-        <div className="quiz-block" onClick={() => handleAnswer(false)}>
-          <div>4</div> QUIPU-DEVELOPERS
+        <div className="quiz-block" onClick={() => handleAnswer(4)}>
+          <div style={isAnswer === 4 ? { backgroundColor: '#98ded9' } : undefined}>4</div>{' '}
+          QUIPU-DEVELOPERS
         </div>
       </div>
       <div className="event-input-block">
@@ -196,7 +225,7 @@ export function Quiz() {
         <input onChange={(e) => setName(e.target.value)} placeholder="이퀴푸"></input>
       </div>
       <p className="event-input-text">
-        *중복 참여를 방지하기 위함입니다.<br></br>이벤트 종료 후 모두 삭제할 예정입니다.
+        *중복 참여를 방지하기 위함입니다.&nbsp;<br></br>이벤트 종료 후 모두 삭제할 예정입니다.
       </p>
       <button onClick={handleSubmit} className="event-custom-button">
         <p>정답은?</p>
@@ -209,25 +238,38 @@ export function Result() {
   const navigate = useNavigate();
   const location = useLocation();
   const { result, goods } = location.state || {};
+  let goods_img;
+  let content;
   console.log(result, goods);
 
-  let content;
+  if (goods === '메가 커피') {
+    goods_img = 'drink';
+  } else if (goods === '맘스터치') {
+    goods_img = 'hamburger';
+  } else if (goods === '배민 만원권') {
+    goods_img = 'coupon';
+  } else if (goods === '치킨') {
+    goods_img = 'chicken';
+  }
 
-  //오답일 경우
   if (result === 'incorrect') {
+    //오답일 경우
     content = (
       <>
-        <h3>새 학기를 맞이하여 특별한 이벤트를 준비했습니다!</h3>
         <div className="event-big-block-top">
           <p>
             <span>정답은 3번!&nbsp;</span> 퀴푸의 웹 개발팀 이름은 QUIPU-DEV 입니다!
           </p>
         </div>
-        <div className="event-result-text">
-          <img />
-          <p>
-            아쉽게도 정답이 아닙니다! <img />
-          </p>
+        <div className="event-result">
+          <div className="event-result-img">
+            <img src={process.env.PUBLIC_URL + '/Event-img/lose.png'} alt="lose" />
+          </div>
+          <div className="event-result-text" style={{ width: '50%' }}>
+            <p>
+              아쉽게도 정답이 아닙니다! <img />
+            </p>
+          </div>
         </div>
       </>
     );
@@ -237,19 +279,26 @@ export function Result() {
     content = (
       <>
         <div className="event-big-block-top">
-          <p>정답은 3번! 퀴푸의 웹 개발팀 이름은 QUIPU-DEV 입니다!</p>
-        </div>
-        <div className="event-result-text">
-          <img />
           <p>
-            축하합니다! <img />
+            <span>정답은 3번!&nbsp;</span> 퀴푸의 웹 개발팀 이름은 QUIPU-DEV 입니다!
           </p>
-          <p>카카오톡 아이디를 남겨주시면 이벤트 종료 후 수령해드리겠습니다.</p>
-          <div className="event-input-block">
-            <label>카카오톡 ID: </label>
-            <input></input>
+        </div>
+        <div className="event-result">
+          <div className="event-result-img">
+            <img src={process.env.PUBLIC_URL + `/Event-img/${goods_img}.png`} alt="goods" />
           </div>
-          <button>제출하기</button>
+          <div className="event-result-text">
+            <p>
+              축하합니다! <img />
+            </p>
+            <p>
+              카카오톡 아이디를 남겨주시면<br></br>이벤트 종료 후 수령해드리겠습니다.
+            </p>
+            <div className="event-input-block result">
+              <label>카카오톡 ID: </label>
+              <input></input>
+            </div>
+          </div>
         </div>
       </>
     );
@@ -259,14 +308,19 @@ export function Result() {
     content = (
       <>
         <div className="event-big-block-top">
-          <p>정답은 3번! 퀴푸의 웹 개발팀 이름은 QUIPU-DEV 입니다!</p>
-        </div>
-        <div className="event-result-text">
-          <img />
           <p>
-            아쉽게도 꽝입니다!
-            <img />
+            <span>정답은 3번!&nbsp;</span> 퀴푸의 웹 개발팀 이름은 QUIPU-DEV 입니다!
           </p>
+        </div>
+        <div className="event-result">
+          <div className="event-result-img">
+            <img src={process.env.PUBLIC_URL + '/Event-img/lose.png'} alt="lose" />
+          </div>
+          <div className="event-result-text" style={{ width: '50%' }}>
+            <p>
+              아쉽게도 꽝입니다! <img />
+            </p>
+          </div>
         </div>
       </>
     );
@@ -278,9 +332,15 @@ export function Result() {
     <>
       {content}
       <RecruitBoard />
-      <button onClick={() => navigate('/')} className="event-custom-button">
-        <p>home으로 가기</p>
-      </button>
+      {result === 'correct_win' ? (
+        <button onClick={() => navigate('/')} className="event-custom-button">
+          <p>제출하고 home으로 가기</p>
+        </button>
+      ) : (
+        <button onClick={() => navigate('/')} className="event-custom-button">
+          <p>home으로 가기</p>
+        </button>
+      )}
     </>
   );
 }
