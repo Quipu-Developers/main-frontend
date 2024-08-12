@@ -27,8 +27,26 @@ function JoinQuipuDropdown() {
 
   return (
     <div className="dropdown-box">
-      <p onClick={() => handleNavigation('general')}>일반 부원</p>
-      <p onClick={() => handleNavigation('development')}>개발 부원</p>
+      <p
+        style={{
+          border: '1.5px solid rgb(86, 127, 187, 0.8)',
+          color: '#567FBB',
+          backgroundColor: '#EDF4FF',
+        }}
+        onClick={() => handleNavigation('general')}
+      >
+        일반 부원
+      </p>
+      <p
+        style={{
+          border: '1.5px solid rgb(86, 127, 187, 0.8)',
+          color: '#567FBB',
+          backgroundColor: '#EDF4FF',
+        }}
+        onClick={() => handleNavigation('development')}
+      >
+        개발 부원
+      </p>
     </div>
   );
 }
@@ -121,15 +139,19 @@ const Navbar = () => {
               setQuipudevDropdown(!quipudevDropdown);
             }}
           >
-            QUIPU-DEV
+            quipu dev
             <QuipuDevDropdown quipudevDropdown={quipudevDropdown} />
           </h4>
           <h4
+            style={{
+              border: '1.5px solid rgb(86, 127, 187, 0.8)',
+              color: '#567FBB',
+            }}
             onClick={() => {
               setJoinquipuDropdown(!joinquipuDropdown);
             }}
           >
-            JOIN QUIPU
+            join quipu
             {joinquipuDropdown && <JoinQuipuDropdown />}
           </h4>
         </ul>

@@ -98,7 +98,7 @@ const Object3D1 = () => {
     >
       <CameraAspectUpdater />
       {/* eslint-disable-next-line */}
-      <ambientLight intensity={1.3} />
+      <ambientLight intensity={1} />
       {/* eslint-disable-next-line */}
       <pointLight position={[-5, 0, 5]} intensity={100} />
       {/* eslint-disable-next-line */}
