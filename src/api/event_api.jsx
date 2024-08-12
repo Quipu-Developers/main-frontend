@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const BASE_URL = process.env.REACT_APP_BASE_URL;
-const FRONTEND_URL = 'https://quipu.uos.ac.kr';
+const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+const FRONTEND_URL = process.env.REACT_APP_FRONTEND_URL;
 
 export const canParticipation = async () => {
   try {

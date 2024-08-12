@@ -23,7 +23,9 @@ jobs:
         run: npm install
 
       - name: Create .env.production file
-        run: echo "REACT_APP_BASE_URL=${{ secrets.REACT_APP_BASE_URL }}" > ./.env.production
+        run: |
+          echo "REACT_APP_BACKEND_URL=${{ secrets.REACT_APP_BACKEND_URL }}" > ./.env.production
+          echo "REACT_APP_FRONTEND_URL=${{ secrets.REACT_APP_FRONTEND_URL }}" >> ./.env.production
 
       - name: Build project
         run: npm run build
