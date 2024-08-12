@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Outlet, useNavigate, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Outlet, useNavigate, HashRouter as Router, Route, Routes } from 'react-router-dom';
 import { Element } from 'react-scroll';
 import './App.css';
 import Home from './page/Home/Home';
@@ -98,7 +98,7 @@ function AppContent() {
 
 function App() {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <AppContent />
     </Router>
   );
