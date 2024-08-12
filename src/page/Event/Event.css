@@ -57,6 +57,11 @@
   }
 }
 
+.event-container h4 {
+  font-size: 1.6rem;
+  margin: 30px 0 60px 0;
+}
+
 .event-big-block {
   width: 90%;
   height: auto;
@@ -103,6 +108,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 700px) {
+    height: 33px;
+    padding: 0px 30px;
+  }
 }
 
 .event-big-block-top span {
@@ -159,9 +169,13 @@
   color: white;
   border: none;
   border-radius: 30px;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin-bottom: 60px;
   cursor: pointer;
+
+  @media (max-width: 600px) {
+    padding: 10px 15px;
+  }
 }
 
 .quiz-title {
@@ -329,6 +343,76 @@
 
 .event-recruit-info p {
   font-family: 'Amaranth', sans-serif;
+}
+
+.roulette-button {
+  background-color: white;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px grey;
+  position: relative;
+  bottom: 2.5px;
+  margin-left: 10px;
+  font-size: 1.2rem;
+}
+
+.count-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  position: absolute;
+  bottom: 30px;
+  right: 20%;
+  z-index: 200;
+  @media (max-width: 1100px) {
+    right: 15%;
+  }
+  @media (max-width: 900px) {
+    right: 10%;
+  }
+  @media (max-width: 700px) {
+    right: 10px;
+  }
+}
+
+.count-block {
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2px;
+
+  @media (max-width: 800px) {
+    width: 120px;
+  }
+}
+
+.count-block p {
+  font-size: 1rem;
+}
+
+.count-block div {
+  width: 15px;
+  height: 15px;
+}
+
+.roulette-box .roulette-item {
+  width: 400px;
+  height: 400px;
+  bottom: 40px;
+
+  @media (max-width: 1000px) {
+    width: 350px;
+    height: 350px;
+  }
+  @media (max-width: 600px) {
+    width: 300px;
+    height: 300px;
+  }
 }
 
 .event-result {

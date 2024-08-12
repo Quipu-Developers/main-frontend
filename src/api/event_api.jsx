@@ -46,3 +46,29 @@ export const getResult = async (apply_form) => {
     }
   }
 };
+
+export const sendKakaoId = async (apply_form, kakaoId) => {
+  try {
+    const response = await axios.post(
+      `${BASE_URL}/event/kakao_id`,
+      {
+        kakao_id: kakaoId,
+        student_id: apply_form.studentId,
+      },
+      {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+    return { status: response.status, data: response.data };
+  } catch (error) {
+    if (axios.isAxiosError(error) && error.response) {
+      const { status, data } = error.response;
+      return { status, data };
+    } else {
+      return { status: 501, data: null };
+    }
+  }
+};

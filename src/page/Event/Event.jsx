@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { RecruitBoard, RouletteItem } from '../../component/event';
-import { canParticipation, getResult } from '../../api/event_api';
+import { canParticipation, getResult, sendKakaoId } from '../../api/event_api';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
+import Error from '../Error/Error';
 import Logo from '../../component/logo';
+
 import './Event.css';
 
 export function Event() {
@@ -33,19 +35,6 @@ export function Start() {
     } else {
       alert('서버 에러입니다. 다시 시도 후 퀴푸에 문의해주세요.');
     }
-  };
-
-  const splitSegment = (segment, maxCountPerSegment) => {
-    const newSegments = [];
-    let remainingCount = segment.count;
-
-    while (remainingCount > 0) {
-      const splitCount = Math.min(remainingCount, maxCountPerSegment);
-      newSegments.push({ count: splitCount, label: segment.label });
-      remainingCount -= splitCount;
-    }
-
-    return newSegments;
   };
 
   let splitSegments = [];
@@ -149,20 +138,26 @@ export function Quiz() {
   };
 
   const handleSubmit = () => {
-    if (isFormValid()) {
-      setIsWaiting(true);
-
-      setTimeout(() => {
-        if (isAnswer === 3) {
-          navigate('/event/roulette', {
-            state: { remain_goods: remain_goods, apply_form: { name, studentId } },
-          });
-        } else {
-          navigate('/event/result', { state: { result: 'incorrect', goods: null } });
-        }
-      }, 10000);
+    if (isAnswer === 0) {
+      alert('답을 선택해주세요.');
     } else {
-      alert('학번과 이름을 다시 확인해주세요.');
+      if (isFormValid()) {
+        setIsWaiting(true);
+
+        setTimeout(() => {
+          if (isAnswer === 3) {
+            navigate('/event/roulette', {
+              state: { remain_goods: remain_goods, apply_form: { name, studentId } },
+            });
+          } else {
+            navigate('/event/result', {
+              state: { result: 'incorrect', goods: null, apply_form: null },
+            });
+          }
+        }, 10000);
+      } else {
+        alert('학번과 이름을 다시 확인해주세요.');
+      }
     }
   };
 
@@ -234,13 +229,121 @@ export function Quiz() {
   );
 }
 
+export function Roulette() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { remain_goods, apply_form } = location.state || {};
+
+  if (!remain_goods || !apply_form) {
+    return <Error />;
+  }
+
+  const handleGetGoods = async (apply_form) => {
+    const { status, data } = await getResult(apply_form);
+    if (status === 201) {
+      if (data.winning) {
+        navigate('/event/result', {
+          state: { result: 'correct_win', goods: data.goods, apply_form: apply_form },
+        });
+      } else {
+        navigate('/event/result', {
+          state: { result: 'correct_lose', goods: null, apply_form: apply_form },
+        });
+      }
+    } else if (status === 409) {
+      alert('죄송합니다. 룰렛은 한 번만 돌릴 수 있습니다.');
+    } else {
+      alert('서버에 문제가 생겼습니다. 다시 시도 후 퀴푸에 문의해주세요.');
+    }
+  };
+
+  const count_chicken = remain_goods[3].count;
+  const count_coupon = remain_goods[2].count;
+  const count_hamburger = remain_goods[1].count;
+  const count_drink = remain_goods[0].count;
+  const count_boom =
+    remain_goods[0].count + remain_goods[1].count + remain_goods[2].count + remain_goods[3].count;
+
+  let splitSegments = [];
+  const maxCountPerSegment = 6;
+
+  const originalSegments = [
+    { count: count_chicken, label: 'chicken' },
+    { count: count_coupon, label: 'coupon' },
+    { count: count_hamburger, label: 'hamburger' },
+    { count: count_drink, label: 'drink' },
+    { count: count_boom, label: 'boom' },
+  ];
+
+  originalSegments.forEach((segment) => {
+    if (segment.count > maxCountPerSegment) {
+      const smallerSegments = splitSegment(segment, maxCountPerSegment);
+      splitSegments = splitSegments.concat(smallerSegments);
+    } else {
+      splitSegments.push(segment);
+    }
+  });
+
+  splitSegments = splitSegments.sort(() => Math.random() - 0.5);
+
+  return (
+    <>
+      <div className="event-big-block-top">
+        <p>
+          <span>정답은 3번!&nbsp;</span> 퀴푸의 웹 개발팀 이름은 QUIPU-DEV 입니다!
+        </p>
+      </div>
+      <h4>
+        정답입니다!{' '}
+        <button className="roulette-button" onClick={() => handleGetGoods(apply_form)}>
+          <p>룰렛 돌리기</p>
+        </button>
+      </h4>
+      <div className="count-container">
+        <div className="count-block">
+          <div style={{ backgroundColor: '#161D6F' }}></div>
+          <p>치킨</p>
+          <p>{count_chicken}</p>
+        </div>
+        <div className="count-block">
+          <div style={{ backgroundColor: '#3797A4' }}></div>
+          <p>배민 만원권</p>
+          <p>{count_coupon}</p>
+        </div>
+        <div className="count-block">
+          <div style={{ backgroundColor: '#7579E7' }}></div>
+          <p>맘스터치 세트</p>
+          <p>{count_hamburger}</p>
+        </div>
+        <div className="count-block">
+          <div style={{ backgroundColor: '#87CEEB' }}></div>
+          <p>메가커피</p>
+          <p>{count_drink}</p>
+        </div>
+        <div className="count-block">
+          <div style={{ backgroundColor: '#E3F6FF' }}></div>
+          <p>꽝</p>
+          <p>{count_boom}</p>
+        </div>
+      </div>
+      <div className="roulette-box">
+        <RouletteItem segments={splitSegments} />
+      </div>
+    </>
+  );
+}
+
 export function Result() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { result, goods } = location.state || {};
+  const { result, goods, apply_form } = location.state || {};
+  const [kakaoId, setKakaoId] = useState('');
   let goods_img;
   let content;
-  console.log(result, goods);
+
+  if (!result) {
+    return <Error />;
+  }
 
   if (goods === '메가 커피') {
     goods_img = 'drink';
@@ -251,6 +354,18 @@ export function Result() {
   } else if (goods === '치킨') {
     goods_img = 'chicken';
   }
+
+  const handleKakaoID = async () => {
+    const { status } = await sendKakaoId(apply_form, kakaoId);
+    if (status === 200) {
+      alert('제출되었습니다.');
+      navigate('/');
+    } else if (status === 404) {
+      alert('해당 학번을 가진 참여자를 찾을 수 없습니다.');
+    } else {
+      alert('서버에 문제가 생겼습니다. 다시 시도 후 퀴푸에 문의해주세요.');
+    }
+  };
 
   if (result === 'incorrect') {
     //오답일 경우
@@ -296,7 +411,7 @@ export function Result() {
             </p>
             <div className="event-input-block result">
               <label>카카오톡 ID: </label>
-              <input></input>
+              <input onChange={(e) => setKakaoId(e.target.value)}></input>
             </div>
           </div>
         </div>
@@ -333,7 +448,7 @@ export function Result() {
       {content}
       <RecruitBoard />
       {result === 'correct_win' ? (
-        <button onClick={() => navigate('/')} className="event-custom-button">
+        <button onClick={() => handleKakaoID()} className="event-custom-button">
           <p>제출하고 home으로 가기</p>
         </button>
       ) : (
@@ -345,42 +460,15 @@ export function Result() {
   );
 }
 
-export function Roulette() {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const { remain_goods, apply_form } = location.state || {};
-  console.log(remain_goods, apply_form);
+const splitSegment = (segment, maxCountPerSegment) => {
+  const newSegments = [];
+  let remainingCount = segment.count;
 
-  const handleGetGoods = async (apply_form) => {
-    const { status, data } = await getResult(apply_form);
-    if (status === 201) {
-      if (data.winning) {
-        navigate('/event/result', { state: { result: 'correct_win', goods: data.goods } });
-      } else {
-        navigate('/event/result', { state: { result: 'correct_lose', goods: null } });
-      }
-    } else if (status === 409) {
-      alert('이미 참여하셨습니다. 룰렛은 한 번만 돌릴 수 있습니다.');
-    } else {
-      alert('서버에 문제가 생겼습니다. 다시 시도 후 퀴푸에 문의해주세요.');
-    }
-  };
+  while (remainingCount > 0) {
+    const splitCount = Math.min(remainingCount, maxCountPerSegment);
+    newSegments.push({ count: splitCount, label: segment.label });
+    remainingCount -= splitCount;
+  }
 
-  return (
-    <>
-      <div className="event-big-block-top">
-        <p>정답은 3번! 퀴푸의 웹 개발팀 이름은 QUIPU-DEV 입니다!</p>
-      </div>
-      <p>정답입니다!</p>
-      <div>
-        <div></div>
-        <p>치킨</p>
-        <p>2</p>
-      </div>
-      <img />
-      <button onClick={() => handleGetGoods(apply_form)} className="event-custom-button">
-        <p>룰렛 돌리기</p>
-      </button>
-    </>
-  );
-}
+  return newSegments;
+};
