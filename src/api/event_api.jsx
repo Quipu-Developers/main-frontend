@@ -1,12 +1,14 @@
 import axios from 'axios';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
+const FRONTEND_URL = 'https://quipu.uos.ac.kr';
 
 export const canParticipation = async () => {
   try {
     const response = await axios.get(`${BASE_URL}/event/can_participation`, {
       headers: {
         Accept: 'application/json',
+        Origin: FRONTEND_URL,
       },
     });
     return { status: response.status, data: response.data };
@@ -32,6 +34,7 @@ export const getResult = async (apply_form) => {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
+          Origin: FRONTEND_URL,
         },
       }
     );
@@ -58,6 +61,7 @@ export const sendKakaoId = async (apply_form, kakaoId) => {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
+          Origin: FRONTEND_URL,
         },
       }
     );
