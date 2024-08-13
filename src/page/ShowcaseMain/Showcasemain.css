@@ -1,6 +1,6 @@
 .showcasemain-house {
   width: 100%;
-  height: calc(var(--vh, 1vh) * 100);
+  height: 100vh;
   overflow-y: auto;
   position: relative;
   background-color: white;
@@ -90,7 +90,7 @@
   align-items: center;
   width: 12%;
   height: 60px;
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #8f6e92;
   cursor: pointer;
   border: 2px solid transparent;
@@ -99,7 +99,7 @@
 }
 
 .showcasemain-list:hover {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
 }
 
 .gallery {
@@ -218,7 +218,8 @@
   border-radius: 29px;
   border: 1.5px solid #835e86;
   color: #835e86;
-  font: 1rem bold;
+  font-size: 1rem;
+  font-weight: bold;
   font-family: 'Lora';
   transition: all 0.5s ease;
 }
