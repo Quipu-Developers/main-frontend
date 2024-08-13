@@ -86,6 +86,7 @@
 
     & span {
       color: #0066FF;
+      transition: color 0.2s ease;
     }
 
     & svg {
@@ -121,7 +122,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-right: 1px solid black;
+  text-align: center;
 
   & h4 {
     margin: 0 0 3rem 0;
@@ -135,6 +136,10 @@
     font-weight: 700;
     line-height: 1.5;
     color: white;
+
+    &:nth-last-child(1) {
+      margin-bottom: 1vh;
+    }
   }
 }
 
@@ -150,6 +155,27 @@
   color: #00ff1a;
   text-shadow: 5px 3px 0 #ff6883;
 }
+
+.about-keyword-slide-rectangle {
+  width: 20vw;
+  height: 10px;
+  background-color: white;
+  position: relative;
+  transition: transform 1s ease;
+
+  &.rectangle__1 {
+    align-self: flex-start;
+    top: 25px;
+    left: 60px;
+  }
+  
+  &.rectangle__2 {
+    align-self: flex-end;
+    bottom: 25px;
+    right: 60px;
+  }
+}
+
 
 /* 활동, 액티비티 */
 .about-activity {
@@ -355,12 +381,14 @@
     top: 15px;
     left: 60px;
   }
-
+  
   .rectangle__2 {
     bottom: 15px;
     right: 60px;
   }
+
 }
+
 
 /* 퀴푸 개발팀, 퀴푸뎁, 퀴푸디브 */
 .about-dev {
