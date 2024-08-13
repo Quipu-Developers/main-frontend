@@ -166,50 +166,7 @@
         position: relative;
     }
 
-    @media (max-height:900px) and (min-height: 600px) {
-        .showcasemainMobile-section2 {
-            height: 60vh;
-        }
-        .section2-gallery1{
-            height: 17vh;
-        }
-        .section2-text{
-            top: 14vh !important;
-            height: 17vh;
-        }
-        .section2-gallery2{
-            height: 17vh;
-            top: 29vh !important;
-        }
-        .section2-gallery3{
-            height: 17vh;
-            top: 42vh !important;
-        }
-    }
-    @media (min-height: 900px) {
-        .showcasemainMobile-section2 {
-            height: 64vh;
-        }
-        .section2-gallery1{
-            height: 17vh;
-        }
-        .section2-text{
-            top: 16vh !important;
-            height: 17vh;
-            & p{
-                font-size: 0.5rem !important;
-            }
-        }
-        .section2-gallery2{
-            height: 16vh;
-            top: 31vh !important;
-        }
-        .section2-gallery3{
-            height: 18vh;
-            top: 44vh !important;
-        }
-    }
-
+    
     .section2-gallery1 {
         z-index: 1;
         background: linear-gradient(0deg, rgba(241, 204, 132, 0.22), rgba(241, 204, 132, 0.22));
@@ -224,7 +181,7 @@
         width: 90%;
         object-fit: cover;
     }
-
+    
     .section2-text{
         z-index: 2;
         background-color: white;
@@ -278,7 +235,7 @@
         object-fit: cover;
     }
     
-
+    
     .showcasemainMobile-section3 {
         width: 95%;
         padding: 3%;
@@ -286,16 +243,60 @@
         display: flex;
         justify-content: center;
     }
-
+    
     .showcasemainMobile-gallery3 {
         min-height: 200px;
         padding: 3%;
         width: 95%;
         background: #957CDD3B;
     }
-
+    
     .showcasemainMobile-gallery3 img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+    
+    @media (max-height:900px) and (min-height: 600px) {
+        .showcasemainMobile-section2 {
+            height: 60vh;
+        }
+        .section2-gallery1{
+            height: 17vh;
+        }
+        .section2-text{
+            top: 14vh ;
+            height: 17vh;
+        }
+        .section2-gallery2{
+            height: 17vh;
+            top: 29vh ;
+        }
+        .section2-gallery3{
+            height: 17vh;
+            top: 42vh ;
+        }
+    }
+    @media (min-height: 900px) {
+        .showcasemainMobile-section2 {
+            height: 64vh;
+        }
+        .section2-gallery1{
+            height: 17vh;
+        }
+        .section2-text{
+            top: 16vh ;
+            height: 17vh;
+            & p{
+                font-size: 0.5rem ;
+            }
+        }
+        .section2-gallery2{
+            height: 16vh;
+            top: 31vh ;
+        }
+        .section2-gallery3{
+            height: 18vh;
+            top: 44vh ;
+        }
     }

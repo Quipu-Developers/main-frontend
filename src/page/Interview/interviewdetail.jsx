@@ -37,11 +37,16 @@ function InterviewDetail({ index, profile, closeModal }) {
                     {element}
                   </React.Fragment>
                 ))}
-
               </p>
               <h1>프로젝트 이력</h1>
-              <p>{profile.project.join(' ')}</p>{' '}
-              {/* join()을 통해서 한칸씩 띄어쓰기가 되게 렌더링 */}
+              <p>
+                {profile.project.map((element, index) => (
+                  <React.Fragment key={index}>
+                    {index > 0 && <br />}
+                    {element}
+                  </React.Fragment>
+                ))}
+              </p>
             </div>
           </>
         )}
