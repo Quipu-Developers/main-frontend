@@ -1,30 +1,47 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './About.css';
 
 function About() {
-  const scrollContainerRef = useRef(null);
+  const navigate = useNavigate();
   const [dropdown, IsDropdown] = useState(false);
+  // const scrollContainerRef = useRef(null);
 
-  const handleWheel = (e) => {
+  // const handleWheel = (e) => {
+  //   if (scrollContainerRef.current) {
+  //     const { deltaY } = e;
+  //     e.preventDefault();
+  //     scrollContainerRef.current.scrollLeft += 8 * deltaY;
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   const container = scrollContainerRef.current;
+  //   if (container) {
+  //     container.addEventListener('wheel', handleWheel);
+  //   }
+
+  //   return () => {
+  //     if (container) {
+  //       container.removeEventListener('wheel', handleWheel);
+  //     }
+  //   };
+  // }, []);
+
+  const scrollContainerRef = useRef(null);
+  const cardIndex = useRef(0);
+
+  const scrollToNextCard = () => {
     if (scrollContainerRef.current) {
-      const { deltaY } = e;
-      e.preventDefault();
-      scrollContainerRef.current.scrollLeft += 8 * deltaY;
+      const container = scrollContainerRef.current;
+      cardIndex.current += 1;
+      if (cardIndex.current >= 3) cardIndex.current = 0; // 카드 수에 맞게 조정
+      container.scrollTo({
+        left: cardIndex.current * window.innerWidth,
+        behavior: 'smooth',
+      });
     }
   };
-
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (container) {
-      container.addEventListener('wheel', handleWheel);
-    }
-
-    return () => {
-      if (container) {
-        container.removeEventListener('wheel', handleWheel);
-      }
-    };
-  }, []);
 
   return (
     <div className="about-container">
@@ -52,8 +69,9 @@ function About() {
 
       {/* 키워드 */}
       <div className="about-keyword">
-        <h1>
+        <h1 onClick={() => scrollToNextCard()}>
           Our <span style={{ color: '#0066FF' }}>Key</span>word
+          
         </h1>
         <div className="about-keyword-slide" ref={scrollContainerRef}>
           <div className="about-keyword-slide-text slide__1">
@@ -128,9 +146,11 @@ function About() {
         <div className="about-tech-stack">
           <h1>Our Tech Stack</h1>
           <div className="about-tech-stack-list">
+            <div className="about-tech-stack-list-github">
+              <img src={process.env.PUBLIC_URL + '/About-img/github.png'} alt='git' />
+            </div>
             <img src="https://techstack-generator.vercel.app/react-icon.svg" alt="icon" />
             <img src="https://techstack-generator.vercel.app/restapi-icon.svg" alt="icon" />
-            <img src="https://techstack-generator.vercel.app/github-icon.svg" alt="icon" />
             <img src="https://techstack-generator.vercel.app/aws-icon.svg" alt="icon" />
 
             <div className="about-tech-stack-rectangle rectangle__1" />
@@ -153,8 +173,8 @@ function About() {
           )}
           {dropdown === true && (
             <div className="about-dev-button-list">
-              <p>Showcase</p>
-              <p>Interview</p>
+              <p onClick={() => navigate('/quipu-dev')}>Showcase</p>
+              <p onClick={() => navigate('/interview')}>Interview</p>
             </div>
           )}
         </div>
