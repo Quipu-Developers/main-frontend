@@ -80,6 +80,14 @@ const Navbar = () => {
     setScreenSize();
   }, []);
 
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [menuOpen]);
+
   return (
     <nav className="navbar">
       <Link to="home" smooth={true} duration={100} onClick={closeMenu}>
@@ -129,12 +137,13 @@ const Navbar = () => {
 
       {/* mobile에서 메뉴 버튼 */}
       <input
+        style={{ display: 'none' }}
         id="menu-toggle"
         type="checkbox"
         checked={menuOpen}
         onChange={() => setMenuOpen(!menuOpen)}
       />
-      <label className="menu-button" htmlFor="menu-toggle">
+      <label className={`menu-button ${menuOpen ? 'open' : ''}`} htmlFor="menu-toggle">
         <span className="line line1"></span>
         <span className="line line2"></span>
         <span className="line line3"></span>
@@ -186,9 +195,7 @@ const Navbar = () => {
         </li>
         <li>
           <div className="mobile-dropdown">
-            <Link to="quipu-dev" smooth={true} duration={100} onClick={closeMenu}>
-              quipu dev
-            </Link>
+            <div>quipu dev</div>
             <div
               className={`mobile-dropdown-button ${dropdownState.quipuDevToggle ? 'open' : ''}`}
               onClick={() => toggleDropdown('quipuDevToggle')}
@@ -200,36 +207,44 @@ const Navbar = () => {
           <div
             className={`mobile-dropdown-content ${dropdownState.quipuDevToggle ? 'visible' : ''}`}
           >
-            <NavLink to="/activity-detail#Study" onClick={closeMenu}>
-              <li>study</li>
+            <NavLink to="/quipu-dev" onClick={closeMenu}>
+              <li>showcase</li>
             </NavLink>
-            <NavLink to="/activity-detail#Friendship" onClick={closeMenu}>
-              <li>friendship</li>
+            <NavLink to="/interview" onClick={closeMenu}>
+              <li>interview</li>
             </NavLink>
           </div>
         </li>
         <li>
           <div className="mobile-dropdown">
-            <Link to="quipu-dev" smooth={true} duration={100} onClick={closeMenu}>
-              quipu dev
-            </Link>
+            <div>join quipu</div>
             <div
-              className={`mobile-dropdown-button ${dropdownState.quipuDevToggle ? 'open' : ''}`}
-              onClick={() => toggleDropdown('quipuDevToggle')}
+              className={`mobile-dropdown-button ${dropdownState.joinQuipuToggle ? 'open' : ''}`}
+              onClick={() => toggleDropdown('joinQuipuToggle')}
             >
               <span className="line line4"></span>
               <span className="line line5"></span>
             </div>
           </div>
           <div
-            className={`mobile-dropdown-content ${dropdownState.quipuDevToggle ? 'visible' : ''}`}
+            className={`mobile-dropdown-content ${dropdownState.joinQuipuToggle ? 'visible' : ''}`}
           >
-            <NavLink to="/activity-detail#Study" onClick={closeMenu}>
-              <li>study</li>
-            </NavLink>
-            <NavLink to="/activity-detail#Friendship" onClick={closeMenu}>
-              <li>friendship</li>
-            </NavLink>
+            <div
+              onClick={() => {
+                handleNavigation('general');
+                closeMenu();
+              }}
+            >
+              <li>일반 부원</li>
+            </div>
+            <div
+              onClick={() => {
+                handleNavigation('development');
+                closeMenu();
+              }}
+            >
+              <li>개발 부원</li>
+            </div>
           </div>
         </li>
       </div>
