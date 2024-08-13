@@ -98,10 +98,6 @@
 
 /* 모바일 네브바 */
 
-#menu-toggle {
-  display: none;
-}
-
 .menu-button {
   z-index: 2000;
   display: none;
@@ -141,48 +137,40 @@
   transition: transform 0.3s ease-in-out;
 }
 
-#menu-toggle:checked + .menu-button .line1 {
+.menu-button.open .line1 {
   transform: rotate(45deg);
 }
 
-#menu-toggle:checked + .menu-button .line2 {
+.menu-button.open .line2 {
   transform: scaleY(0);
 }
 
-#menu-toggle:checked + .menu-button .line3 {
+.menu-button.open .line3 {
   transform: rotate(-45deg);
 }
 
-#menu-toggle ~ .navbar__menu--mobile {
-  left: 100vw;
-}
-
-.navbar__menu--mobile.open {
-  left: 0;
-}
-
-#menu-toggle:checked ~ .navbar__menu--mobile {
-  left: 0;
-  transition: left 0.5s;
-}
-
 .navbar__menu--mobile {
-  position: absolute;
+  position: fixed;
   z-index: 1000;
   top: 0;
+  left: 100vw;
   display: none;
   flex-direction: column;
   justify-content: start;
   align-items: center;
   width: 100%;
   padding-top: 60px;
-  height: calc(var(--vh, 1vh) * 100);
+  height: 100vh;
   background-color: #dfe7ff;
   transition: left 0.5s;
 
   @media (max-width: 1050px) {
     display: flex;
   }
+}
+
+.navbar__menu--mobile.open {
+  left: 0;
 }
 
 .navbar__menu--mobile li {
@@ -195,6 +183,10 @@
   list-style: none;
   cursor: pointer;
   box-shadow: 2px 2px #a6adc0;
+  color: #787f96;
+  font-size: 19px;
+  font-weight: 700;
+  overflow: hidden;
 
   @media (max-width: 600px) {
     width: 80%;
@@ -202,10 +194,6 @@
 }
 
 .navbar__menu--mobile a {
-  color: #787f96;
-  width: 100%;
-  font-size: 19px;
-  font-weight: 700;
   text-decoration: none;
 }
 
@@ -246,34 +234,29 @@
   transition: transform 0.3s ease-in-out;
 }
 
-#mobile-dropdown-toggle:checked + .mobile-dropdown-button .line5 {
+.mobile-dropdown-button.open .line5 {
   transform: rotate(0deg);
 }
 
-#mobile-dropdown-toggle .mobile-dropdown-content {
-  width: 0;
-  height: 0;
-  font-size: 0px;
+.mobile-dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+  padding: 0;
+}
+
+.mobile-dropdown-content.visible {
+  max-height: 400px;
+  padding: 10px 0;
 }
 
 .mobile-dropdown-content li {
-  position: relative;
-  right: 20px;
-  overflow: hidden;
-  width: 60%;
-  height: 0;
-  margin: 0;
-  padding: 0px 20px;
-  font-size: 0px;
-  transition: all 0.3s ease-in-out;
-  box-shadow: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .mobile-dropdown-content.visible li {
-  height: 20px;
-  margin-top: 10px;
-  padding: 6px 40px;
-  font-size: 18px;
+  opacity: 1;
 }
 
 .event-button {
