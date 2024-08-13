@@ -6,28 +6,19 @@ import { BsMouseFill } from "react-icons/bs";
 function About() {
   const navigate = useNavigate();
   const [dropdown, IsDropdown] = useState(false);
-  // const scrollContainerRef = useRef(null);
+  const [moved, isMoved] = useState(true);
+  const [movePixel, setMovePixel] = useState(0.8 * window.innerWidth - 120);
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setMovePixel(0.8 * window.innerWidth - 120);
+    };
 
-  // const handleWheel = (e) => {
-  //   if (scrollContainerRef.current) {
-  //     const { deltaY } = e;
-  //     e.preventDefault();
-  //     scrollContainerRef.current.scrollLeft += 8 * deltaY;
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   const container = scrollContainerRef.current;
-  //   if (container) {
-  //     container.addEventListener('wheel', handleWheel);
-  //   }
-
-  //   return () => {
-  //     if (container) {
-  //       container.removeEventListener('wheel', handleWheel);
-  //     }
-  //   };
-  // }, []);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const scrollContainerRef = useRef(null);
   const cardIndex = useRef(0);
@@ -41,6 +32,7 @@ function About() {
         left: cardIndex.current * window.innerWidth,
         behavior: 'smooth',
       });
+      isMoved(!moved);
     }
   };
 
@@ -74,6 +66,12 @@ function About() {
           Our <span>Key</span>word
           <BsMouseFill />
         </h1>
+
+        <div 
+          className="about-keyword-slide-rectangle rectangle__1"
+          style={{transform: moved ? `translateX(${movePixel}px)` : `translateX(0)`}}
+        />
+
         <div className="about-keyword-slide" ref={scrollContainerRef}>
           <div className="about-keyword-slide-text slide__1">
             <h4>Potential</h4>
@@ -91,6 +89,11 @@ function About() {
             <p>QUIPU 구성원 각자의 잠재력이 모여 더 큰 가치를 창출합니다.</p>
           </div>
         </div>
+        
+        <div 
+          className="about-keyword-slide-rectangle rectangle__2"
+          style={{transform: moved ? `translateX(-${movePixel}px)` : `translateX(0)`}}
+        />
       </div>
 
       {/* 활동, 액티비티 */}
