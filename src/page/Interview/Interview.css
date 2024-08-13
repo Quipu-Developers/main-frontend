@@ -373,7 +373,7 @@
     }
 
     .interview-profilebox {
-        width: 80%;
+        width: 95%;
         margin: 2vh 0;
     }
 
@@ -382,7 +382,17 @@
     }
 
     .interview-profile-img {
-        height: 20vw;
+        width: 35%;
+    }
+
+    .interview-profile-dc {
+        & h4 {
+            font-size: 2rem;
+        }
+
+        & p {
+            font-size: 1.5rem;
+        }
     }
 }
 
