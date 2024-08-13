@@ -83,7 +83,7 @@ function Interview() {
                 <div className="interview-profile-content">
                   <div className="interview-profile-img">
                     <img
-                      src={process.env.PUBLIC_URL + `/Interview-img/${element.img}`}
+                      src={process.env.PUBLIC_URL + `/Interview-img/first/${element.img}`}
                       alt={element.name}
                     />
                   </div>
