@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
-import { RecruitBoard, RouletteItem } from '../../component/event';
+import { RecruitBoard, RouletteItem, splitSegment } from '../../component/event';
 import { canParticipation, getResult, sendKakaoId } from '../../api/event_api';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
 import Error from '../Error/Error';
 import Logo from '../../component/logo';
 
 import './Event.css';
+import { GiUnionJack } from 'react-icons/gi';
 
 export function Event() {
   return (
@@ -232,29 +233,14 @@ export function Roulette() {
   const navigate = useNavigate();
   const location = useLocation();
   const { remain_goods, apply_form } = location.state || {};
+  const [spin, setSpin] = useState(false);
+  const [targetLabel, setTargetLabel] = useState(null);
+  const [responseData, setResponseData] = useState();
+  const [showSpinButton, setShowSpinButton] = useState(true); // 버튼 표시 상태 관리
 
   if (!remain_goods || !apply_form) {
     return <Error />;
   }
-
-  const handleGetGoods = async (apply_form) => {
-    const { status, data } = await getResult(apply_form);
-    if (status === 201) {
-      if (data.winning) {
-        navigate('/event/result', {
-          state: { result: 'correct_win', goods: data.goods, apply_form: apply_form },
-        });
-      } else {
-        navigate('/event/result', {
-          state: { result: 'correct_lose', goods: null, apply_form: apply_form },
-        });
-      }
-    } else if (status === 409) {
-      alert('죄송합니다. 룰렛은 한 번만 돌릴 수 있습니다.');
-    } else {
-      alert('서버에 문제가 생겼습니다. 다시 시도 후 퀴푸에 문의해주세요.');
-    }
-  };
 
   const count_chicken = remain_goods[3].count;
   const count_coupon = remain_goods[2].count;
@@ -263,8 +249,7 @@ export function Roulette() {
   const count_boom =
     remain_goods[0].count + remain_goods[1].count + remain_goods[2].count + remain_goods[3].count;
 
-  let splitSegments = [];
-  const maxCountPerSegment = 6;
+  const maxCountPerSegment = 3;
 
   const originalSegments = [
     { count: count_chicken, label: 'chicken' },
@@ -273,6 +258,8 @@ export function Roulette() {
     { count: count_drink, label: 'drink' },
     { count: count_boom, label: 'boom' },
   ];
+
+  let splitSegments = [];
 
   originalSegments.forEach((segment) => {
     if (segment.count > maxCountPerSegment) {
@@ -285,6 +272,44 @@ export function Roulette() {
 
   splitSegments = splitSegments.sort(() => Math.random() - 0.5);
 
+  const handleGetGoods = async (apply_form) => {
+    const { status, data } = await getResult(apply_form);
+    let target_label;
+    if (status === 201) {
+      setResponseData(data);
+      if (data.goods === '메가 커피') {
+        target_label = 'drink';
+      } else if (data.goods === '맘스터치') {
+        target_label = 'hamburger';
+      } else if (data.goods === '배민 만원권') {
+        target_label = 'coupon';
+      } else if (data.goods === '치킨') {
+        target_label = 'chicken';
+      } else if (data.goods === 'Boom') {
+        target_label = 'boom';
+      }
+      setTargetLabel(target_label);
+      setSpin(true);
+      setShowSpinButton(false); // 룰렛 돌리기 버튼을 숨김
+    } else if (status === 409) {
+      alert('죄송합니다. 룰렛은 한 번만 돌릴 수 있습니다.');
+    } else {
+      alert('서버에 문제가 생겼습니다. 다시 시도 후 퀴푸에 문의해주세요.');
+    }
+  };
+
+  const handleResult = () => {
+    if (responseData.winning) {
+      navigate('/event/result', {
+        state: { result: 'correct_win', goods: responseData.goods, apply_form: apply_form },
+      });
+    } else {
+      navigate('/event/result', {
+        state: { result: 'correct_lose', goods: null, apply_form: apply_form },
+      });
+    }
+  };
+
   return (
     <>
       <div className="event-big-block-top">
@@ -294,9 +319,20 @@ export function Roulette() {
       </div>
       <h4>
         정답입니다!{' '}
-        <button className="roulette-button" onClick={() => handleGetGoods(apply_form)}>
-          <p>룰렛 돌리기</p>
-        </button>
+        {showSpinButton ? (
+          <button className="roulette-button" onClick={() => handleGetGoods(apply_form)}>
+            <p>룰렛 돌리기</p>
+          </button>
+        ) : (
+          <button
+            className="roulette-button"
+            onClick={() => {
+              handleResult();
+            }}
+          >
+            <p>결과 보기</p>
+          </button>
+        )}
       </h4>
       <div className="count-container">
         <div className="count-block">
@@ -326,7 +362,7 @@ export function Roulette() {
         </div>
       </div>
       <div className="roulette-box">
-        <RouletteItem segments={splitSegments} />
+        <RouletteItem segments={splitSegments} spin={spin} targetLabel={targetLabel} />
       </div>
     </>
   );
@@ -458,16 +494,3 @@ export function Result() {
     </>
   );
 }
-
-const splitSegment = (segment, maxCountPerSegment) => {
-  const newSegments = [];
-  let remainingCount = segment.count;
-
-  while (remainingCount > 0) {
-    const splitCount = Math.min(remainingCount, maxCountPerSegment);
-    newSegments.push({ count: splitCount, label: segment.label });
-    remainingCount -= splitCount;
-  }
-
-  return newSegments;
-};

@@ -1,4 +1,6 @@
+import { useRef, useEffect } from 'react';
 import '../page/Event/Event.css';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 
 export function RecruitBoard() {
   return (
@@ -51,7 +53,7 @@ export function RecruitBoard() {
   );
 }
 
-export function RouletteItem({ segments }) {
+export function RouletteItem({ segments, spin, targetLabel }) {
   const labelColors = {
     chicken: '#161D6F',
     coupon: '#3797A4',
@@ -77,22 +79,74 @@ export function RouletteItem({ segments }) {
     })
     .join(', ');
 
+  const rouletteRef = useRef(null);
+
+  useEffect(() => {
+    const calculateTargetSegmentRotation = (targetLabel, totalRotations) => {
+      let sumCount = 0;
+      let targetCount;
+
+      for (let i = 0; i < segments.length; i++) {
+        if (segments[i].label !== targetLabel) {
+          sumCount += segments[i].count;
+        } else {
+          targetCount = segments[i].count;
+          break;
+        }
+      }
+
+      const halfTargetCount = targetCount / 2;
+
+      const finalRotationDegrees =
+        (360 * sumCount) / totalItems + (360 * halfTargetCount) / totalItems;
+
+      const totalRotation = totalRotations * 360 + finalRotationDegrees;
+
+      return totalRotation;
+    };
+
+    if (spin && targetLabel) {
+      const totalRotation = calculateTargetSegmentRotation(targetLabel, 10);
+
+      if (totalRotation !== null) {
+        rouletteRef.current.style.transition = 'transform 12s cubic-bezier(0.33, 1, 0.68, 1)';
+        rouletteRef.current.style.transform = `rotate(-${totalRotation}deg)`;
+      }
+    }
+  }, [spin, targetLabel, totalItems, segments]);
+
   return (
     <div className="roulette-item">
-      {/* 룰렛 테두리 */}
+      {/* Roulette Border */}
       <div className="roulette-border">
-        {/* 룰렛 내부 */}
-        <div
-          className="roulette-inner"
-          style={{
-            background: `conic-gradient(${conicGradient})`,
-          }}
-        />
-        {/* 룰렛 중앙 */}
-        <div className="roulette-center" />
+        <div className="roulette-border-inner">
+          {/* Roulette Inner */}
+          <div
+            ref={rouletteRef}
+            className="roulette-inner"
+            style={{
+              background: `conic-gradient(${conicGradient})`,
+            }}
+          />
+          {/* Roulette Center */}
+          <div className="roulette-center" />
+        </div>
       </div>
-      {/* 룰렛 화살표 */}
-      <div className="roulette-tip" />
+      {/* Roulette Tip */}
+      <FaMapMarkerAlt className="roulette-tip" />
     </div>
   );
 }
+
+export const splitSegment = (segment, maxCountPerSegment) => {
+  const newSegments = [];
+  let remainingCount = segment.count;
+
+  while (remainingCount > 0) {
+    const splitCount = Math.min(remainingCount, maxCountPerSegment);
+    newSegments.push({ count: splitCount, label: segment.label });
+    remainingCount -= splitCount;
+  }
+
+  return newSegments;
+};

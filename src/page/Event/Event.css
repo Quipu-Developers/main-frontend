@@ -6,7 +6,7 @@
   padding-top: 80px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 }
 
@@ -473,11 +473,21 @@
 }
 
 .roulette-border {
+  position: relative;
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: red;
-  border: 4px solid #071952;
+  background-color: #071952;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.roulette-border-inner {
+  width: 94%;
+  height: 94%;
+  border-radius: 50%;
   position: relative;
 }
 
@@ -489,29 +499,65 @@
   z-index: 1;
 }
 
+.event-big-block .roulette-inner {
+  animation: rotateRoulette 5s infinite alternate ease-in-out;
+}
+
+@keyframes rotateRoulette {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .roulette-center {
   position: absolute;
   top: 50%;
   left: 50%;
   width: 15px;
   height: 15px;
-  background-color: white;
+  background-color: #071952;
   border-radius: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   z-index: 2;
 }
 
 .roulette-tip {
   position: absolute;
-  top: -29px;
+  top: -35px;
   left: 50%;
+  z-index: 10;
   transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-top: 30px solid #ff0060;
-  z-index: 3;
+  width: 40px;
+  height: 40px;
+  color: #f5004f;
+
+  @media (max-width: 1000px) {
+    top: -30px;
+    width: 35px;
+    height: 35px;
+  }
+  @media (max-width: 1000px) {
+    top: -25px;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.event-big-block .roulette-tip {
+  animation: moveTip 0.7s infinite alternate ease-in-out;
+}
+
+@keyframes moveTip {
+  0% {
+    transform: translateX(-50%) rotate(6deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(-6deg);
+  }
 }
 
 .roulette-gift-container {
