@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './About.css';
+import { BsMouseFill } from "react-icons/bs";
 
 function About() {
   const navigate = useNavigate();
@@ -71,7 +72,7 @@ function About() {
       <div className="about-keyword">
         <h1 onClick={() => scrollToNextCard()}>
           Our <span style={{ color: '#0066FF' }}>Key</span>word
-          
+          <BsMouseFill />
         </h1>
         <div className="about-keyword-slide" ref={scrollContainerRef}>
           <div className="about-keyword-slide-text slide__1">

@@ -28,7 +28,12 @@ function ShowcasemainMobile() {
   const [index, setIndex] = useState(0);
 
   const handleIndexClick = () => {
-    navigate(`/quipu-dev/${index}`);
+    navigate(`/quipu-dev/detail`, {
+      state: {
+        projectname: showcase_data[index].project_name,
+        index: index,
+      },
+    });
   };
 
   return (
