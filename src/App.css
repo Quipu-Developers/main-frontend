@@ -463,11 +463,9 @@
 
 .event-button {
   z-index: 800;
-  width: 200px;
-  height: 50px;
   position: fixed;
-  bottom: 15px;
-  right: 15px;
+  bottom: 10px;
+  right: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -482,22 +480,12 @@
   border-radius: 30px 30px 0 30px;
   background-color: transparent;
   color: white;
-  font-size: 28px;
+  font-size: 2.5rem;
   font-weight: 900;
   -webkit-text-stroke: 1px black;
   text-shadow: 0 2.5px 1px black;
   cursor: pointer;
-  line-height: 1.2;
   transition: transform 0.3s ease-out;
-
-  @media (max-width: 900px) {
-    font-size: 25px;
-  }
-  @media (max-width: 700px) {
-    bottom: 10px;
-    right: 10px;
-    font-size: 22px;
-  }
 }
 
 .event-button button:hover {

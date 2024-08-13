@@ -34,7 +34,7 @@ function MainLayout() {
       <Navbar />
       <Outlet />
       <div className="event-button" style={{ transform: `translateY(${offsetY}px)` }}>
-        <button onClick={() => navigate('/event')}>go to event !</button>
+        <button onClick={() => navigate('/event')}>Event</button>
       </div>
     </>
   );
