@@ -71,7 +71,7 @@ function About() {
       {/* 키워드 */}
       <div className="about-keyword">
         <h1 onClick={() => scrollToNextCard()}>
-          Our <span style={{ color: '#0066FF' }}>Key</span>word
+          Our <span>Key</span>word
           <BsMouseFill />
         </h1>
         <div className="about-keyword-slide" ref={scrollContainerRef}>
