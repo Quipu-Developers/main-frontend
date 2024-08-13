@@ -71,14 +71,29 @@
     position: relative;
 
     &:hover {
-      box-shadow: inset 0 -3.5rem 0 #f57c00;
+      box-shadow: inset 0 -3.5rem 0 #3184ff;
       color: #fff;
+
+      & span {
+        color: #fff;
+      }
+
+      & svg {
+        transform: rotate(-25deg) translate(-10px, -5px);
+        color: #c0ceff;
+      }
+    }
+
+    & span {
+      color: #0066FF;
     }
 
     & svg {
       font-size: 40px;
       position: absolute;
-      
+      bottom: -20px;
+      color: #c0c0c0;
+      transition: all 0.2s ease;
     }
   }
 }
