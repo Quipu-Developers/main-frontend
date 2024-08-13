@@ -49,6 +49,18 @@
   }
 }
 
+@media (max-width: 900px) {
+  .about-main-text {
+    justify-content: center;
+      & h1 {
+        font-size: 2.5rem;
+      }
+      & p {
+        font-size: 1.2rem;
+      }
+  }
+}
+
 /* 키워드 */
 .about-keyword {
   width: 100%;
@@ -176,6 +188,17 @@
   }
 }
 
+@media (max-width: 900px) {
+  .about-keyword-slide-text {
+    & h4 {
+      font-size: 3.5rem;
+    }
+    & p {
+      font-size: 1.2rem;
+    }
+  }
+}
+
 
 /* 활동, 액티비티 */
 .about-activity {
@@ -188,6 +211,7 @@
     color: black;
   }
 }
+
 
 .about-activity-content {
   max-width: 100%;
@@ -203,20 +227,20 @@
   display: flex;
   flex-direction: column;
   gap: 5vh;
-
+  
   & .about-activity-img {
     width: 70%;
     aspect-ratio: 2.5/1;
     padding: 3% 7%;
     background-color: #cbddff99;
     position: relative;
-
+    
     & img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
+    
     & .about-activity-right-img-border {
       width: 106%;
       height: 106%;
@@ -279,6 +303,26 @@
   color: #0066ff;
 }
 
+@media (max-width: 1050px) {
+  .about-activity-left,
+  .about-activity-right {
+    align-items: center;
+    & .about-activity-img {
+      width: 100%;
+    }
+  }
+
+  .about-activity-left-text,
+  .about-activity-right-text {
+    width: 95%;
+    font-size: 1rem;
+  }
+
+  #about-logo {
+    font-size: 1.4rem;
+  }
+}
+
 /* 테크스택 */
 .about-tech {
   width: 100%;
@@ -299,11 +343,12 @@
   }
 }
 
+
 .about-tech-stack {
   width: 100%;
   display: flex;
   flex-direction: column;
-
+  
   & h1 {
     align-self: flex-end;
     padding: 0.5rem 5% 0.5rem 15%;
@@ -389,6 +434,17 @@
 
 }
 
+@media (max-width: 900px) {
+  .about-tech-top {
+    font-size: 1.2rem;
+  }
+
+  .about-tech-stack {
+    & h1 {
+      font-size: 2.4rem;
+    }
+  }
+}
 
 /* 퀴푸 개발팀, 퀴푸뎁, 퀴푸디브 */
 .about-dev {
@@ -492,6 +548,25 @@
   }
   &:nth-child(2):hover:after {
     width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .about-dev {
+    margin: 5vh 7%;
+    & p {
+      font-size: 1.2rem;
+    }
+  }
+  .about-dev-button {
+    margin-top: 3vh;
+    & h4 {
+      font-size: 1.5rem;
+      padding: 3% 1rem;
+    }
+    & img {
+      width: 30px;
+    }
   }
 }
 
