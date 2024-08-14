@@ -8,7 +8,6 @@ import Activity from './page/Activity/Activity';
 import RecommendSite from './page/RecommendSite/RecommendSite';
 import JoinQuipu from './page/JoinQuipu/JoinQuipu';
 import Showcasemain from './page/ShowcaseMain/Showcasemain';
-import ShowcasemainMobile from './page/ShowcaseMain/showcaseMainMobile';
 import Showcasedetail from './page/ShowcaseDetail/Showcasedetail';
 import Interview from './page/Interview/Interview';
 import Footer from './page/Footer/Footer';
@@ -82,7 +81,6 @@ function AppContent() {
       </Route>
       <Route path="/join-quipu" element={<JoinQuipu />} />
       <Route path="/quipu-dev" element={<Showcasemain />} />
-      <Route path="/quipu-dev-mobile" element={<ShowcasemainMobile />} />
       <Route path="/interview" element={<Interview />} />
       <Route path="/quipu-dev/detail" element={<Showcasedetail />} />
       <Route path="/event" element={<Event />}>

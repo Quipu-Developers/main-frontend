@@ -5,9 +5,7 @@ import { canParticipation, getResult, sendKakaoId } from '../../api/event_api';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
 import Error from '../Error/Error';
 import Logo from '../../component/logo';
-
 import './Event.css';
-import { GiUnionJack } from 'react-icons/gi';
 
 export function Event() {
   return (
@@ -26,14 +24,19 @@ export function Start() {
   const navigate = useNavigate();
 
   const handleEnter = async () => {
-    const response = await canParticipation();
-    if (response.status === 200) {
-      const remain_goods = response.data;
-      navigate('/event/quiz', { state: remain_goods });
-    } else if (response.status === 403) {
-      alert('상품이 모두 소진되었습니다. 죄송합니다ㅠㅠ');
-    } else {
-      alert('서버 에러입니다. 다시 시도 후 퀴푸에 문의해주세요.');
+    try {
+      const response = await canParticipation();
+
+      if (response.status === 200) {
+        const remain_goods = response.data;
+        navigate('/event/quiz', { state: remain_goods });
+      } else if (response.status === 403) {
+        alert('상품이 모두 소진되었습니다. 죄송합니다ㅠㅠ');
+      } else {
+        alert('서버 에러입니다. 다시 시도 후 퀴푸에 문의해주세요.');
+      }
+    } catch (error) {
+      alert('서버에 문제가 발생했습니다. 다시 시도해 주세요.');
     }
   };
 
@@ -121,11 +124,15 @@ export function Start() {
 export function Quiz() {
   const navigate = useNavigate();
   const location = useLocation();
-  const remain_goods = location.state || {};
+  const remain_goods = location.state || null;
   const [isAnswer, setIsAnswer] = useState(0);
   const [name, setName] = useState('');
   const [studentId, setStudentId] = useState('');
   const [isWaiting, setIsWaiting] = useState(false);
+
+  if (!remain_goods || Object.keys(remain_goods).length === 0) {
+    return <Error />;
+  }
 
   const isFormValid = () => {
     const studentIdValid = /^\d{10}$/.test(studentId);
@@ -137,24 +144,37 @@ export function Quiz() {
     setIsAnswer(num);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (isAnswer === 0) {
       alert('답을 선택해주세요.');
     } else {
       if (isFormValid()) {
         setIsWaiting(true);
 
-        setTimeout(() => {
-          if (isAnswer === 3) {
-            navigate('/event/roulette', {
-              state: { remain_goods: remain_goods, apply_form: { name, studentId } },
-            });
-          } else {
-            navigate('/event/result', {
-              state: { result: 'incorrect', goods: null, apply_form: null },
-            });
+        try {
+          const response = await canParticipation();
+
+          if (response.status !== 200) {
+            alert('다시 시도해 주세요. 권한이 없습니다.');
+            setIsWaiting(false);
+            return;
           }
-        }, 10000);
+
+          setTimeout(() => {
+            if (isAnswer === 3) {
+              navigate('/event/roulette', {
+                state: { remain_goods: remain_goods, apply_form: { name, studentId } },
+              });
+            } else {
+              navigate('/event/result', {
+                state: { result: 'incorrect', goods: null, apply_form: null },
+              });
+            }
+          }, 10000);
+        } catch (error) {
+          alert('서버에 문제가 발생했습니다. 다시 시도해 주세요.');
+          setIsWaiting(false);
+        }
       } else {
         alert('학번과 이름을 다시 확인해주세요.');
       }
@@ -162,7 +182,6 @@ export function Quiz() {
   };
 
   if (isWaiting) {
-    // if (true) {
     return (
       <div className="event-big-block">
         <h4>결과를 기다리고 있어요 . . .</h4>
@@ -236,9 +255,13 @@ export function Roulette() {
   const [spin, setSpin] = useState(false);
   const [targetLabel, setTargetLabel] = useState(null);
   const [responseData, setResponseData] = useState();
-  const [showSpinButton, setShowSpinButton] = useState(true); // 버튼 표시 상태 관리
-
-  if (!remain_goods || !apply_form) {
+  const [showSpinButton, setShowSpinButton] = useState(true);
+  if (
+    !remain_goods ||
+    Object.keys(remain_goods).length === 0 ||
+    !apply_form ||
+    Object.keys(apply_form).length === 0
+  ) {
     return <Error />;
   }
 
@@ -290,7 +313,7 @@ export function Roulette() {
       }
       setTargetLabel(target_label);
       setSpin(true);
-      setShowSpinButton(false); // 룰렛 돌리기 버튼을 숨김
+      setShowSpinButton(false);
     } else if (status === 409) {
       alert('죄송합니다. 룰렛은 한 번만 돌릴 수 있습니다.');
     } else {
@@ -376,7 +399,12 @@ export function Result() {
   let goods_img;
   let content;
 
-  if (!result) {
+  if (
+    !result ||
+    (goods && Object.keys(goods).length === 0) ||
+    !apply_form ||
+    Object.keys(apply_form).length === 0
+  ) {
     return <Error />;
   }
 
