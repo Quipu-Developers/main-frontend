@@ -7,11 +7,11 @@ function About() {
   const navigate = useNavigate();
   const [dropdown, IsDropdown] = useState(false);
   const [moved, isMoved] = useState(true);
-  const [movePixel, setMovePixel] = useState(0.8 * window.innerWidth - 120);
+  const [movePixel, setMovePixel] = useState(0.8 * window.innerWidth - 60);
   
   useEffect(() => {
     const handleResize = () => {
-      setMovePixel(0.8 * window.innerWidth - 120);
+      setMovePixel(0.8 * window.innerWidth - 60);
     };
 
     window.addEventListener('resize', handleResize);
@@ -171,7 +171,7 @@ function About() {
         </p>
 
         <div className="about-dev-button" onClick={() => IsDropdown(!dropdown)}>
-          <h4>QUIPU-DEV</h4>
+          <button>QUIPU-DEV</button>
           {dropdown !== true && (
             <img src={process.env.PUBLIC_URL + '/About-img/pointer.png'} alt="pointer" />
           )}
