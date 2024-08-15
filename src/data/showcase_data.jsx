@@ -8,9 +8,9 @@ export const showcase_data = [
       '/ShowcaseMain-img/image 4.png',
       '/ShowcaseMain-img/image 5.png',
     ],
-    goal: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.',
+    goal: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     this_project:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been a standard dummy text of the industry ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.',
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     this_project_for: 'Lorem Ipsum is simply dummy text of the printing',
     web_url: 'https://google.com',
     github_url: 'https://github.com',
