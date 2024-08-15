@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './About.css';
 import { BsMouseFill } from "react-icons/bs";
+import { FaReact } from "react-icons/fa";
 
 function About() {
   const navigate = useNavigate();
@@ -150,11 +151,11 @@ function About() {
         <div className="about-tech-stack">
           <h1>Our Tech Stack</h1>
           <div className="about-tech-stack-list">
-            <div className="about-tech-stack-list-github">
-              <img src={process.env.PUBLIC_URL + '/About-img/github.png'} alt='git' />
+            <div className="about-react">
+              <FaReact />
             </div>
-            <img src="https://techstack-generator.vercel.app/react-icon.svg" alt="icon" />
             <img src="https://techstack-generator.vercel.app/restapi-icon.svg" alt="icon" />
+            <img src="https://techstack-generator.vercel.app/github-icon.svg" alt="icon" />            
             <img src="https://techstack-generator.vercel.app/aws-icon.svg" alt="icon" />
 
             <div className="about-tech-stack-rectangle rectangle__1" />

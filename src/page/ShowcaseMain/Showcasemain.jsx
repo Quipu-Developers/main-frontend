@@ -7,7 +7,7 @@ import ShowcasemainMobile from './showcaseMainMobile.jsx'; // ShowcasemainMobile
 
 function Showcasemain() {
   const [index, setIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 500);
+  const [windowWidth, setWindowWidth] = useState(window.outerWidth);
   const navigate = useNavigate();
 
   const handleIndexClick = () => {
@@ -19,20 +19,14 @@ function Showcasemain() {
     });
   };
 
-  const handleResize = () => {
-    setIsMobile(window.innerWidth <= 500);
-  };
-
   useEffect(() => {
-    // 윈도우 리사이즈 이벤트 리스너 추가
+    const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
-    return () => {
-      // 컴포넌트 언마운트 시 이벤트 리스너 제거
-      window.removeEventListener('resize', handleResize);
-    };
+    handleResize(); // Initial setting
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  if (isMobile) {
+  if (windowWidth <= 900) {
     return <ShowcasemainMobile />;
   }
 
