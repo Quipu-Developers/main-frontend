@@ -121,7 +121,7 @@
       right: -40px;
       bottom: -10px;
       transform: translate(20%, 20%);
-      animation: keywordMouse 3s linear 3s infinite;
+      animation: keywordMouse 3s linear infinite;
     }
 
     &:active {
@@ -130,7 +130,6 @@
       & span {
         color: #fff;
       }
-
     }
 
     &:not(:active) {

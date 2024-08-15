@@ -210,17 +210,18 @@ function JoinQuipu() {
               </div>
               <div className="join-notice__icon--top2"></div>
               <div className="join-notice__icon--body">
-                <p> 환영합니다!</p>
-                <p>지원서는 회비 납부 이후 제출바랍니다.</p>
+                <p> 환영합니다!🎉</p>
+                <p>지원서는 <span style={{color: 'white', textDecoration:'underline' }}>회비 납부 이후</span> 제출바랍니다.</p>
+                <br />
                 <p>
-                  회비 : <span>20,000원</span>
+                  • 회비 : <span>20,000원</span>
                 </p>
                 <p
                   onClick={() => {
                     copyToClipboard('1234567');
                   }}
                 >
-                  카카오뱅크&nbsp;
+                  • 계좌: 카카오뱅크&nbsp;
                   <span className="account-number">3333311276288</span>
                   &nbsp;(예금주 : 김예영)
                 </p>
@@ -348,18 +349,10 @@ function JoinQuipu() {
               </div>
               <div className="join-notice__icon--top2"></div>
               <div className="join-notice__icon--body">
-                <p>환영합니다!</p>
+                <p>환영합니다!🎉</p>
                 <p>저희 퀴푸 개발팀에 관심을 가져주셔서 감사합니다.</p>
-                <p>제출해주신 지원서는 신중히 검토한 후, </p>
-                <p>
-                  합격 여부를 <span>9월 7일에 문자 메세지로</span> 안내해 드릴 예정입니다.
-                </p>
-                <p>이는 지원자분들의 역량을 평가하기 위함이 아니라, </p>
-                <p>
-                  <span>개발에 대한 방향성</span>을 확인하기 위한 것이니
-                </p>
-                <p>부담 갖지 말고 작성해 주시기 바랍니다.</p>
-                <br></br>
+                <br />
+                <h1>{'<'} 작성방법 {'>'}</h1>
                 <p>
                   <span>프론트엔드와 백엔드</span> 지원자분들은 <span>모두 작성</span>
                   해주시고,
@@ -368,6 +361,17 @@ function JoinQuipu() {
                   <span style={{ color: '#FF5580' }}>&nbsp;*</span> <span>표시된 항목</span>에만
                   답해주세요.
                 </p>
+                <br />
+                <h1>{'<'} 제출안내 {'>'}</h1>
+                <p>제출해주신 지원서는 신중히 검토한 후, </p>
+                <p>
+                  합격 여부를 <span>9월 7일에 문자 메세지로</span> 안내해 드릴 예정입니다.
+                </p>
+                <p>{'('}이는 지원자분들의 역량을 평가하기 위함이 아니라, </p>
+                <p>
+                  <span>개발에 대한 방향성</span>을 확인하기 위한 것이니
+                </p>
+                <p>부담 갖지 말고 작성해 주시기 바랍니다.{')'}</p>
               </div>
             </div>
 
