@@ -3,6 +3,7 @@ import { NavHashLink as NavLink } from 'react-router-hash-link';
 import { useNavigate } from 'react-router-dom';
 import { showcase_data } from '../../data/showcase_data.jsx';
 import './ShowcasemainMobile.css';
+import { FaArrowLeftLong } from 'react-icons/fa6';
 
 function Dropdown({ setIndex }) {
   // setIndex를 props로 받음
@@ -44,6 +45,7 @@ function ShowcasemainMobile() {
         </section>
       </div>
       <div className="showcasemainMobile-header">
+        <FaArrowLeftLong className="back-button" onClick={() => navigate('/')} />
         <ul
           className="ShowcasemainMobile-Dropdown"
           onClick={() => {

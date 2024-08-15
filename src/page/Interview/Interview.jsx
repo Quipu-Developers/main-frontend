@@ -1,10 +1,13 @@
 import { NavHashLink as NavLink } from 'react-router-hash-link';
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import './Interview.css';
 import { interview_data } from '../../data/interview_data.jsx';
 import InterviewDetail from './interviewdetail.jsx';
+import { FaArrowLeftLong } from 'react-icons/fa6';
 
 function Interview() {
+  const navigate = useNavigate();
   const [IsdetailOpen, setIsdetailOpen] = useState(false);
   // const [index, setIndex] = useState(0);
   const index = 0;
@@ -29,6 +32,7 @@ function Interview() {
           </NavLink>
         </div>
         <p>Interview</p>
+        <FaArrowLeftLong className="back-button" onClick={() => navigate('/')} />
       </div>
       <div className="interview-index-container">
         <div className="interview-index">

@@ -10,6 +10,15 @@
   align-items: center;
 }
 
+.showcasemain-house .back-button {
+  font-size: 2rem;
+  color: #835e86;
+  position: absolute;
+  left: 20px;
+  top: 90px;
+  cursor: pointer;
+}
+
 .showcasemain-container {
   max-width: 1150px;
   width: 100%;
@@ -36,7 +45,7 @@
 
 .showcasemain-logo a {
   text-decoration: none;
-  color: rgba(131, 94, 134, 1);
+  color: #835e86;
 }
 
 .showcasemain {

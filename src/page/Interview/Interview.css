@@ -21,6 +21,12 @@
   z-index: 5;
 }
 
+.interview-navbar .back-button {
+  font-size: 2rem;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
 .interview-logo {
   width: 100%;
   height: fit-content;
@@ -109,6 +115,7 @@
   align-items: center;
   font-family: 'Orbitron';
   padding-bottom: 6vh;
+  position: relative;
 
   @media (max-width: 1100px) {
     width: 50%;
