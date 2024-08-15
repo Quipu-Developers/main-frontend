@@ -1,266 +1,262 @@
 .Study-container {
-    display: flex; 
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: start;
-    width: 80%;
-    height: 100%;
-    -webkit-overflow-scrolling: touch;
-
-    @media (max-width: 900px) {
-        height: calc(100% - 60px - 54px);
-    }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: start;
+  width: 100%;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
 }
 
 .studycard {
-    position: relative;
-    z-index: auto;
-    width: 260px;
-    height: 180px;
-    margin: 20px;
-    padding: 10px;
-    border-radius: 20px;
-    background-color: white;
-    box-shadow: 3px 3px 4px grey;
+  position: relative;
+  z-index: auto;
+  width: 260px;
+  height: 180px;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 3px 3px 4px grey;
 
-    @media (max-width: 300px) {
-        margin: 20px 0;
-        width: 100%;
-    }
+  @media (max-width: 300px) {
+    margin: 20px 0;
+    width: 100%;
+  }
 }
 
 .studycard:hover {
-    right: 3px;
-    bottom: 3px;
+  right: 3px;
+  bottom: 3px;
 }
 
 .studycard__top {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 60%;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 60%;
 }
 
 .studycard__img {
-    width: 30%;
-    height: 80%;
-    aspect-ratio: 1 / 1;
-    object-fit: contain;
-}   
+  width: 30%;
+  height: 80%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+}
 
 .studycard__content {
-    overflow-x: auto;
-    -ms-overflow-style: none;
-    width: 70%;
-    scrollbar-width: none;
-    white-space: nowrap;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  width: 70%;
+  scrollbar-width: none;
+  white-space: nowrap;
 }
 
 .studycard__content::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .studycard__content h3 {
-    margin: 10px;
-    font-size: 20px;
-    font-weight: 700;
-    text-align: center;
+  margin: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
 }
 
 .studycard__content p {
-    color: grey;
-    font-size: 12px;
-    font-weight: 700;
-    word-break: keep-all;
-    text-align: center;
+  color: grey;
+  font-size: 12px;
+  font-weight: 700;
+  word-break: keep-all;
+  text-align: center;
 }
 
 .studycard__member--container {
-    display: flex;
-    align-items: center;
-    overflow-x: auto;
-    -ms-overflow-style: none;
-    width: 100%;
-    height: 20%;
-    scrollbar-width: none;
-    white-space: nowrap;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  width: 100%;
+  height: 20%;
+  scrollbar-width: none;
+  white-space: nowrap;
 }
 
 .studycard__member--container::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .studycard__member {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 70%;
-    margin: 0 2px;
-    padding: 5px;
-    border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+  margin: 0 2px;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .studycard__member p {
-    font-size: 10px;
-    font-weight: 700;
+  font-size: 10px;
+  font-weight: 700;
 }
 
 .moreinfo-button {
-    position: absolute;
-    right: 5%;
-    bottom: 5%;
-    width: 60%;
-    height: 13%;
-    color: #1C0093;
-    border: 2px solid #1C0093;
-    border-radius: 20px;
-    background-color: #DFE7FF;
-    font-size: 10px;
-    font-weight: 550;
-    cursor: pointer;
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+  width: 60%;
+  height: 13%;
+  color: #1c0093;
+  border: 2px solid #1c0093;
+  border-radius: 20px;
+  background-color: #dfe7ff;
+  font-size: 10px;
+  font-weight: 550;
+  cursor: pointer;
 
-    @media (max-width: 300px) {
-        font-size: 8px;
-    }
+  @media (max-width: 300px) {
+    font-size: 8px;
+  }
 }
 
 .moreinfo-button:hover {
-    color: #DFE7FF;
-    background-color: #1C0093;
+  color: #dfe7ff;
+  background-color: #1c0093;
 }
 
 .study__modal--container {
-    position: fixed;
-    z-index: 1000;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 1000;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .study__modal {
-    position: relative;
-    z-index: auto;
-    width: 55%;
-    height: 85%;
-    border-radius: 7px;
-    background-color: #D8D8D8;
-    box-shadow: 3px 3px 4px black;
+  position: relative;
+  z-index: auto;
+  width: 55%;
+  height: 85%;
+  border-radius: 7px;
+  background-color: #d8d8d8;
+  box-shadow: 3px 3px 4px black;
 
-    @media (max-width:600px) {
-        width: 80%;
-    }
+  @media (max-width: 600px) {
+    width: 80%;
+  }
 }
 
 .study__modal--bar {
-    position: absolute;
-    top: 0px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    width: 100%;
-    height: 8%;
-    padding: 5px;
-    border-radius: 7px 7px 0 0;
-    background-color: #D8D8D8;
+  position: absolute;
+  top: 0px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  height: 8%;
+  padding: 5px;
+  border-radius: 7px 7px 0 0;
+  background-color: #d8d8d8;
 }
 
 .study__modal--bar p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 5px;
-    font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  font-size: 15px;
 }
 
 /* 모달창에서 바 제외한 부분 */
 .study__modal--content {
-    position: absolute;
-    bottom: 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: calc(100% - 8%);
-    color: black;
-    border-radius: 7px;
-    background-color: #F8F8F8;
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100% - 8%);
+  color: black;
+  border-radius: 7px;
+  background-color: #f8f8f8;
 }
 
 .study__modal--content-top {
-    width: 90%;
-    height: 25%;
+  width: 90%;
+  height: 25%;
 }
 
 .study__modal--content-bottom {
-    overflow-y: auto;
-    -ms-overflow-style: none;
-    width: 90%;
-    height: 70%;
-    border-top: 1px solid black;
-    scrollbar-width: none;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  width: 90%;
+  height: 70%;
+  border-top: 1px solid black;
+  scrollbar-width: none;
 }
 
 .study__modal--content-bottom::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .h10 {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    height: 10%;
-    padding: 4px;
-    font-size: 16px;
-    font-weight: 700;
-    text-align: start;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 10%;
+  padding: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: start;
 }
 
 .h90 {
-    height: 90%;
+  height: 90%;
 }
 
 .study__modal--img-container {
-    display: flex;
-    align-items: center;
-    overflow-x: auto;
-    -ms-overflow-style: none;
-    height: 70%;
-    margin-bottom: 20px;
-    scrollbar-width: none;
-    white-space: nowrap;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  height: 70%;
+  margin-bottom: 20px;
+  scrollbar-width: none;
+  white-space: nowrap;
 }
 
 .study__modal--img-container::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .study__modal--img {
-    height: 100%;
-    margin-right: 10px;
+  height: 100%;
+  margin-right: 10px;
 }
 
 .study__modal--content-container li {
-    margin: 10px 0;
-    color: #666666;
-    font-size: 20px;
-    font-weight: 700;
-    list-style: none;
+  margin: 10px 0;
+  color: #666666;
+  font-size: 20px;
+  font-weight: 700;
+  list-style: none;
 }
 
 .study__modal--content-container p {
-    margin: 2px;
-    font-size: 17px;
-    font-weight: 400;
+  margin: 2px;
+  font-size: 17px;
+  font-weight: 400;
 }
 
 .blank-studycard {
-    width: 260px;
-    height: 180px;
-    margin: 20px;
+  width: 260px;
+  height: 1px;
+  margin: 20px;
 }

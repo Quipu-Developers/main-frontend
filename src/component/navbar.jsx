@@ -143,10 +143,22 @@ const Navbar = () => {
       </div>
 
       {/* mobile에서 메뉴들 */}
-      <div className={`navbar__menu--mobile ${menuOpen ? 'open' : ''}`}>
+      <div
+        className={`navbar__menu--mobile ${menuOpen ? 'open' : ''}`}
+        onClick={() => {
+          setMenuOpen(!menuOpen);
+          setJoinquipuOpen(false);
+          setQuipudevOpen(false);
+        }}
+      >
         <div className="navbar-mobile-block">
           <p>Join Quipu</p>
-          <li onClick={() => setJoinquipuOpen(!joinquipuOpen)}>
+          <li
+            onClick={(e) => {
+              setJoinquipuOpen(!joinquipuOpen);
+              e.stopPropagation();
+            }}
+          >
             <BsEnvelopePaperHeartFill />
           </li>
         </div>
@@ -176,7 +188,13 @@ const Navbar = () => {
         </div>
         <div className="navbar-mobile-block">
           <p>QUIPU DEV</p>
-          <li onClick={() => setQuipudevOpen(!quipudevOpen)}>
+
+          <li
+            onClick={(e) => {
+              setQuipudevOpen(!quipudevOpen);
+              e.stopPropagation();
+            }}
+          >
             <GoCodeReview />
           </li>
         </div>

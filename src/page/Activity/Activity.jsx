@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import './Activity.css';
-import ActivityDetail from '../ActivityDetail/ActivityDetail';
 
 function Activity() {
-  const [gotoDetail, setGotoDetail] = useState(false);
-  const [activeTab, setActiveTab] = useState('Study');
-
   const titles = ['Study', 'Friendship', 'MT'];
   const images = [
     [
@@ -27,37 +24,27 @@ function Activity() {
 
   return (
     <div className="activity-container">
-      <h1 onClick={() => setGotoDetail(false)}>Activity</h1>
-      {gotoDetail ? (
-        <ActivityDetail activeTab={activeTab} setActiveTab={setActiveTab} />
-      ) : (
-        <div className="activity-box">
-          <ActivityBlock
-            title={titles[0]}
-            src1={images[0][0]}
-            src2={images[0][1]}
-            src3={images[0][2]}
-            setGotoDetail={setGotoDetail}
-            setActiveTab={setActiveTab}
-          ></ActivityBlock>
-          <ActivityBlock
-            title={titles[1]}
-            src1={images[1][0]}
-            src2={images[1][1]}
-            src3={images[1][2]}
-            setGotoDetail={setGotoDetail}
-            setActiveTab={setActiveTab}
-          ></ActivityBlock>
-          <ActivityBlock
-            title={titles[2]}
-            src1={images[2][0]}
-            src2={images[2][1]}
-            src3={images[2][2]}
-            setGotoDetail={setGotoDetail}
-            setActiveTab={setActiveTab}
-          ></ActivityBlock>
-        </div>
-      )}
+      <h1>
+        <span style={{ color: '#0066ff' }}>A</span>ctivity
+      </h1>
+      <ActivityBlock
+        title={titles[0]}
+        src1={images[0][0]}
+        src2={images[0][1]}
+        src3={images[0][2]}
+      ></ActivityBlock>
+      <ActivityBlock
+        title={titles[1]}
+        src1={images[1][0]}
+        src2={images[1][1]}
+        src3={images[1][2]}
+      ></ActivityBlock>
+      <ActivityBlock
+        title={titles[2]}
+        src1={images[2][0]}
+        src2={images[2][1]}
+        src3={images[2][2]}
+      ></ActivityBlock>
     </div>
   );
 }
@@ -65,15 +52,9 @@ function Activity() {
 function ActivityBlock(props) {
   return (
     <div className="activity-block">
-      <p
-        className="activity-block__title"
-        onClick={() => {
-          props.setGotoDetail(true);
-          props.setActiveTab(props.title);
-        }}
-      >
-        {props.title}&nbsp; ›
-      </p>
+      <RouterLink to={'/activity-detail'} state={{ activeTab: props.title }}>
+        <p className="activity-block__title">{props.title}&nbsp; ›</p>
+      </RouterLink>
       <img
         className="activity-block__image--big"
         src={process.env.PUBLIC_URL + props.src1}
