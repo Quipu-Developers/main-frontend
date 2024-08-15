@@ -15,6 +15,7 @@ import { Event, Start, Quiz, Roulette, Result } from './page/Event/Event';
 import Error from './page/Error/Error';
 import Navbar from './component/navbar';
 import useScroll from './hooks/useScroll';
+import ScrollToTop from './hooks/ScrollToTop';
 
 function MainLayout() {
   const navigate = useNavigate();
@@ -97,6 +98,7 @@ function AppContent() {
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <AppContent />
     </Router>
   );

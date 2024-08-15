@@ -31,7 +31,7 @@ function Interview() {
       </div>
       <div className="interview-index-container">
         <div className="interview-index">
-          <div className="interview-left">{index !== 0 && <p>{index}기</p>}</div>
+          {/* <div className="interview-left">{index !== 0 && <p>{index}기</p>}</div>
           <div className="interview-arrow">
             {index !== 0 && (
               <p
@@ -45,11 +45,11 @@ function Interview() {
                 &lt;
               </p>
             )}
-          </div>
+          </div> */}
           <div className="interview-middle">
             <h4>{index + 1}기</h4>
           </div>
-          <div className="interview-arrow">
+          {/* <div className="interview-arrow">
             {index !== 2 && (
               <p
                 onClick={(e) => {
@@ -63,7 +63,7 @@ function Interview() {
               </p>
             )}
           </div>
-          <div className="interview-right">{index !== 2 && <p>{index + 2}기</p>}</div>
+          <div className="interview-right">{index !== 2 && <p>{index + 2}기</p>}</div> */}
         </div>
       </div>
       <div className="interview-profile">
@@ -95,62 +95,8 @@ function Interview() {
               </div>
             );
           })}
-        {index === 1 &&
-          interview_data[1].map(function (element) {
-            return (
-              <div
-                className="interview-profilebox"
-                key={element.name}
-                onClick={() => openDetailModal(element)}
-              >
-                <div className="interview-profile-top">
-                  <div />
-                  <div />
-                  <div />
-                </div>
-                <div className="interview-profile-content">
-                  <div className="interview-profile-img">
-                    <img
-                      src={process.env.PUBLIC_URL + `/Interview-img/${element.img}`}
-                      alt={element.name}
-                    />
-                  </div>
-                  <div className="interview-profile-dc">
-                    <h4>{element.name}</h4>
-                    <p>{element.title}</p>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        {index === 2 &&
-          interview_data[2].map(function (element) {
-            return (
-              <div
-                className="interview-profilebox"
-                key={element.name}
-                onClick={() => openDetailModal(element)}
-              >
-                <div className="interview-profile-top">
-                  <div />
-                  <div />
-                  <div />
-                </div>
-                <div className="interview-profile-content">
-                  <div className="interview-profile-img">
-                    <img
-                      src={process.env.PUBLIC_URL + `/Interview-img/${element.img}`}
-                      alt={element.name}
-                    />
-                  </div>
-                  <div className="interview-profile-dc">
-                    <h4>{element.name}</h4>
-                    <p>{element.title}</p>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+        <div className="interview-profilebox" style={{ visibility: 'hidden' }}></div>
+        <div className="interview-profilebox" style={{ visibility: 'hidden' }}></div>
       </div>
       {IsdetailOpen && (
         <div className="modal-overlay">
