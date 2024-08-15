@@ -30,10 +30,21 @@ export default function Footer() {
       </div>
       <div className="footer-logo">
         <Logo />
+        <div className="footer-icon mobile">
+          <a href="https://open.kakao.com/o/sO45q17f" target="_blank" rel="noopener noreferrer">
+            <FaInstagram className="icon" />
+          </a>
+          <a href="https://open.kakao.com/o/sO45q17f" target="_blank" rel="noopener noreferrer">
+            <IoIosMail className="icon" />
+          </a>
+          <a href="https://open.kakao.com/o/sO45q17f" target="_blank" rel="noopener noreferrer">
+            <RiKakaoTalkFill className="icon" />
+          </a>
+        </div>
         <p>Copyright 2024.QUIPU. All rights reserved.</p>
         <p>Icon designed by Flaticon(Freepik)</p>
       </div>
-      <div className="footer-icon">
+      <div className="footer-icon pc">
         <a href="https://open.kakao.com/o/sO45q17f" target="_blank" rel="noopener noreferrer">
           <FaInstagram className="icon" />
         </a>
