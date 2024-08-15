@@ -9,7 +9,7 @@ function About() {
   const [dropdown, IsDropdown] = useState(false);
   const [moved, isMoved] = useState(true);
   const [movePixel, setMovePixel] = useState(0.8 * window.innerWidth - 60);
-  
+
   useEffect(() => {
     const handleResize = () => {
       setMovePixel(0.8 * window.innerWidth - 60);
@@ -68,9 +68,9 @@ function About() {
           <BsMouseFill />
         </h1>
 
-        <div 
+        <div
           className="about-keyword-slide-rectangle rectangle__1"
-          style={{transform: moved ? `translateX(${movePixel}px)` : `translateX(0)`}}
+          style={{ transform: moved ? `translateX(${movePixel}px)` : `translateX(0)` }}
         />
 
         <div className="about-keyword-slide" ref={scrollContainerRef}>
@@ -90,10 +90,10 @@ function About() {
             <p>QUIPU 구성원 각자의 잠재력이 모여 더 큰 가치를 창출합니다.</p>
           </div>
         </div>
-        
-        <div 
+
+        <div
           className="about-keyword-slide-rectangle rectangle__2"
-          style={{transform: moved ? `translateX(-${movePixel}px)` : `translateX(0)`}}
+          style={{ transform: moved ? `translateX(-${movePixel}px)` : `translateX(0)` }}
         />
       </div>
 
@@ -104,6 +104,7 @@ function About() {
         </h1>
 
         <div className="about-activity-content">
+
           <div className="about-activity-left">
             <div className="about-activity-img">
               <img src={process.env.PUBLIC_URL + '/About-img/quipu-activity1.png'} alt="활동1" />
@@ -143,21 +144,66 @@ function About() {
             특히 <span id="about-logo">QUIPU</span>의 주 활동인 <span>웹 개발 프로젝트</span>에서는
           </h4>
           <h4>
-            <span>React.js, Node.js, GitHub, AWS</span>와 같은 기술 스택을 사용하여 다양한
-            프로젝트를 진행합니다.
+            아래와 같은 기술 스택을 사용하여 다양한 프로젝트를 진행합니다.
           </h4>
         </div>
 
         <div className="about-tech-stack">
           <h1>Our Tech Stack</h1>
           <div className="about-tech-stack-list">
-            <div className="about-react">
-              <FaReact />
+            {/* 테크스택 리스트 윗줄 */}
+            <div className="about-tech-stack-list-top">
+              <div className="techstack-container">
+                <div className="techstack about-react">
+                  <FaReact />
+                </div>
+                <p>React</p>
+              </div>
+              <div className="techstack-container">
+                <div className="techstack about-js">
+                  <img src="https://techstack-generator.vercel.app/js-icon.svg" alt="icon" />
+                </div>
+                <p>Javascript</p>
+              </div>
+              <div className="techstack-container">
+                <div className="techstack about-nodejs">
+                  <img
+                    src={process.env.PUBLIC_URL + '/About-img/nodejs.png'}
+                    alt="icon"
+                  />
+                  <img
+                    className='about-nodejs-back'
+                    src={process.env.PUBLIC_URL + '/About-img/nodejsback.png'}
+                    alt='iconback'
+                  />
+                </div>
+                <p>Node.js</p>
+              </div>
             </div>
-            <img src="https://techstack-generator.vercel.app/restapi-icon.svg" alt="icon" />
-            <img src="https://techstack-generator.vercel.app/github-icon.svg" alt="icon" />            
-            <img src="https://techstack-generator.vercel.app/aws-icon.svg" alt="icon" />
 
+            {/* 테크스택 리스트 아랫줄 */}
+            <div className="about-tech-stack-list-bottom">
+              <div className="techstack-container">
+                <div className="techstack about-mysql">
+                  <img src="https://techstack-generator.vercel.app/mysql-icon.svg" alt="icon" />
+                </div>
+                <p>MySQL</p>
+              </div>
+              <div className="techstack-container">
+                <div className="techstack about-aws">
+                  <img src="https://techstack-generator.vercel.app/aws-icon.svg" alt="icon" />
+                </div>
+                <p>AWS</p>
+              </div>
+              <div className="techstack-container">
+                <div className="techstack about-github">
+                  <img src="https://techstack-generator.vercel.app/github-icon.svg" alt="icon" />
+                </div>
+                <p>Github</p>
+              </div>
+            </div>
+
+            {/* 테크스택 리스트 가로박스 */}
             <div className="about-tech-stack-rectangle rectangle__1" />
             <div className="about-tech-stack-rectangle rectangle__2" />
           </div>
