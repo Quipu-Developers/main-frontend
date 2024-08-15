@@ -4,6 +4,7 @@ import { showcase_data } from '../../data/showcase_data.jsx';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ShowcasemainMobile from './showcaseMainMobile.jsx'; // ShowcasemainMobile 컴포넌트 임포트
+import { FaArrowLeftLong } from 'react-icons/fa6';
 
 function Showcasemain() {
   const [index, setIndex] = useState(0);
@@ -37,6 +38,7 @@ function Showcasemain() {
           <NavLink to="/">QUIPU</NavLink>
         </section>
       </div>
+      <FaArrowLeftLong className="back-button" onClick={() => navigate('/')} />
       <div className="showcasemain-container">
         <div className="showcasemain">
           <div className="section1">
