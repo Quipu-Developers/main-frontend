@@ -27,7 +27,7 @@ html {
 body {
   margin: 0px;
   font-family: 'LINESeedKR';
-  background-color: #cbddff;
+  background-color: #c0ceff;
 }
 
 div,
@@ -109,7 +109,7 @@ p {
 }
 
 @font-face {
-  font-family: "Inter";
+  font-family: 'Inter';
   src: url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap')
     format('woff');
   font-weight: normal;
