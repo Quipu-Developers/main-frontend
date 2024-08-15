@@ -11,6 +11,7 @@ import Showcasemain from './page/ShowcaseMain/Showcasemain';
 import Showcasedetail from './page/ShowcaseDetail/Showcasedetail';
 import Interview from './page/Interview/Interview';
 import Footer from './page/Footer/Footer';
+import ActivityDetail from './page/ActivityDetail/ActivityDetail';
 import { Event, Start, Quiz, Roulette, Result } from './page/Event/Event';
 import Error from './page/Error/Error';
 import Navbar from './component/navbar';
@@ -80,6 +81,7 @@ function AppContent() {
         />
         <Route path="*" element={<Error />} />
       </Route>
+      <Route path="/activity-detail" element={<ActivityDetail />} />
       <Route path="/join-quipu" element={<JoinQuipu />} />
       <Route path="/quipu-dev" element={<Showcasemain />} />
       <Route path="/interview" element={<Interview />} />

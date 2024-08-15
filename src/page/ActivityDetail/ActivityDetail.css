@@ -1,114 +1,104 @@
 .ActivityDetail-container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-content: center;
-    width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: start;
+  align-content: center;
+  width: 100%;
+  height: auto;
+  padding-top: 90px;
+  min-height: 100vh;
 
-    @media (max-width: 900px) {
-        height: calc(var(--vh, 1vh) * 100 - 60px);
-    }
+  @media (max-width: 700px) {
+    flex-direction: column;
+  }
+}
+
+.ActivityDetail-container .logo {
+  position: absolute;
+  top: 15px;
+  left: 40px;
 }
 
 .ActivityDetail-titles {
-    z-index: 100;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    height: 50px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  width: auto;
+  padding-left: 20px;
+  padding-top: 20px;
 
-    @media (max-width: 900px) {
-        position: absolute;
-        visibility: hidden;
-        overflow: hidden;
-        width: 0;
-        height: 0;
-        margin: 0;
-        padding: 0;
-    }
+  @media (max-width: 700px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    padding-bottom: 20px;
+  }
 }
 
 .ActivityDetail-titles button {
-    margin: 10px;
-    border-style: none;
-    background-color: transparent;
-    font-size: 18px;
-    font-weight: 600;
-    text-shadow: 3px 3px 4px grey;
-    cursor: pointer;
+  margin: 10px;
+  border-style: none;
+  background-color: transparent;
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .year-dropdown {
-    margin: 16px;
-    padding: 1px 5px;
-    color: white;
-    border: 1.5px solid white;
-    border-radius: 7px;
-    background-color: #C0CEFF;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.5;
-    text-align: center;
-    cursor: pointer;
+  margin: 16px;
+  padding: 1px 5px;
+  color: white;
+  border: 1.5px solid white;
+  border-radius: 7px;
+  background-color: #c0ceff;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  cursor: pointer;
+
+  @media (max-width: 700px) {
+    display: none;
+  }
 }
 
 .year-dropdown option {
-    color: #C0CEFF;
-    background-color: white;
-}
-
-.year-dropdown-mobile {
-    position: absolute;
-    top: 7px;
-    left: 30%;
-    display: none;
-    padding: 1px 5px;
-    color: white;
-    border: 1.5px solid white;
-    border-radius: 7px;
-    background-color: #cbd3ee;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.5;
-    text-align: center;
-    cursor: pointer;
-
-    @media (max-width: 900px) {
-        display: block;
-    }
-}
-
-.year-dropdown-mobile option {
-    color: #C0CEFF;
-    background-color: white;
+  color: #c0ceff;
+  background-color: white;
 }
 
 .ActivityDetail-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ActivityDetail-top-mobile {
+  width: 100%;
+  display: none;
+  justify-content: space-between;
+  padding: 0 20px;
+  align-items: center;
+  position: relative;
+
+  @media (max-width: 700px) {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  }
+}
+
+.year-dropdown.mobile {
+  display: none;
+  @media (max-width: 700px) {
+    display: block;
+  }
 }
 
 .back-button {
-    display: none;
-    position: absolute;
-    top: -8px;
-    left: 10%;
-    border: none;
-    background-color: transparent;
-    color: white;
-    font-size: 50px;
-    padding: 0;
-    cursor: pointer;
-
-    @media (max-width: 900px) {
-        display: block;
-    }
-
-    @media (max-width: 600px) {
-        font-size: 40px;
-    }
+  color: white;
+  font-size: 2.3rem;
+  cursor: pointer;
 }

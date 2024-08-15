@@ -4,7 +4,9 @@ import './RecommendSite.css';
 function RecommendSite() {
   return (
     <div className="recommend-site">
-      <div className="recommend-site__title">Recommend Site</div>
+      <div className="recommend-site__title">
+        <span style={{ color: '#0066ff' }}>R</span>ecommend Site
+      </div>
       <div className="recommend-site__container">
         <div className="recommend-site__box">
           <div className="recommend-site__box--top">

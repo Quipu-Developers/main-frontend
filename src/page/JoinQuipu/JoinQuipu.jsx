@@ -7,7 +7,7 @@ import Logo from '../../component/logo';
 import Footer from '../Footer/Footer';
 
 function JoinQuipu() {
-  const isRecruiting = true; //모집 기간 여부
+  const isRecruiting = false; //모집 기간 여부
 
   const location = useLocation();
   const { selectedPage } = location.state || {};
@@ -211,7 +211,13 @@ function JoinQuipu() {
               <div className="join-notice__icon--top2"></div>
               <div className="join-notice__icon--body">
                 <p> 환영합니다!🎉</p>
-                <p>지원서는 <span style={{color: 'white', textDecoration:'underline' }}>회비 납부 이후</span> 제출바랍니다.</p>
+                <p>
+                  지원서는{' '}
+                  <span style={{ color: 'white', textDecoration: 'underline' }}>
+                    회비 납부 이후
+                  </span>{' '}
+                  제출바랍니다.
+                </p>
                 <br />
                 <p>
                   • 회비 : <span>20,000원</span>
@@ -237,7 +243,7 @@ function JoinQuipu() {
                 <p>이름</p>
                 <input
                   type="text"
-                  placeholder="홍길동"
+                  placeholder="이퀴푸"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
@@ -248,7 +254,7 @@ function JoinQuipu() {
                 <input
                   type="tel"
                   maxLength={10}
-                  placeholder="2024xxxxxx"
+                  placeholder="2020xxxxxx"
                   value={student_id}
                   onChange={(e) => setStudent_id(e.target.value)}
                 />
@@ -352,7 +358,9 @@ function JoinQuipu() {
                 <p>환영합니다!🎉</p>
                 <p>저희 퀴푸 개발팀에 관심을 가져주셔서 감사합니다.</p>
                 <br />
-                <h1>{'<'} 작성방법 {'>'}</h1>
+                <h1>
+                  {'<'} 작성방법 {'>'}
+                </h1>
                 <p>
                   <span>프론트엔드와 백엔드</span> 지원자분들은 <span>모두 작성</span>
                   해주시고,
@@ -362,7 +370,9 @@ function JoinQuipu() {
                   답해주세요.
                 </p>
                 <br />
-                <h1>{'<'} 제출안내 {'>'}</h1>
+                <h1>
+                  {'<'} 제출안내 {'>'}
+                </h1>
                 <p>제출해주신 지원서는 신중히 검토한 후, </p>
                 <p>
                   합격 여부를 <span>9월 7일에 문자 메세지로</span> 안내해 드릴 예정입니다.
@@ -386,7 +396,7 @@ function JoinQuipu() {
                 </p>
                 <input
                   type="text"
-                  placeholder="홍길동"
+                  placeholder="이퀴푸"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
@@ -399,7 +409,7 @@ function JoinQuipu() {
                 <input
                   type="tel"
                   maxLength={10}
-                  placeholder="2024xxxxxx"
+                  placeholder="2020xxxxxx"
                   value={student_id}
                   onChange={(e) => setStudent_id(e.target.value)}
                 />
