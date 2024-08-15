@@ -90,8 +90,8 @@
 
 .about-keyword {
   width: 100%;
-  margin: 20vh 0;
-  height: 50vh;
+  margin: 10vh 0;
+  height: fit-content;
   display: flex;
   flex-direction: column;
 
@@ -146,7 +146,6 @@
 
 .about-keyword-slide {
   width: 100%;
-  height: 40vh;
   overflow-x: hidden;
   background-color: #3184ff;
   display: flex;
@@ -161,7 +160,6 @@
 
 .about-keyword-slide-text {
   min-width: 100%;
-  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -169,7 +167,7 @@
   text-align: center;
 
   & h4 {
-    margin: 0 0 3rem 0;
+    margin: 2vh 0 3vh 0;
     font-family: 'Inter';
     font-size: 5rem;
     font-weight: 700;
@@ -182,7 +180,7 @@
     color: white;
 
     &:nth-last-child(1) {
-      margin-bottom: 1vh;
+      margin-bottom: calc(2vh + 35px);
     }
   }
 }
@@ -259,33 +257,33 @@
 
 .about-activity-left,
 .about-activity-right {
-  max-width: 50%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   gap: 5vh;
+}
 
-  & .about-activity-img {
-    width: 70%;
-    aspect-ratio: 2.5/1;
-    padding: 3% 7%;
-    background-color: #cbddff99;
-    position: relative;
+.about-activity-img {
+  width: 85%;
+  height: 20vw;
+  padding: 3% 7%;
+  background-color: #cbddff99;
+  position: relative;
 
-    & img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-    & .about-activity-right-img-border {
-      width: 106%;
-      height: 106%;
-      position: absolute;
-      top: -3%;
-      left: -3%;
-      border: 3px dashed #0066ff;
-      border-radius: 10px;
-    }
+  & .about-activity-right-img-border {
+    width: 106%;
+    height: 106%;
+    position: absolute;
+    top: -3%;
+    left: -3%;
+    border: 3px dashed #0066ff;
+    border-radius: 10px;
   }
 }
 
@@ -302,7 +300,7 @@
 
 .about-activity-left-text,
 .about-activity-right-text {
-  width: 70%;
+  width: 85%;
   padding: 3%;
   font-size: 1.4rem;
   line-height: 2;
@@ -365,7 +363,7 @@
 /* 테크스택 */
 .about-tech {
   width: 100%;
-  margin: 25vh 0;
+  margin: 12vh 0;
 }
 
 .about-tech-top {
@@ -400,9 +398,24 @@
   }
 }
 
+.about-tech-stack-rectangle {
+  width: 20vw;
+  height: 10px;
+  background-color: #3184ff;
+  position: absolute;
+}
+.rectangle__1 {
+  top: 15px;
+  left: 30px;
+}
+.rectangle__2 {
+  bottom: 15px;
+  right: 30px;
+}
+
 .about-tech-stack-list {
   width: 100%;
-  padding: 2% 0;
+  padding: 40px 0;
   background-color: #dde6ff;
   display: flex;
   flex-direction: row;
@@ -415,68 +428,51 @@
     width: 200px;
     aspect-ratio: 1/1;
   }
+}
 
-  & .about-tech-stack-rectangle {
-    width: 20vw;
-    height: 10px;
-    background-color: #3184ff;
+.about-react {
+  width: 200px;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: white;
+  border-radius: 50%;
+  
+  & svg {
+    font-size: 130px;
+    color: #00D8FF;
+  }
+  &::after {
+    content: '';
     position: absolute;
-  }
-
-  @keyframes github {
-    0% {
-      background-color: transparent;
-    }
-
-    5% {
-      background-color: rgba(0, 0, 0, 0.33);
-    }
-
-    10% {
-      background-color: rgba(0, 0, 0, 0.67);
-    }
-
-    15% {
-      background-color: rgba(0, 0, 0);
-    }
-
-    80% {
-      background-color: rgb(0, 0, 0);
-    }
-
-    100% {
-      background-color: rgb(0, 0, 0);
-    }
-  }
-
-  .about-tech-stack-list-github {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    border-radius: 100%;
+    box-sizing: border-box;
     background-color: transparent;
+    border: 5px solid #00D8FF;
+    /* border-right: 5px solid transparent;
+    border-bottom: 5px solid transparent; */
+  }
+  /* &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: github 5s linear infinite;
-
-    & img {
-      object-fit: cover;
-      width: 70%;
-      height: 70%;
-    }
-  }
-
-  .rectangle__1 {
-    top: 15px;
-    left: 60px;
-  }
-
-  .rectangle__2 {
-    bottom: 15px;
-    right: 60px;
-  }
-
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 5px solid #00D8FF;
+    border-top: 5px solid transparent;
+    border-left: 5px solid transparent;
+    transform: rotate(45deg);
+  } */
 }
 
 @media (max-width: 900px) {
@@ -518,7 +514,7 @@
 
 .about-dev-button {
   margin-top: 5vh;
-  min-width: 30%;
+  width: 40%;
   position: relative;
 
   & button {
