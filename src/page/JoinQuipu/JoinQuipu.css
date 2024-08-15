@@ -108,10 +108,17 @@
   padding: 20px;
   white-space: nowrap;
   text-align: center;
+  color: white;
+}
+
+.join-notice__icon--body h1 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.7;
 }
 
 .join-notice__icon--body p {
-  color: #06da22;
   font-family: 'NEXON Lv2 Gothic';
   margin: 0;
   font-size: 0.9rem;
@@ -120,8 +127,7 @@
 }
 
 .join-notice__icon--body span {
-  color: white;
-  font-weight: 400;
+  color: #06da22;
 }
 
 .form-container {
