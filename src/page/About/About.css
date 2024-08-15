@@ -467,6 +467,7 @@
   gap: 10px;
 
   & p {
+    font-family: "Inter";
     font-size: 1.2rem;
     color: #11438e;
     font-weight: bold;
@@ -474,6 +475,8 @@
 }
 
 .techstack {
+  overflow: hidden;
+  cursor: pointer;
   width: 100%;
   aspect-ratio: 1/1;
   display: flex;
@@ -482,11 +485,21 @@
   border-radius: 50%;
   box-sizing: border-box;
   background-color: white;
-
   & img {
     width: 80%;
     aspect-ratio: 1/1;
     object-fit: cover;
+    transition: all 0.5s ease;
+  }
+
+  &:hover {
+    & img {
+      transform: scale(1.1);
+    }
+
+    & svg {
+      font-size: 150px;
+    }
   }
 }
 
@@ -502,7 +515,7 @@
 .about-github {
   border: 3px solid black;
   & img {
-    width: 100%;
+    width: 90%;
   }
 }
 .about-aws {
@@ -521,6 +534,7 @@
   & svg {
     font-size: 130px;
     color: #00D8FF;
+    transition: font-size 0.5s ease;
     animation: react-spin 3s infinite;
   }
 }
@@ -589,6 +603,15 @@
     width: 20%;
     & p {
       font-size: 0.8rem;
+    }
+  }
+
+  .techstack {
+    border-width: 1.5px;
+    &:hover {
+      & svg {
+        font-size: 15vw;
+      }
     }
   }
 
