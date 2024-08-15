@@ -6,7 +6,8 @@ import InterviewDetail from './interviewdetail.jsx';
 
 function Interview() {
   const [IsdetailOpen, setIsdetailOpen] = useState(false);
-  const [index, setIndex] = useState(0);
+  // const [index, setIndex] = useState(0);
+  const index = 0;
   const [selectedProfile, setSelectedProfile] = useState(null); // 선택된 프로필 상태 추가
 
   const openDetailModal = (profile) => {
