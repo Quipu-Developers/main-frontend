@@ -53,7 +53,7 @@
   }
 }
 
-/* 메인 미디어쿼리 */
+/* 메인 미디어 쿼리 */
 @media (max-width: 900px) {
   .about-main {
     min-height: 35vh;
@@ -99,7 +99,7 @@
 
 .about-keyword {
   width: 100%;
-  margin: 7vh 0;
+  margin: 12vh 0;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -108,7 +108,7 @@
     cursor: pointer;
     align-self: center;
     padding: 0 2px;
-    margin: 40px 0;
+    margin: 0 0 40px 0;
     font-family: 'Inter';
     font-size: 3rem;
     font-weight: 700;
@@ -176,7 +176,8 @@
   text-align: center;
 
   & h4 {
-    margin: 2vh 0 3vh 0;
+    margin-top: calc(1.5vh + 35px);
+    margin-bottom: 2vh;
     font-family: 'Inter';
     font-size: 5rem;
     font-weight: 700;
@@ -189,7 +190,7 @@
     color: white;
 
     &:nth-last-child(1) {
-      margin-bottom: calc(2vh + 35px);
+      margin-bottom: calc(1.5vh + 35px);
     }
   }
 }
@@ -229,7 +230,12 @@
   }
 }
 
+/* 키워드 미디어 쿼리 */
 @media (max-width: 900px) {
+  .about-keyword {
+    margin: 7vh 0;
+  }
+
   .about-keyword-slide-text {
     & h4 {
       font-size: 3.5rem;
@@ -357,7 +363,7 @@
   color: #0066ff;
 }
 
-/* 액티비티 미디어쿼리 */
+/* 액티비티 미디어 쿼리 */
 @media (max-width: 1050px) {
   .about-activity {
     margin: 0 4%;
@@ -586,8 +592,12 @@
   }
 }
 
-/* 테크스택 미디어쿼리 */
+/* 테크스택 미디어 쿼리 */
 @media (max-width: 900px) {
+  .about-tech {
+    margin: 7vh 0;
+  }
+
   .about-tech-top {
     font-size: 1rem;
     padding: 0 2%;
