@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import './RecommendSite.css';
 
 function RecommendSite() {
@@ -104,8 +104,8 @@ function Icon({ img, name, link, exp }) {
       <div className="recommend-site__icon--body">
         <img src={process.env.PUBLIC_URL + img} alt={name}></img>
         <div>
-          <p style={{ fontSize: '15px', fontWeight: 'bold', margin: '5px' }}>{name}</p>
-          {isListHover ? <p style={{ fontSize: '12px', margin: '5px' }}>{exp}</p> : null}
+          <p style={{ fontSize: '15px', fontWeight: 'bold', marginLeft: '10px' }}>{name}</p>
+          {isListHover ? <p style={{ fontSize: '12px', marginLeft: '10px' }}>{exp}</p> : null}
         </div>
       </div>
     </div>
