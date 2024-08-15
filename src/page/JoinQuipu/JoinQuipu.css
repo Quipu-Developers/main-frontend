@@ -119,6 +119,11 @@
   letter-spacing: 0.8px;
 }
 
+.join-notice__icon--body span {
+  color: white;
+  font-weight: 400;
+}
+
 .form-container {
   width: 100%;
   display: flex;
@@ -132,7 +137,7 @@
   }
 }
 
-.form-container div {
+.form-field {
   width: 90%;
   max-width: 600px;
   margin: 10px 0;
@@ -156,11 +161,11 @@
   padding: 10px;
   border-radius: 6px;
   background-color: rgb(255, 255, 255, 0.6);
-  box-shadow: 0px0px 3px #c0ceff;
   border: none;
   resize: none;
   line-height: 1.5;
   font-family: 'LINESeedKR';
+  box-sizing: border-box;
 
   @media (max-width: 600px) {
     padding: 12px;
@@ -176,45 +181,32 @@
   cursor: pointer;
 }
 
-.apply {
+.apply-button {
+  width: 130px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.apply .button-enabled {
-  width: 130px;
-  height: 50px;
-  margin-top: 20px;
+  cursor: pointer;
+  background-color: #dfe7ff;
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: 600;
   color: #1c0093;
   border: solid 2px #1c0093;
-  border-radius: 12px;
-  background-color: #dfe7ff;
-  font-size: 20px;
-  font-weight: 600;
-  text-align: center;
-  cursor: pointer;
+  margin-top: 50px;
 }
 
-.apply .button-disabled {
-  width: 130px;
-  height: 50px;
-  margin-top: 20px;
+.apply-button.button-disabled {
   color: grey;
   border: solid 2px grey;
-  border-radius: 12px;
-  background-color: #dfe7ff;
-  font-size: 20px;
-  font-weight: 600;
-  text-align: center;
-  cursor: pointer;
 }
 
 .faq-title {
   font-family: 'JalnanGothic';
   font-size: 1.9rem;
   letter-spacing: 1px;
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 .faq {
@@ -452,32 +444,27 @@
   }
 }
 
-.checkbox {
+.joinquipu-checkbox {
+  width: 90%;
+  max-width: 600px;
+  background-color: rgb(255, 255, 255, 0.3);
+  border-radius: 6px;
+  padding: 10px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  margin: 10px;
+  margin-top: 20px;
 }
 
-.checkbox #checkbox-label {
-  width: auto;
-  font-size: 14px;
-  font-weight: normal;
-  margin-right: 10px;
+.joinquipu-checkbox #checkbox-label {
+  font-size: 0.9rem;
   word-break: keep-all;
-
-  @media (max-width: 400px) {
-    font-size: 13px;
-  }
-
-  @media (max-width: 350px) {
-    font-size: 11px;
-  }
 }
 
-.checkbox #checkbox-input {
-  width: auto;
-  box-shadow: none;
+#checkbox-input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
 .joinquipu-container .footer {
@@ -488,7 +475,7 @@
   color: #26355d;
 }
 
-.joinquipu-container .footer h1 {
+.joinquipu-container .footer .footer-logo h1 {
   background: linear-gradient(to right, #26355d, #0f6292);
   -webkit-background-clip: text;
   background-clip: text;

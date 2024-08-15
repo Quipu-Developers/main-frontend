@@ -212,16 +212,16 @@ function JoinQuipu() {
               <div className="join-notice__icon--body">
                 <p> 환영합니다!</p>
                 <p>지원서는 회비 납부 이후 제출바랍니다.</p>
-                <p>회비 : 20,000원</p>
+                <p>
+                  회비 : <span>20,000원</span>
+                </p>
                 <p
                   onClick={() => {
                     copyToClipboard('1234567');
                   }}
                 >
                   카카오뱅크&nbsp;
-                  <span className="account-number" style={{ color: '#448FFF' }}>
-                    3333311276288
-                  </span>
+                  <span className="account-number">3333311276288</span>
                   &nbsp;(예금주 : 김예영)
                 </p>
               </div>
@@ -232,7 +232,7 @@ function JoinQuipu() {
             </div>
 
             <div className="form-container">
-              <div>
+              <div className="form-field">
                 <p>이름</p>
                 <input
                   type="text"
@@ -242,7 +242,7 @@ function JoinQuipu() {
                 />
               </div>
 
-              <div>
+              <div className="form-field">
                 <p>학번</p>
                 <input
                   type="tel"
@@ -253,7 +253,7 @@ function JoinQuipu() {
                 />
               </div>
 
-              <div>
+              <div className="form-field">
                 <p>학과</p>
                 <input
                   placeholder="전자전기컴퓨터공학부"
@@ -262,7 +262,7 @@ function JoinQuipu() {
                 />
               </div>
 
-              <div>
+              <div className="form-field">
                 <p>전화번호</p>
                 <input
                   type="tel"
@@ -273,7 +273,7 @@ function JoinQuipu() {
                 />
               </div>
 
-              <div>
+              <div className="form-field">
                 <p>지원동기 또는 바라는 점</p>
                 <textarea
                   onChange={(e) => {
@@ -282,6 +282,26 @@ function JoinQuipu() {
                   rows={2}
                   placeholder={'하고 싶은 활동이나 바라는 점을 적어주세요!'}
                   value={motivation}
+                />
+              </div>
+
+              <div className="joinquipu-checkbox">
+                <label id="checkbox-label">입력하신 정보가 정확한지 다시 한 번 확인해주세요!</label>
+                <input
+                  id="checkbox-input"
+                  type="checkbox"
+                  checked={reviewed}
+                  onChange={handleReviewedChange}
+                />
+              </div>
+
+              <div className="joinquipu-checkbox">
+                <label id="checkbox-label">폼 제출 전, 회비를 미리 납부해 주시기 바랍니다!</label>
+                <input
+                  id="checkbox-input"
+                  type="checkbox"
+                  checked={paidFee}
+                  onChange={handlePaidFeeChange}
                 />
               </div>
             </div>
@@ -332,16 +352,22 @@ function JoinQuipu() {
                 <p>저희 퀴푸 개발팀에 관심을 가져주셔서 감사합니다.</p>
                 <p>제출해주신 지원서는 신중히 검토한 후, </p>
                 <p>
-                  합격 여부를{' '}
-                  <span style={{ color: 'white', fontWeight: '400' }}>9월 7일에 문자 메세지로</span>{' '}
-                  안내해 드릴 예정입니다.
+                  합격 여부를 <span>9월 7일에 문자 메세지로</span> 안내해 드릴 예정입니다.
                 </p>
                 <p>이는 지원자분들의 역량을 평가하기 위함이 아니라, </p>
                 <p>
-                  <span style={{ color: 'white', fontWeight: '400' }}>개발에 대한 방향성</span>을
-                  확인하기 위한 것이니
+                  <span>개발에 대한 방향성</span>을 확인하기 위한 것이니
                 </p>
                 <p>부담 갖지 말고 작성해 주시기 바랍니다.</p>
+                <br></br>
+                <p>
+                  <span>프론트엔드와 백엔드</span> 지원자분들은 <span>모두 작성</span>
+                  해주시고,
+                  <br></br>
+                  <span>UX/UI 디자인</span> 지원자분들은&nbsp;
+                  <span style={{ color: '#FF5580' }}>&nbsp;*</span> <span>표시된 항목</span>에만
+                  답해주세요.
+                </p>
               </div>
             </div>
 
@@ -350,8 +376,10 @@ function JoinQuipu() {
             </div>
 
             <div className="form-container">
-              <div>
-                <p>이름</p>
+              <div className="form-field">
+                <p>
+                  이름<span style={{ color: '#FF5580' }}>&nbsp;*</span>
+                </p>
                 <input
                   type="text"
                   placeholder="홍길동"
@@ -360,8 +388,10 @@ function JoinQuipu() {
                 />
               </div>
 
-              <div>
-                <p>학번</p>
+              <div className="form-field">
+                <p>
+                  학번<span style={{ color: '#FF5580' }}>&nbsp;*</span>
+                </p>
                 <input
                   type="tel"
                   maxLength={10}
@@ -371,8 +401,10 @@ function JoinQuipu() {
                 />
               </div>
 
-              <div>
-                <p>학과</p>
+              <div className="form-field">
+                <p>
+                  학과<span style={{ color: '#FF5580' }}>&nbsp;*</span>
+                </p>
                 <input
                   placeholder="전자전기컴퓨터공학부"
                   value={major}
@@ -380,8 +412,10 @@ function JoinQuipu() {
                 />
               </div>
 
-              <div>
-                <p>전화번호</p>
+              <div className="form-field">
+                <p>
+                  전화번호<span style={{ color: '#FF5580' }}>&nbsp;*</span>
+                </p>
                 <input
                   type="tel"
                   maxLength={13}
@@ -391,19 +425,23 @@ function JoinQuipu() {
                 />
               </div>
 
-              <div>
-                <p>지원 분야</p>
+              <div className="form-field">
+                <p>
+                  지원 분야<span style={{ color: '#FF5580' }}>&nbsp;*</span>
+                </p>
                 <input
                   onChange={(e) => {
                     setDepartment(e.target.value);
                   }}
-                  placeholder={'UI/UX 디자인, 프론트엔드, 백엔드 중 하나 골라주세요.'}
+                  placeholder={'UX/UI 디자인, 프론트엔드, 백엔드 중 하나 골라주세요.'}
                   value={department}
                 />
               </div>
 
-              <div>
-                <p>지원동기</p>
+              <div className="form-field">
+                <p>
+                  지원동기<span style={{ color: '#FF5580' }}>&nbsp;*</span>
+                </p>
                 <textarea
                   onChange={(e) => {
                     setMotivation(e.target.value);
@@ -414,7 +452,7 @@ function JoinQuipu() {
                 />
               </div>
 
-              <div>
+              <div className="form-field">
                 <p>대표적인 개발 경험 소개</p>
                 <textarea
                   ref={project_descriptionRef}
@@ -429,23 +467,30 @@ function JoinQuipu() {
                 />
               </div>
 
-              <div>
-                <p>포트폴리오 PDF</p>
+              <div className="form-field">
+                <p>
+                  포트폴리오 PDF<span style={{ color: '#FF5580' }}>&nbsp;*</span>
+                </p>
                 <input type="file" accept=".pdf" onChange={handleUploadPdf} />
-                <p
+                <div
                   style={{
                     fontSize: '0.85rem',
                     fontWeight: '400',
                     color: '#1c0093',
                     wordBreak: 'keep-all',
+                    display: 'flex',
+                    marginTop: '10px',
                   }}
                 >
-                  * 개발 경력, 주요 프로젝트, 기술 역량을 포함한 포트폴리오를 자유형식으로 작성하여
-                  PDF로 제출해주세요.
-                </p>
+                  *&nbsp;
+                  <div>
+                    개발 경력, 주요 프로젝트, 기술 역량을 포함한 포트폴리오를 자유형식으로 작성하여
+                    PDF로 제출해주세요.
+                  </div>
+                </div>
               </div>
 
-              <div>
+              <div className="form-field">
                 <p>GitHub 프로필 주소</p>
                 <input
                   type="text"
@@ -455,7 +500,7 @@ function JoinQuipu() {
                 />
               </div>
 
-              <div>
+              <div className="form-field">
                 <p>GitHub 이메일</p>
                 <input
                   type="text"
@@ -465,7 +510,7 @@ function JoinQuipu() {
                 />
               </div>
 
-              <div>
+              <div className="form-field">
                 <p>Slack 이메일</p>
                 <input
                   type="text"
@@ -474,55 +519,53 @@ function JoinQuipu() {
                   onChange={(e) => setSlack_email(e.target.value)}
                 />
               </div>
-            </div>
 
-            <div className="checkbox">
-              <label id="checkbox-label">
-                <span style={{ color: '#f0054f' }}>불합격 시 일반 부원</span>으로 가입 희망하신다면
-                체크해주세요!
-              </label>
-              <input
-                id="checkbox-input"
-                type="checkbox"
-                checked={willing_general_member}
-                onChange={handlewilling_general_memberChange}
-              />
+              <div className="joinquipu-checkbox">
+                <label id="checkbox-label">
+                  불합격 시 일반 부원으로 가입 희망하신다면 체크해주세요!
+                </label>
+                <input
+                  id="checkbox-input"
+                  type="checkbox"
+                  checked={willing_general_member}
+                  onChange={handlewilling_general_memberChange}
+                />
+              </div>
+
+              <div className="joinquipu-checkbox">
+                <label id="checkbox-label">입력하신 정보가 정확한지 다시 한 번 확인해주세요!</label>
+                <input
+                  id="checkbox-input"
+                  type="checkbox"
+                  checked={reviewed}
+                  onChange={handleReviewedChange}
+                />
+              </div>
+
+              <div className="joinquipu-checkbox">
+                <label id="checkbox-label">폼 제출 전, 회비를 미리 납부해 주시기 바랍니다!</label>
+                <input
+                  id="checkbox-input"
+                  type="checkbox"
+                  checked={paidFee}
+                  onChange={handlePaidFeeChange}
+                />
+              </div>
             </div>
           </>
         )}
 
-        <div className="checkbox">
-          <label id="checkbox-label">입력하신 정보가 정확한지 다시 한 번 확인해주세요!</label>
-          <input
-            id="checkbox-input"
-            type="checkbox"
-            checked={reviewed}
-            onChange={handleReviewedChange}
-          />
-        </div>
-        <div className="checkbox">
-          <label id="checkbox-label">폼 제출 전, 회비를 미리 납부해 주시기 바랍니다!</label>
-          <input
-            id="checkbox-input"
-            type="checkbox"
-            checked={paidFee}
-            onChange={handlePaidFeeChange}
-          />
-        </div>
-
         {/* 신청 버튼 */}
-        <div className="apply">
-          <button
-            type="button"
-            onClick={() => {
-              handleSubmit();
-            }}
-            disabled={!canSubmit}
-            className={`apply-button ${!canSubmit ? 'button-disabled' : 'button-enabled'}`}
-          >
-            📥 Apply
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={() => {
+            handleSubmit();
+          }}
+          disabled={!canSubmit}
+          className={`apply-button ${canSubmit ? '' : 'button-disabled'}`}
+        >
+          📥 Apply
+        </button>
 
         {showPopup && (
           <div className="popup">
