@@ -210,18 +210,20 @@ function About() {
         </div>
       </div>
 
-      {/* 퀴푸 개발팀, 퀴푸뎁, 퀴푸디브 */}
+      {/* 퀴푸 개발팀, 퀴푸 뎁, 퀴푸디브 */}
       <div className="about-dev">
         <p>퀴푸에서 해온 웹 개발 프로젝트의 과정과 참여자들의 인터뷰를 보고 싶다면,</p>
         <p>
           아래 <span>&apos;QUIPU-DEV&apos;</span> 버튼을 눌러주세요!
         </p>
 
-        <div className="about-dev-button" onClick={() => IsDropdown(!dropdown)}>
-          <button>QUIPU-DEV</button>
-          {dropdown !== true && (
-            <img src={process.env.PUBLIC_URL + '/About-img/pointer.png'} alt="pointer" />
-          )}
+        <div className="about-dev-button">
+          <button onClick={()=>IsDropdown(!dropdown)}>
+            QUIPU-DEV
+            {dropdown !== true && (
+              <img src={process.env.PUBLIC_URL + '/About-img/pointer.png'} alt="pointer" />
+            )}
+          </button>
           {dropdown === true && (
             <div className="about-dev-button-list">
               <p onClick={() => navigate('/quipu-dev')}>Showcase</p>
