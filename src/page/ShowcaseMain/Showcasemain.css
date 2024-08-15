@@ -166,15 +166,17 @@
   object-fit: cover;
 }
 .gallery3-text {
+  padding: 2.5%;
   display: flex;
   flex-direction: column;
 }
 
 .gallery3-text h4 {
+  margin-top: 0;
   color: #18101096;
   font-family: 'Lora';
   text-align: left;
-  font-size: 0.6rem;
+  font-size: 0.9rem;
 }
 
 .gallery3-text p {
@@ -182,7 +184,7 @@
   color: #01010196;
   font-family: 'Lora';
   text-align: left;
-  font-size: 0.5rem;
+  font-size: 0.8rem;
 }
 
 .gallery3 h4 {

@@ -187,6 +187,7 @@
         background-color: white;
         display: inline-flex;
         width: 60%;
+        max-width: 250px;
         flex-direction: column;
         align-self: flex-end;
         justify-content: center;
@@ -198,13 +199,14 @@
     .section2-text h4 {
         color: #18101096;
         font-family: "Lora";
-        font-size: 0.7rem;
+        font-size: 1.1rem;
     }
     .section2-text p {
         color: #01010196;
         font-family: "Lora";
-        font-size: 0.4rem;
+        font-size: 0.8rem;
     }
+
     .section2-gallery2{
         z-index: 1;
         top: 45vh;
@@ -288,7 +290,7 @@
             top: 16vh ;
             height: 17vh;
             & p{
-                font-size: 0.5rem ;
+                font-size: 0.8rem ;
             }
         }
         .section2-gallery2{
