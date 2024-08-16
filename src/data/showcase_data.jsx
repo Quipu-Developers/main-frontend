@@ -76,30 +76,31 @@ export const showcase_data = [
       '/ShowcaseMain-img/image 4.png',
       '/ShowcaseMain-img/image 5.png',
     ],
-    goal: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    this_project: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    this_project_for: 'Lorem Ipsum is simply dummy text of the printing',
+    goal: 'Main Web의 Join Quipu를 통해 받은 지원 폼의 내용을 실시간으로 편하게 확인하고 관리하기 위해 관리자 서비스 웹페이지를 만들었습니다.',
+    this_project:
+      'Join Quipu와 관련된 데이터베이스에 저장된 지원 데이터를 불러오고, 엑셀 파일로 데이터를 저장할 수 있는 기능이 포함되어 있습니다.',
+    this_project_for: '동아리 내 지원 데이터를 확인해야 하는 임원진',
     web_url: 'https://google.com',
     github_url: 'https://github.com',
     history: [
       {
         card_type: 'history_card1',
-        date: '2024.07.24',
+        date: '2024.08.17',
         content: [
-          'ac lacus, varius ipsum luctus lobortis, lacus elit. elit. sit eget non libero, adipiscing urna. urna. dui. tincidunt diam ',
-          'non. malesuada In Lorem ipsum varius cursus at, est. non quis placerat at nibh ex. sit quam elementum odio diam Ut sit quam ',
+          '실시간으로 지원 데이터가 담긴 DB에서 내용을 불러와 웹페이지를 통해 확인할 수 있습니다.',
+          '기존에 AWS의 DB에 직접 접속하여 데이터를 확인하던 불편함을 개선하였습니다.',
         ],
-        tech_stack: ['https://html.com'],
+        tech_stack: ['HTML', 'CSS'],
         history_img: ['/ShowcaseDetail-img/image 1.png', '/ShowcaseDetail-img/image 2.png'],
       },
       {
         card_type: 'history_card2',
         date: '2024.07.24',
         content: [
-          'ac lacus, varius ipsum luctus lobortis, lacus elit. elit. sit eget non libero, adipiscing urna. urna. dui. tincidunt diam ',
-          'non. malesuada In Lorem ipsum varius cursus at, est. non quis placerat at nibh ex. sit quam elementum odio diam Ut sit quam',
+          '내용이 긴 필드는 모달을 통해 추가적으로 확인할 수 있게 하여, 더 직관적인 테이블을 렌더링합니다.',
+          '클릭 이벤트를 통해 필요한 데이터를 쉽게 복사하여 회원 모집 과정에 도움을 줍니다.',
         ],
-        tech_stack: ['https://javascript.com', 'https://css.com'],
+        tech_stack: ['JavaScript', 'CSS'],
         history_img: '/ShowcaseDetail-img/image 3.png',
       },
       {
