@@ -13,10 +13,11 @@
   width: 240px;
   height: 150px;
   margin: 15px;
-  border-radius: 2px;
-  box-shadow: 5px 5px 5px grey;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.1);
   object-fit: cover;
   cursor: pointer;
+  transition: box-shadow 0.3s ease;
 
   @media (max-width: 300px) {
     margin: 15px 0;
@@ -25,7 +26,7 @@
 }
 
 .FriendShip-img:hover {
-  box-shadow: 3px 3px 4px grey;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .img__modal--container {
@@ -45,6 +46,8 @@
   z-index: auto;
   max-width: 70%;
   max-height: 70%;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .blank-img {

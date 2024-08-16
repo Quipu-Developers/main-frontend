@@ -29,8 +29,8 @@
   color: #626262;
   border: 1px solid #cacaca;
   border-radius: 0.5em;
-  box-shadow: 2px 2px 2px #5e5d5d;
-  transition: all 0.05s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
   position: relative;
   z-index: 100;
@@ -50,9 +50,9 @@
 }
 
 .recommend-site__icon:hover {
-  transform: scale(1.15);
-  box-shadow: 2px 2px 2px grey;
-  transition: all 0.05s ease-in-out;
+  transform: scale(1.1);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 
   @media (max-width: 800px) {
     transform: scale(1.1);
