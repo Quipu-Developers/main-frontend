@@ -334,7 +334,7 @@
       width: 60%;
       object-fit: cover;
       padding: 10px;
-      background-color: rgba(243, 217, 255, 0.8);
+      background-color: #C2D5F5;
     }
   }
 }
@@ -667,7 +667,7 @@
   justify-content: flex-start;
   align-items: flex-end;
   position: relative;
-  background: #f3d9ffcc;
+  background: #C2D5F5;
 
   & .history__4-img-base {
     width: 90%;
