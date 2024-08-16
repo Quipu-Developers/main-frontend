@@ -129,7 +129,7 @@
 .gallery1 {
   width: 95%;
   height: 95%;
-  background: linear-gradient(0deg, rgba(241, 204, 132, 0.22), rgba(241, 204, 132, 0.22));
+  background-color: whitesmoke;
   border: 1px solid #0c0b0b1a;
   display: flex;
   justify-content: center;
@@ -146,7 +146,8 @@
 .gallery2 {
   width: 95%;
   height: 95%;
-  background: #e0abba8f;
+  /* background: #e0abba8f; */
+  background-color: whitesmoke;
   border: 1px solid #0c0b0b1a;
   display: flex;
   justify-content: center;
@@ -166,7 +167,7 @@
   width: 47%;
   height: 46%;
   margin: 1%;
-  background:#d1e5c0;
+  background-color: whitesmoke;
   border: 1px solid #0c0b0b1a;
   display: flex;
   align-items: center;
@@ -207,7 +208,7 @@
   width: 95%;
   height: 95%;
   border: 1px solid #0c0b0b1a;
-  background: linear-gradient(0deg, rgba(149, 124, 221, 0.23), rgba(149, 124, 221, 0.23));
+  background-color: whitesmoke;
   display: flex;
   align-items: center;
   justify-content: center;
