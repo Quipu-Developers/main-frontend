@@ -523,6 +523,10 @@
 
   .history__2-img {
     width: 50%;
+
+    @media (max-height: 600px) {
+      width: 30%;
+    }
   }
 
   .history__2-card-container {
@@ -535,6 +539,10 @@
 
     & h4 {
       align-self: flex-start;
+    }
+
+    @media (max-height: 600px) {
+      bottom: 0;
     }
   }
 }
@@ -562,6 +570,10 @@
     flex-direction: column;
     align-items: center;
     margin-top: 5vh;
+
+    @media (max-height: 500px) {
+      margin-top: 7vw;
+    }
   }
 
   .showcasedetail-main-lower-row__2-left {
@@ -708,7 +720,7 @@
     bottom: 4vw;
 
     @media (max-width: 800px) {
-      bottom: 6vw;
+      bottom: 4vw;
     }
 
     @media (max-width: 650px) {
