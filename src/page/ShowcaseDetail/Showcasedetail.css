@@ -8,7 +8,6 @@
   overflow-y: auto;
   background-color: rgb(254, 251, 255);
   word-break: keep-all;
-  font-family: 'Playfair Display';
   display: flex;
   flex-direction: column;
 
@@ -17,13 +16,18 @@
   }
 }
 
+.showcasedetail-container * {
+  font-family: 'Pretendard-Regular', 'Playfair Display';
+  font-family: 'RIDIBatang', 'Playfair Display';
+}
+
 .showcasedetail-header {
   width: 100%;
   padding: 1% 4%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  
+
   & h1 {
     font-family: 'Lora';
     font-style: italic;
@@ -47,7 +51,7 @@
   & svg {
     cursor: pointer;
     font-size: 20px;
-    color: #835E86;
+    color: #835e86;
   }
 }
 
@@ -60,12 +64,12 @@
     & svg {
       cursor: pointer;
       font-size: 20px;
-      color: #835E86;
+      color: #835e86;
       align-self: flex-start;
       margin-left: 1%;
     }
   }
-  
+
   .showcasedetail-header-border {
     width: 86%;
     margin: 0 7%;
@@ -292,7 +296,6 @@
     height: 100%;
     object-fit: cover;
   }
-
 }
 
 .history__1-card-container {
@@ -304,19 +307,18 @@
 
   position: relative;
   top: 5%;
-  
+
   & h4 {
-    font-family: "Source Serif 4";
+    font-family: 'Source Serif 4';
     font-size: 1.2rem;
     font-weight: 600;
   }
-  
+
   & p {
-    font-family: "Inter";
     font-size: 0.8rem;
     color: #646464;
   }
-  
+
   & .history__1-card-img {
     height: 9vw;
     aspect-ratio: 2.5/1;
@@ -327,8 +329,7 @@
     position: relative;
     z-index: 1;
     right: 5vw;
-  
-    
+
     & img {
       width: 60%;
       object-fit: cover;
@@ -361,7 +362,7 @@
     width: 25px;
     height: 25px;
     border-radius: 7px;
-    color: #E14E1D;
+    color: #e14e1d;
     transition: all 0.3s ease-in-out;
 
     &:hover {
@@ -378,18 +379,16 @@
   flex-direction: column;
 
   & h4 {
-    font-family: "Source Serif 4";
+    font-family: 'Source Serif 4';
     font-size: 1.2rem;
     font-weight: 600;
     text-align: start;
   }
 
   & p {
-    font-family: "Inter";
     font-size: 0.8rem;
     color: #646464;
   }
-  
 }
 
 .history__1-mobile-middle {
@@ -429,8 +428,7 @@
   aspect-ratio: 2/1;
   object-fit: cover;
   padding: 7px;
-  background-color: #F3D9FFCC;
-  ;
+  background-color: #f3d9ffcc;
 }
 
 /* 역사 카드 2 */
@@ -444,7 +442,6 @@
   position: relative;
   top: 8vw;
 }
-
 
 .history__2-img {
   height: 100%;
@@ -481,7 +478,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  background: #F3D9FFD9;
+  background: #f3d9ffd9;
 
   position: relative;
   bottom: 2%;
@@ -489,18 +486,16 @@
   z-index: 1;
 
   & h4 {
-    font-family: "Source Serif 4";
+    font-family: 'Source Serif 4';
     font-size: 1.2rem;
     font-weight: 600;
   }
 
   & p {
-    font-family: "Inter";
     font-size: 0.8rem;
     color: #646464;
   }
 }
-
 
 .history__2-card-link {
   display: flex;
@@ -563,7 +558,6 @@
   gap: 1vh;
 }
 
-
 /* 역사 둘째줄 미디어쿼리 */
 @media (max-width: 900px) {
   .showcasedetail-main-lower-row__2 {
@@ -590,13 +584,12 @@
   gap: 7px;
 
   & h4 {
-    font-family: "Source Serif 4";
+    font-family: 'Source Serif 4';
     font-size: 1.2rem;
     font-weight: 600;
   }
 
   & p {
-    font-family: "Inter";
     font-size: 0.8rem;
     color: #646464;
   }
@@ -609,9 +602,8 @@
   @media (min-width: 901px) {
     & p {
       width: calc(100% - 35px);
-    }   
+    }
   }
-
 }
 
 /* 역사 카드 3 미디어쿼리 */
@@ -619,7 +611,8 @@
   .history__3-container {
     width: 100%;
 
-    & h4, & p {
+    & h4,
+    & p {
       align-self: flex-end;
       text-align: end;
       width: 70%;
@@ -656,13 +649,12 @@
   text-align: end;
 
   & h4 {
-    font-family: "Source Serif 4";
+    font-family: 'Source Serif 4';
     font-size: 1.2rem;
     font-weight: 600;
   }
-  
+
   & p {
-    font-family: "Inter";
     font-size: 0.8rem;
     color: #646464;
   }
@@ -676,8 +668,8 @@
   justify-content: flex-start;
   align-items: flex-end;
   position: relative;
-  background: #F3D9FFCC;
-  
+  background: #f3d9ffcc;
+
   & .history__4-img-base {
     width: 90%;
     aspect-ratio: 1/1;
@@ -746,7 +738,7 @@
   bottom: 10%;
   left: 10%;
 
-  & img{
+  & img {
     width: 100%;
     object-fit: cover;
   }
@@ -757,21 +749,20 @@
   display: flex;
   flex-direction: column;
   gap: 7px;
-  background: #F3D9FFD9;
+  background: #f3d9ffd9;
   position: relative;
   z-index: 1;
 
   & h4 {
-    font-family: "Source Serif 4";
+    font-family: 'Source Serif 4';
     font-size: 1.2rem;
     font-weight: 600;
   }
 
   & p {
-    font-family: "Inter";
     font-size: 0.8rem;
     color: #646464;
-  } 
+  }
 }
 
 .history__5-card-link {
@@ -823,7 +814,7 @@
     font-size: 1.5rem;
     font-style: italic;
     font-weight: 700;
-    color: #835E86;
+    color: #835e86;
   }
 }
 

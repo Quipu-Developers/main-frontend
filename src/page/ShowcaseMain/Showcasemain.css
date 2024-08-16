@@ -4,10 +4,14 @@
   overflow-y: auto;
   position: relative;
   background-color: white;
-  font-family: 'NEXON Lv2 Gothic';
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.showcasemain-house * {
+  font-family: 'Pretendard-Regular', 'Lora';
+  font-family: 'RIDIBatang', 'Lora';
 }
 
 .showcasemain-house .back-button {
@@ -36,7 +40,6 @@
 
 .showcasemain-logo {
   margin: 0.5% 3% 1% 3%;
-  font-family: 'Lora', serif;
   font-style: italic;
   font-size: 3rem;
   font-weight: 700;
@@ -92,7 +95,6 @@
 
 .showcasemain-list {
   padding: 1%;
-  font-family: 'Lora';
   margin: 0 2%;
   display: flex;
   flex-direction: row;
@@ -154,8 +156,7 @@
 .gallery2 h3 {
   padding: 3%;
   font-family: 'Lora';
-  font-size: 1.2rem;
-  line-height: 1.5;
+  font-size: 1.5rem;
   text-align: left;
   color: #000000;
 }
@@ -186,7 +187,6 @@
 .gallery3-text h4 {
   margin-top: 0;
   color: #18101096;
-  font-family: 'Lora';
   text-align: left;
   font-size: 2.5rem;
   margin-bottom: 1%;
@@ -195,14 +195,12 @@
 .gallery3-text p {
   object-fit: cover;
   color: #01010196;
-  font-family: 'Lora';
   text-align: left;
   font-size: 0.8rem;
 }
 
 .gallery3 h4 {
   display: block;
-  font-family: 'Lora';
 }
 
 .gallery4 {
@@ -235,7 +233,6 @@
   color: #835e86;
   font-size: 1rem;
   font-weight: bold;
-  font-family: 'Lora';
   transition: all 0.5s ease;
 }
 
