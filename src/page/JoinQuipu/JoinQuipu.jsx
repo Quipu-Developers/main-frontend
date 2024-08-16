@@ -25,6 +25,7 @@ function JoinQuipu() {
   const [github_profile, setGithub_profile] = useState('');
   const [github_email, setGithub_email] = useState('');
   const [slack_email, setSlack_email] = useState('');
+  const [modalImg, setModalImg] = useState('wait');
 
   const [rows, setRows] = useState(8);
 
@@ -138,15 +139,19 @@ function JoinQuipu() {
     }
 
     if (res.status === 201) {
+      setModalImg('welcome');
       setModalMessage('Welcome to Quipu!');
-      setModalSubMessage('퀴푸의 회원이 되어주셔서 감사합니다.');
+      setModalSubMessage('신청되었습니다.');
     } else if (res.status === 400) {
+      setModalImg('sad');
       setModalMessage(`${res.data}`);
       setModalSubMessage('다시 확인해 주세요.');
     } else if (res.status === 409) {
+      setModalImg('sad');
       setModalMessage('이미 제출하셨습니다.');
       setModalSubMessage('다른 응답을 원하시면 퀴푸에 문의해주세요.');
     } else {
+      setModalImg('sad');
       setModalMessage('서버 오류입니다.');
       setModalSubMessage('다시 시도해보신 후 퀴푸에 문의해주세요.');
     }
@@ -602,10 +607,7 @@ function JoinQuipu() {
                 <div className="popup_content">
                   <div className="popup_img">
                     <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        '/ActivityDetail-img/2023/Study/퀴푸메인웹개발1.png'
-                      }
+                      src={process.env.PUBLIC_URL + `/JoinQuipu-img/${modalImg}.png`}
                       alt="로고"
                     ></img>
                   </div>
