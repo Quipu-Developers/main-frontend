@@ -331,24 +331,23 @@
 
 .popup__icon--body {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
   align-items: center;
+  height: 100%;
   margin-top: 7px;
   white-space: nowrap;
-  text-align: center;
 }
 
 .popup__icon--body img {
   width: 80px;
   height: auto;
-  margin-right: 15px;
+  margin: 0 15px;
 }
 
 .popup_content {
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .popup_img,
@@ -360,10 +359,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  margin-right: 15px;
 }
 
 .head-message {
-  margin-top: 3px;
+  margin: 3px 0;
   font-weight: 700;
   text-align: left;
 }
@@ -376,8 +376,9 @@
 }
 
 .popup__button-container {
-  position: relative;
-  margin-left: auto;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
 }
 
 .popup button {
