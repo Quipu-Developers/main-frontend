@@ -300,7 +300,8 @@
   left: 50%;
   z-index: 1000;
   transform: translate(-50%, -50%);
-  width: 410px;
+  min-width: 410px;
+  width: auto;
   height: 160px;
 }
 
@@ -346,7 +347,8 @@
 
 .popup_content {
   display: flex;
-  width: 90%;
+  justify-content: center;
+  width: 100%;
 }
 
 .popup_img,
