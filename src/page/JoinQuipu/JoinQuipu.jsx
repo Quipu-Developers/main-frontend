@@ -7,7 +7,7 @@ import Logo from '../../component/logo';
 import Footer from '../Footer/Footer';
 
 function JoinQuipu() {
-  const isRecruiting = false; //모집 기간 여부
+  const isRecruiting = true; //모집 기간 여부
 
   const location = useLocation();
   const { selectedPage } = location.state || {};
@@ -601,24 +601,22 @@ function JoinQuipu() {
 
         {showPopup && (
           <div className="popup">
-            <div className="popup__icon">
-              <div className="popup__icon--top"></div>
-              <div className="popup__icon--body">
-                <div className="popup_content">
-                  <div className="popup_img">
-                    <img
-                      src={process.env.PUBLIC_URL + `/JoinQuipu-img/${modalImg}.png`}
-                      alt="로고"
-                    ></img>
-                  </div>
-                  <div className="popup_message">
-                    <p className="head-message">{modalMessage}</p>
-                    <p className="sub-message">{modalSubMessage}</p>
-                  </div>
+            <div className="popup__icon--top"></div>
+            <div className="popup__icon--body">
+              <div className="popup_content">
+                <div className="popup_img">
+                  <img
+                    src={process.env.PUBLIC_URL + `/JoinQuipu-img/${modalImg}.png`}
+                    alt="로고"
+                  ></img>
                 </div>
-                <div className="popup__button-container">
-                  <button onClick={handlePopupClose}>닫기</button>
+                <div className="popup_message">
+                  <p className="head-message">{modalMessage}</p>
+                  <p className="sub-message">{modalSubMessage}</p>
                 </div>
+              </div>
+              <div className="popup__button-container">
+                <button onClick={handlePopupClose}>닫기</button>
               </div>
             </div>
           </div>
