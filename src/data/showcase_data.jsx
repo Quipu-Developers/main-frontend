@@ -8,10 +8,10 @@ export const showcase_data = [
       '/ShowcaseMain-img/main-web/4.png',
       '/ShowcaseMain-img/main-web/5.png',
     ],
-    goal: '퀴푸에서 진행하는 스터디, 친목, 웹 개발 활동 등을 소개하고, 다양한 이벤트를 통해 퀴푸를 알리기 위해 제작되었습니다.',
+    goal: 'Quipu에서 진행하는 스터디, 친목, 웹 개발 활동을 소개하고, 다양한 이벤트를 통해 Quipu의 열정과 그 결실을 널리 알리기 위해 제작되었습니다.',
     this_project:
-      '퀴푸는 서울시립대학교의 컴퓨터 학술 동아리로, 코딩 스터디와 웹 개발 프로젝트를 통해 역량을 키워가고 있습니다. 퀴푸의 성장 과정을 담아내고, 새로운 회원들이 쉽고 흥미롭게 동아리에 지원할 수 있는 지원 폼을 포함하고 있습니다.',
-    this_project_for: '퀴푸에 관심 있는 서울시립대학교 학우들',
+      'Quipu는 잉카 제국과 안데스 지역에서 사용되었던 매듭을 통한 의사소통 체계에서 영감을 받은 이름으로, 다양한 지식과 경험을 엮어내는 컴퓨터 학술 동아리입니다. 우리는 스터디와 웹 프로젝트를 통해 실무 역량을 키우며, 끈기와 열정으로 함께 성장합니다. 이 웹사이트는 Quipu의 성장 과정을 기록하고, 새로운 회원들이 동아리에 쉽게 지원할 수 있도록 돕는 지원 폼을 포함하고 있습니다. 또한, Quipu의 최신 활동과 성과를 한눈에 볼 수 있도록 설계되었습니다.',
+    this_project_for: '앞으로 Quipu와 함께 지식과 경험을 엮어갈 서울시립대 학우분들',
     web_url: 'https://quipu.uos.ac.kr/',
     github_url: 'https://github.com/Quipu-Developers/main-frontend',
     history: [
