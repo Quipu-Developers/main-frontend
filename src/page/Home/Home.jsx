@@ -4,11 +4,11 @@ import Object3D2 from './Object3D2';
 import './Home.css';
 
 function Home() {
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 900);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 700);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth <= 900);
+      setIsSmallScreen(window.innerWidth <= 700);
     };
     window.addEventListener('resize', handleResize);
     return () => {

@@ -109,13 +109,11 @@ const Object3D2 = () => {
       <CameraAspectUpdater />
       <SetCameraTarget />
       {/* eslint-disable-next-line */}
-      <ambientLight intensity={1.3} />
+      <ambientLight intensity={1} />
       {/* eslint-disable-next-line */}
-      <pointLight position={[-5, 2, 5]} intensity={60} />
+      <pointLight position={[-5, 0, 5]} intensity={100} />
       {/* eslint-disable-next-line */}
-      <pointLight position={[2, 10, 0]} intensity={60} />
-      {/* eslint-disable-next-line */}
-      <pointLight position={[0, 0, -10]} intensity={60} />
+      <pointLight position={[0, 10, 0]} intensity={100} />
 
       {/* 보라색 구 */}
       <Sphere

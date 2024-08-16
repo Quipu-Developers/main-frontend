@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import './Activity.css';
+import { HiOutlineArrowSmRight } from 'react-icons/hi';
+import { TiArrowRightThick } from 'react-icons/ti';
 
 function Activity() {
   const titles = ['Study', 'Friendship', 'MT'];
@@ -53,7 +55,9 @@ function ActivityBlock(props) {
   return (
     <div className="activity-block">
       <RouterLink to={'/activity-detail'} state={{ activeTab: props.title }}>
-        <p className="activity-block__title">{props.title}&nbsp; ›</p>
+        <p className="activity-block__title">
+          {props.title}&nbsp; <TiArrowRightThick />
+        </p>
       </RouterLink>
       <img
         className="activity-block__image--big"
