@@ -1,6 +1,5 @@
 const friendship_data = [
   { year: '2024', src: '/ActivityDetail-img/2024/FriendShip/친목10.jpeg' },
-  { year: '2024', src: '/ActivityDetail-img/2024/FriendShip/친목9.jpg' },
   { year: '2024', src: '/ActivityDetail-img/2024/FriendShip/친목8.jpg' },
   { year: '2024', src: '/ActivityDetail-img/2024/FriendShip/친목7.jpg' },
   { year: '2024', src: '/ActivityDetail-img/2024/FriendShip/친목6.png' },
