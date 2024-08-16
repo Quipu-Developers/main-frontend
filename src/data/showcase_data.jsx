@@ -1,6 +1,7 @@
 export const showcase_data = [
   {
     project_name: 'Main Web',
+    project_summary: 'Quipu의 활동과 목표를 소개하고, 동아리 활동을 지원하는 웹사이트입니다.',
     main_img: [
       '/ShowcaseMain-img/main-web/1.png',
       '/ShowcaseMain-img/main-web/2.png',

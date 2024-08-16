@@ -59,7 +59,7 @@ function Showcasemain() {
             </div>
             <div className="gallery">
               <div className="gallery2">
-                <h3>{showcase_data[index].project_name}</h3>
+                <h3>{showcase_data[index].goal}</h3>
               </div>
             </div>
             <div className="gallery">
@@ -71,8 +71,7 @@ function Showcasemain() {
               </div>
               <div className="gallery3">
                 <div className="gallery3-text">
-                  <h4>{showcase_data[index].goal}</h4>
-                  <p>{showcase_data[index].this_project}</p>
+                  <h4>{showcase_data[index].project_name}</h4>
                 </div>
               </div>
               <div className="gallery3">
