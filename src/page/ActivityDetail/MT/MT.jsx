@@ -31,6 +31,7 @@ function MT({ selectedYear }) {
         {/*이미지들을 왼쪽부터 정렬한 듯 보이도록 빈 이미지 추가*/}
         <div className="blank-img"></div>
         <div className="blank-img"></div>
+        <div className="blank-img"></div>
       </div>
 
       {selectedImg && (
