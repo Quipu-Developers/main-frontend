@@ -16,7 +16,7 @@
 
 .showcasemain-house .back-button {
   font-size: 2rem;
-  color: #835e86;
+  color: #333333;
   position: absolute;
   left: 20px;
   top: 90px;
@@ -230,15 +230,15 @@
   width: 7%;
   height: 5vh;
   border-radius: 29px;
-  border: 1.5px solid #835e86;
-  color: #835e86;
+  border: 1.5px solid #333333;
+  color: #333333;
   font-size: 1rem;
   font-weight: bold;
   transition: all 0.5s ease;
 }
 
 .view-button:hover {
-  background-color: #ae7eaf;
+  background-color: #333333;
   color: white;
 }
 
