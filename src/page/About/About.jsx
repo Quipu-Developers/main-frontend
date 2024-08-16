@@ -76,18 +76,18 @@ function About() {
         <div className="about-keyword-slide" ref={scrollContainerRef}>
           <div className="about-keyword-slide-text slide__1">
             <h4>Potential</h4>
-            <p>퀴푸의 매듭은 각각 다른 정보를 담고 있듯이,</p>
-            <p>QUIPU 구성원 각자의 잠재력이 모여 더 큰 가치를 창출합니다.</p>
+            <p>퀴푸의 매듭처럼, 각 구성원은 저마다의 잠재력을 가지고 있습니다.</p>
+            <p>이 잠재력이 모여 QUIPU는 더 큰 혁신과 성장을 이끌어냅니다.</p>
           </div>
           <div className="about-keyword-slide-text slide__2">
             <h4>Challenging</h4>
-            <p>퀴푸의 매듭은 각각 다른 정보를 담고 있듯이,</p>
-            <p>QUIPU 구성원 각자의 잠재력이 모여 더 큰 가치를 창출합니다.</p>
+            <p>퀴푸가 다양한 매듭을 통해 복잡한 정보를 전달했듯이,</p>
+            <p>QUIPU는 새로운 도전과 과제를 해결하며 끊임없이 성장합니다.</p>
           </div>
           <div className="about-keyword-slide-text slide__3">
             <h4>Passion</h4>
-            <p>퀴푸의 매듭은 각각 다른 정보를 담고 있듯이,</p>
-            <p>QUIPU 구성원 각자의 잠재력이 모여 더 큰 가치를 창출합니다.</p>
+            <p>퀴푸의 끈이 정보를 연결하듯,</p>
+            <p>QUIPU 구성원들은 뜨거운 열정으로 서로를 연결하고 함께 나아갑니다.</p>
           </div>
         </div>
 
@@ -106,7 +106,10 @@ function About() {
         <div className="about-activity-content">
           <div className="about-activity-left">
             <div className="about-activity-img">
-              <img src={process.env.PUBLIC_URL + '/About-img/quipu-activity1.png'} alt="활동1" />
+              <img
+                src={process.env.PUBLIC_URL + '/ActivityDetail-img/2024/Study/리액트스터디2.jpeg'}
+                alt="활동1"
+              />
             </div>
             <div className="about-activity-left-text">
               <p>
@@ -129,7 +132,10 @@ function About() {
               <p>다양하게 스터디를 개설하거나 스터디에 참여할 수 있습니다.</p>
             </div>
             <div className="about-activity-img">
-              <img src={process.env.PUBLIC_URL + '/About-img/quipu-activity2.png'} alt="활동2" />
+              <img
+                src={process.env.PUBLIC_URL + '/ActivityDetail-img/2023/MT/엠티3.jpg'}
+                alt="활동2"
+              />
               <div className="about-activity-right-img-border"></div>
             </div>
           </div>
@@ -154,13 +160,13 @@ function About() {
                 <div className="techstack about-react">
                   <FaReact />
                 </div>
-                <p>React</p>
+                <p>React.js</p>
               </div>
               <div className="techstack-container">
                 <div className="techstack about-js">
                   <img src="https://techstack-generator.vercel.app/js-icon.svg" alt="icon" />
                 </div>
-                <p>Javascript</p>
+                <p>JavaScript</p>
               </div>
               <div className="techstack-container">
                 <div className="techstack about-nodejs">
@@ -193,7 +199,7 @@ function About() {
                 <div className="techstack about-github">
                   <img src="https://techstack-generator.vercel.app/github-icon.svg" alt="icon" />
                 </div>
-                <p>Github</p>
+                <p>GitHub</p>
               </div>
             </div>
 

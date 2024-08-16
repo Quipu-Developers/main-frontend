@@ -7,7 +7,7 @@ import Logo from '../../component/logo';
 import Footer from '../Footer/Footer';
 
 function JoinQuipu() {
-  const isRecruiting = false; //모집 기간 여부
+  const isRecruiting = true; //모집 기간 여부
 
   const location = useLocation();
   const { selectedPage } = location.state || {};
@@ -233,8 +233,8 @@ function JoinQuipu() {
                   }}
                 >
                   • 계좌: 카카오뱅크&nbsp;
-                  <span className="account-number">3333311276288</span>
-                  &nbsp;(예금주 : 김예영)
+                  <span className="account-number">1234567890</span>
+                  &nbsp;(예금주 : 이퀴푸)
                 </p>
               </div>
             </div>
