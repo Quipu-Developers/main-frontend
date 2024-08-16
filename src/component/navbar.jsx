@@ -151,69 +151,73 @@ const Navbar = () => {
           setQuipudevOpen(false);
         }}
       >
-        <div className="navbar-mobile-block">
-          <p>Join Quipu</p>
-          <li
-            onClick={(e) => {
-              setJoinquipuOpen(!joinquipuOpen);
-              e.stopPropagation();
-            }}
-          >
-            <BsEnvelopePaperHeartFill />
-          </li>
-        </div>
-        <div className={`navbar-mobile-options ${joinquipuOpen ? 'open' : ''}`}>
+        <div>
           <div className="navbar-mobile-block">
-            <p>개발부원</p>
+            <p>Join Quipu</p>
             <li
-              onClick={() => {
-                handleNavigation('development');
-                closeMenu();
+              onClick={(e) => {
+                setJoinquipuOpen(!joinquipuOpen);
+                e.stopPropagation();
               }}
             >
-              <TbPencilCode />
+              <BsEnvelopePaperHeartFill />
             </li>
           </div>
-          <div className="navbar-mobile-block">
-            <p>일반부원</p>
-            <li
-              onClick={() => {
-                handleNavigation('general');
-                closeMenu();
-              }}
-            >
-              <TbPencilHeart />
-            </li>
+          <div className={`navbar-mobile-options ${joinquipuOpen ? 'open' : ''}`}>
+            <div className="navbar-mobile-block">
+              <p>개발부원</p>
+              <li
+                onClick={() => {
+                  handleNavigation('development');
+                  closeMenu();
+                }}
+              >
+                <TbPencilCode />
+              </li>
+            </div>
+            <div className="navbar-mobile-block">
+              <p>일반부원</p>
+              <li
+                onClick={() => {
+                  handleNavigation('general');
+                  closeMenu();
+                }}
+              >
+                <TbPencilHeart />
+              </li>
+            </div>
           </div>
         </div>
-        <div className="navbar-mobile-block">
-          <p>QUIPU DEV</p>
+        <div>
+          <div className="navbar-mobile-block">
+            <p>QUIPU DEV</p>
 
-          <li
-            onClick={(e) => {
-              setQuipudevOpen(!quipudevOpen);
-              e.stopPropagation();
-            }}
-          >
-            <GoCodeReview />
-          </li>
-        </div>
-        <div className={`navbar-mobile-options ${quipudevOpen ? 'open' : ''}`}>
-          <div className="navbar-mobile-block">
-            <p>Interview</p>
-            <NavLink to="/interview" onClick={closeMenu}>
-              <li>
-                <GiMicrophone />
-              </li>
-            </NavLink>
+            <li
+              onClick={(e) => {
+                setQuipudevOpen(!quipudevOpen);
+                e.stopPropagation();
+              }}
+            >
+              <GoCodeReview />
+            </li>
           </div>
-          <div className="navbar-mobile-block">
-            <p>Showcase</p>
-            <NavLink to="/quipu-dev" onClick={closeMenu}>
-              <li>
-                <BiSolidSlideshow />
-              </li>
-            </NavLink>
+          <div className={`navbar-mobile-options ${quipudevOpen ? 'open' : ''}`}>
+            <div className="navbar-mobile-block">
+              <p>Interview</p>
+              <NavLink to="/interview" onClick={closeMenu}>
+                <li>
+                  <GiMicrophone />
+                </li>
+              </NavLink>
+            </div>
+            <div className="navbar-mobile-block">
+              <p>Showcase</p>
+              <NavLink to="/quipu-dev" onClick={closeMenu}>
+                <li>
+                  <BiSolidSlideshow />
+                </li>
+              </NavLink>
+            </div>
           </div>
         </div>
         <div className="navbar-mobile-block">

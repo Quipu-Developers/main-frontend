@@ -7,7 +7,7 @@ import Logo from '../../component/logo';
 import Footer from '../Footer/Footer';
 
 function JoinQuipu() {
-  const isRecruiting = false; //모집 기간 여부
+  const isRecruiting = true; //모집 기간 여부
 
   const location = useLocation();
   const { selectedPage } = location.state || {};
@@ -443,13 +443,26 @@ function JoinQuipu() {
                 <p>
                   지원 분야<span style={{ color: '#FF5580' }}>&nbsp;*</span>
                 </p>
-                <input
-                  onChange={(e) => {
-                    setDepartment(e.target.value);
-                  }}
-                  placeholder={'UX/UI 디자인, 프론트엔드, 백엔드 중 하나 골라주세요.'}
-                  value={department}
-                />
+                <div className="form-radio-box">
+                  <span
+                    className={`form-radio-item ${department === 'design' ? 'selected' : ''}`}
+                    onClick={() => setDepartment('design')}
+                  >
+                    UX/UI 디자인
+                  </span>
+                  <span
+                    className={`form-radio-item ${department === 'frontend' ? 'selected' : ''}`}
+                    onClick={() => setDepartment('frontend')}
+                  >
+                    프론트엔드
+                  </span>
+                  <span
+                    className={`form-radio-item ${department === 'backend' ? 'selected' : ''}`}
+                    onClick={() => setDepartment('backend')}
+                  >
+                    백엔드
+                  </span>
+                </div>
               </div>
 
               <div className="form-field">
@@ -547,7 +560,7 @@ function JoinQuipu() {
               </div>
 
               <div className="joinquipu-checkbox">
-                <label id="checkbox-label">입력하신 정보가 정확한지 다시 한 번 확인해주세요!</label>
+                <label id="checkbox-label">제출 후 수정이 되지 않습니다!</label>
                 <input
                   id="checkbox-input"
                   type="checkbox"
@@ -557,7 +570,7 @@ function JoinQuipu() {
               </div>
 
               <div className="joinquipu-checkbox">
-                <label id="checkbox-label">폼 제출 전, 회비를 미리 납부해 주시기 바랍니다!</label>
+                <label id="checkbox-label">입력하신 정보가 정확한지 다시 한 번 확인해주세요!</label>
                 <input
                   id="checkbox-input"
                   type="checkbox"

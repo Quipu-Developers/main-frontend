@@ -3,8 +3,6 @@
   height: auto;
   font-family: 'NEXON Lv2 Gothic';
   word-break: keep-all;
-  overflow-x: hidden;
-  overflow-y: visible;
   background-color: white;
 }
 
@@ -12,7 +10,6 @@
 .about-main {
   width: 100%;
   height: 60vh;
-  margin: 5vh 0;
   position: relative;
 
   & img {
@@ -37,13 +34,13 @@
   & h1 {
     margin: 0 0 2rem 0;
     font-family: 'Inter';
-    font-size: 3rem;
+    font-size: 2.9rem;
     font-weight: 700;
     color: white;
   }
 
   & p {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 600;
     line-height: 2.2;
 
@@ -99,7 +96,7 @@
 
 .about-keyword {
   width: 100%;
-  margin: 12vh 0;
+  margin: 10vh 0;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -110,7 +107,7 @@
     padding: 0 2px;
     margin: 0 0 40px 0;
     font-family: 'Inter';
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-weight: 700;
     color: black;
     box-shadow: inset 0 -6px 0 #ffee58;
@@ -119,7 +116,7 @@
     transition: box-shadow 0.2s, color 0.2s;
 
     & span {
-      color: #0066FF;
+      color: #0066ff;
       transition: color 0.2s;
     }
 
@@ -146,12 +143,11 @@
       color: black;
       transition: box-shadow 0.2s, color 0.2s;
       & span {
-        color: #0066FF;
+        color: #0066ff;
       }
     }
   }
 }
-
 
 .about-keyword-slide {
   width: 100%;
@@ -179,12 +175,12 @@
     margin-top: calc(1.5vh + 35px);
     margin-bottom: 2vh;
     font-family: 'Inter';
-    font-size: 5rem;
+    font-size: 4.5rem;
     font-weight: 700;
   }
 
   & p {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 700;
     line-height: 1.5;
     color: white;
@@ -258,7 +254,6 @@
   }
 }
 
-
 /* 활동, 액티비티 */
 .about-activity {
   max-width: 100%;
@@ -266,12 +261,11 @@
 
   & h1 {
     font-family: 'Inter';
-    font-size: 3rem;
+    font-size: 2.7rem;
     font-weight: 700;
     color: black;
   }
 }
-
 
 .about-activity-content {
   max-width: 100%;
@@ -369,7 +363,6 @@
     margin: 0 4%;
   }
 
-
   .about-activity-content {
     margin: 2% 0;
   }
@@ -406,7 +399,7 @@
 /* 테크스택 */
 .about-tech {
   width: 100%;
-  margin: 12vh 0;
+  margin: 15vh 0;
 }
 
 .about-tech-top {
@@ -433,9 +426,10 @@
 
   & h1 {
     align-self: flex-end;
-    padding: 0.5rem 5% 0.5rem 15%;
+    padding: 0.5rem 5% 0.5rem 10%;
+    margin-bottom: 10px;
     font-family: 'Inter';
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: white;
     background-color: #3184ff;
@@ -451,7 +445,6 @@
   justify-content: center;
   align-items: center;
   position: relative;
-
 }
 
 .about-tech-stack-list-top,
@@ -473,7 +466,7 @@
   gap: 10px;
 
   & p {
-    font-family: "Inter";
+    font-family: 'Inter';
     font-size: 1.2rem;
     color: #11438e;
     font-weight: bold;
@@ -513,7 +506,7 @@
   border: 3px solid #f7df1f;
 }
 .about-react {
-  border: 3px solid #00D8FF;
+  border: 3px solid #00d8ff;
 }
 .about-mysql {
   border: 3px solid #98c9c3;
@@ -525,21 +518,25 @@
   }
 }
 .about-aws {
-  border: 3px solid #FF9900;
+  border: 3px solid #ff9900;
 }
 
 /* 테크스택 - 리액트 애니메이션 */
 @keyframes react-spin {
-  0% { transform: rotate(0deg);}
-  100% {transform: rotate(360deg);}
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .about-react {
-  border: 3px solid #00D8FF;
-  
+  border: 3px solid #00d8ff;
+
   & svg {
     font-size: 130px;
-    color: #00D8FF;
+    color: #00d8ff;
     transition: font-size 0.5s ease;
     animation: react-spin 3s infinite;
   }
@@ -547,9 +544,15 @@
 
 /* 테크스택 - 노드js 애니메이션 */
 @keyframes nodejs {
-  0% {opacity: 0;}
-  30% {opacity: 1;}
-  80% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
 }
 
 .about-nodejs {
@@ -561,7 +564,7 @@
     height: 90%;
     object-fit: cover;
   }
-  
+
   .about-nodejs-back {
     filter: drop-shadow(5px 5px 5px gray);
     width: 90%;
@@ -572,7 +575,7 @@
     z-index: 1;
     opacity: 0;
     animation: nodejs 4s linear 2s infinite;
-  } 
+  }
 }
 
 /* 테크스택 가로박스 */
@@ -581,7 +584,7 @@
   height: 10px;
   background-color: #3184ff;
   position: absolute;
-  
+
   &.rectangle__1 {
     top: 15px;
     left: 30px;
@@ -595,7 +598,7 @@
 /* 테크스택 미디어 쿼리 */
 @media (max-width: 900px) {
   .about-tech {
-    margin: 7vh 0;
+    margin: 10vh 0 7vh 0;
   }
 
   .about-tech-top {
@@ -637,8 +640,8 @@
 /* 퀴푸 개발팀, 퀴푸뎁, 퀴푸디브 */
 .about-dev {
   max-width: 100%;
-  margin: 5vh 20%;
-  padding: 3%;
+  margin: 0 22%;
+  padding: 2.5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -647,9 +650,9 @@
   border-radius: 20px;
 
   & p {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 500;
-    line-height: 2.5;
+    line-height: 2.2;
     color: #11438e;
     text-align: center;
 
@@ -661,7 +664,7 @@
 
 .about-dev-button {
   margin-top: 5vh;
-  width: 40%;
+  width: 45%;
   position: relative;
 
   & button {
@@ -670,7 +673,7 @@
     margin: 0;
     padding: 3% 0 4% 0;
     font-family: Inter;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     color: white;
     text-align: center;
@@ -693,11 +696,11 @@
   }
 
   & img {
-    width: 60px;
+    width: 55px;
     aspect-ratio: 1/1;
     position: absolute;
-    right: -7%;
-    bottom: -50%;
+    right: -9%;
+    bottom: -45%;
   }
 }
 
@@ -755,7 +758,9 @@
 
 @media (max-width: 900px) {
   .about-dev {
+    padding: 3vh 3%;
     margin: 5vh 7%;
+    margin-bottom: 0;
 
     & p {
       font-size: 1rem;
@@ -764,7 +769,7 @@
 
   .about-dev-button {
     margin-top: 3vh;
-    width: 60%;
+    width: 50%;
 
     & button {
       font-size: 1.5rem;
@@ -773,14 +778,23 @@
 
     & img {
       width: 40px;
-      right: -5%;
+      right: -6%;
       bottom: -40%;
     }
   }
 }
 
-/* 왜 스크롤 생기냐 */
-.whyscroll {
-  width: 100%;
-  height: 50px;
+@media (max-width: 600px) {
+  .about-dev-button {
+    & button {
+      font-size: 1.5rem;
+      padding: 3% 3% 4% 3%;
+    }
+
+    & img {
+      width: 40px;
+      right: -9%;
+      bottom: -50%;
+    }
+  }
 }

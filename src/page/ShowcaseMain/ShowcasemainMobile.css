@@ -55,11 +55,10 @@
   color: #835286;
   background-color: #ffffff;
   width: 28%;
-  padding: 4px 2%;
+  padding: 1.5% 2%;
   margin: 2vh 2.5% 0 2.5%;
   border: 1.5px solid #567fbb57;
-  border-top-left-radius: 1vh;
-  border-top-right-radius: 1vh;
+  border-radius: 1vh;
   position: relative;
   z-index: 10;
 
@@ -78,7 +77,6 @@
 }
 
 .Dropdown-list {
-  box-sizing: border-box;
   list-style-type: none;
   width: calc(100% + 2.67px);
   position: absolute;
@@ -88,15 +86,14 @@
   overflow-y: auto;
   background: #ffffff;
   font-family: 'Lora';
-  font-size: 1rem;
+  font-size: 1.1rem;
   border: 1.5px solid #567fbb57;
-  border-bottom-left-radius: 1vh;
-  border-bottom-right-radius: 1vh;
+  border-radius: 1vh;
 
   & li {
     cursor: pointer;
     width: 100%;
-    padding: 3%;
+    padding: 5% 3%;
     transition: all 0.3s ease;
     color: #835286b2;
     border-bottom: 1.5px solid #567fbb57;

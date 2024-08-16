@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './About.css';
-import { BsMouseFill } from "react-icons/bs";
-import { FaReact } from "react-icons/fa";
+import { BsMouseFill } from 'react-icons/bs';
+import { FaReact } from 'react-icons/fa';
 
 function About() {
   const navigate = useNavigate();
@@ -104,7 +104,6 @@ function About() {
         </h1>
 
         <div className="about-activity-content">
-
           <div className="about-activity-left">
             <div className="about-activity-img">
               <img src={process.env.PUBLIC_URL + '/About-img/quipu-activity1.png'} alt="활동1" />
@@ -143,9 +142,7 @@ function About() {
           <h4>
             특히 <span id="about-logo">QUIPU</span>의 주 활동인 <span>웹 개발 프로젝트</span>에서는
           </h4>
-          <h4>
-            아래와 같은 기술 스택을 사용하여 다양한 프로젝트를 진행합니다.
-          </h4>
+          <h4>아래와 같은 기술 스택을 사용하여 다양한 프로젝트를 진행합니다.</h4>
         </div>
 
         <div className="about-tech-stack">
@@ -167,14 +164,11 @@ function About() {
               </div>
               <div className="techstack-container">
                 <div className="techstack about-nodejs">
+                  <img src={process.env.PUBLIC_URL + '/About-img/nodejs.png'} alt="icon" />
                   <img
-                    src={process.env.PUBLIC_URL + '/About-img/nodejs.png'}
-                    alt="icon"
-                  />
-                  <img
-                    className='about-nodejs-back'
+                    className="about-nodejs-back"
                     src={process.env.PUBLIC_URL + '/About-img/nodejsback.png'}
-                    alt='iconback'
+                    alt="iconback"
                   />
                 </div>
                 <p>Node.js</p>
@@ -212,13 +206,15 @@ function About() {
 
       {/* 퀴푸 개발팀, 퀴푸 뎁, 퀴푸디브 */}
       <div className="about-dev">
-        <p>퀴푸에서 해온 웹 개발 프로젝트의 과정과 참여자들의 인터뷰를 보고 싶다면,</p>
+        <p>
+          퀴푸에서 해온 웹 개발 프로젝트의 과정과<br></br>참여자들의 인터뷰를 보고 싶다면,
+        </p>
         <p>
           아래 <span>&apos;QUIPU-DEV&apos;</span> 버튼을 눌러주세요!
         </p>
 
         <div className="about-dev-button">
-          <button onClick={()=>IsDropdown(!dropdown)}>
+          <button onClick={() => IsDropdown(!dropdown)}>
             QUIPU-DEV
             {dropdown !== true && (
               <img src={process.env.PUBLIC_URL + '/About-img/pointer.png'} alt="pointer" />
@@ -232,8 +228,6 @@ function About() {
           )}
         </div>
       </div>
-
-      <div className="whyscroll" />
     </div>
   );
 }

@@ -51,6 +51,7 @@ function ActivityDetail() {
           </select>
         </div>
         <div className="ActivityDetail-titles">
+          <FaArrowLeftLong className="back-button pc" onClick={() => navigate('/')} />
           <button
             onClick={() => handleTabClick('Study')}
             style={{ color: activeTab === 'Study' ? '#11324d' : 'white' }}
