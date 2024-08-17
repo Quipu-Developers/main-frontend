@@ -139,7 +139,7 @@
 }
 
 .showcasemainMobile-main button {
-  margin: 3%;
+  margin: 8% 3%;
   padding: 1% 5%;
   cursor: pointer;
   text-decoration: none;
@@ -152,7 +152,8 @@
   font-size: 1.3rem;
   font-weight: bold;
   transition: all 0.3s ease;
-  background-color: transparent;
+  background-color: white;
+  box-shadow: 0 2px 8px 0 rgba(45, 54, 65, 0.5);
 }
 
 .showcasemainMobile-main button:hover {
@@ -167,6 +168,7 @@
   width: 95%;
   padding: 3%;
   border: 1px solid #0000001a;
+  background-color: white;
 }
 
 .showcasemainMobile-gallery1 {
@@ -174,6 +176,7 @@
   width: 95%;
   background-color: whitesmoke;
   aspect-ratio: 1.5/1;
+  border: 1px solid #0c0b0b1a;
 }
 
 .showcasemainMobile-gallery1 img {
@@ -190,6 +193,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  background-color: white;
 }
 
 .section2-gallery1 {
@@ -202,6 +206,7 @@
   justify-content: center;
   padding: 2%;
   position: absolute; /* 절대 위치로 설정하여 겹침 */
+  border: 1px solid #0c0b0b1a;
 }
 
 .section2-gallery1 img {
@@ -220,16 +225,22 @@
   justify-content: center;
   align-items: center;
   padding: 2%;
-  border: 2px solid #333333;
-  position: absolute; /* 절대 위치로 설정하여 겹침 */
+  position: absolute;
   top: 25vh;
+  border: 1px solid #0c0b0b1a;
 }
 .section2-text p {
   width: 100%;
   text-align: center;
   text-justify: center;
   margin-top: 1%;
-  color: #18101096;
+  color: white;
+  background-color: black;
+  text-decoration-line: underline;
+  text-decoration-color: white;
+  text-decoration-thickness: 1.3px;
+  text-underline-offset: 3px;
+  padding: 4px 6px;
   font-size: 2.2rem;
   font: bolder;
 }
@@ -244,6 +255,7 @@
   justify-content: center;
   padding: 2%;
   position: absolute; /* 절대 위치로 설정하여 겹침 */
+  border: 1px solid #0c0b0b1a;
 }
 .section2-gallery2 img {
   width: 100%;
@@ -253,7 +265,7 @@
   width: 60%;
   z-index: 1;
   top: 65vh;
-  background: white;
+  background: whitesmoke;
   border: 1px solid #0000001a;
   display: inline-flex;
   align-self: flex-end;
@@ -272,6 +284,8 @@
   border: 1px solid #0000001a;
   display: flex;
   justify-content: center;
+  border: 1px solid #0c0b0b1a;
+  background-color: white;
 }
 
 .showcasemainMobile-gallery3 {
@@ -280,6 +294,7 @@
   width: 95%;
   aspect-ratio: 1.5/1;
   background: whitesmoke;
+  border: 1px solid #0c0b0b1a;
 }
 
 .showcasemainMobile-gallery3 img {
