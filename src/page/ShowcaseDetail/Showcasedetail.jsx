@@ -3,7 +3,6 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import './Showcasedetail.css';
 import { FiLink } from 'react-icons/fi';
 import { FaGithub } from 'react-icons/fa';
-import { FaReact } from "react-icons/fa";
 import { FaArrowLeftLong } from 'react-icons/fa6';
 import { showcase_data } from '../../data/showcase_data';
 
@@ -145,12 +144,16 @@ export function HistoryCard_1({ index }) {
         <h4>{showcase_data[index].history[0].date}</h4>
         <p>{showcase_data[index].history[0].content[0]}</p>
         <div className="history__1-card-link">
-          <div className="history__1-button-container">
-            <img
-              src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${showcase_data[index].history[0].tech_stack_img[0]}.png`}
-              onClick={() => window.open(showcase_data[index].history[0].tech_stack[0])}
-            />
-          </div>
+          {showcase_data[index].history[0].tech_stack.map((element, techIndex) => (
+            element && (
+              <div key={techIndex} className="history__1-button-container">
+                <img
+                  src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${element}.png`}
+                  alt="techstack"
+                />
+              </div>
+            )
+          ))}
           <p>{showcase_data[index].history[0].content[1]}</p>
         </div>
         <div className="history__1-card-img">
@@ -178,12 +181,16 @@ export function HistoryCard_1_mobile({ index }) {
         />
       </div>
       <div className="history__1-mobile-bottom">
-        <div className="history__1-button-container">
-          <img
-            src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${showcase_data[index].history[0].tech_stack_img[0]}.png`}
-            onClick={() => window.open(showcase_data[index].history[0].tech_stack[0])}
-          />
-        </div>
+        {showcase_data[index].history[0].tech_stack.map((element, techIndex) => (
+          element && (
+            <div key={techIndex} className="history__1-button-container">
+              <img
+                src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${element}.png`}
+                alt="techstack"
+              />
+            </div>
+          )
+        ))}
         <p>{showcase_data[index].history[0].content[1]}</p>
       </div>
       <img
@@ -202,20 +209,16 @@ export function HistoryCard_2({ index }) {
         <h4>{showcase_data[index].history[1].date}</h4>
         <p>{showcase_data[index].history[1].content[0]}</p>
         <div className="history__2-card-link">
-          <div className="history__1-button-container">
-            <img
-              src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${showcase_data[index].history[1].tech_stack_img[0]}.png`}
-              onClick={() => window.open(showcase_data[index].history[1].tech_stack[0])}
-              alt="javascript"
-            />
-          </div>
-          <div className="history__1-button-container">
-            <img
-              src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${showcase_data[index].history[1].tech_stack_img[1]}.png`}
-              onClick={() => window.open(showcase_data[index].history[1].tech_stack[1])}
-              alt="css"
-            />
-          </div>
+          {showcase_data[index].history[1].tech_stack.map((element, techIndex) => (
+            element && (
+              <div key={techIndex} className="history__1-button-container">
+                <img
+                  src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${element}.png`}
+                  alt="techstack"
+                />
+              </div>
+            )
+          ))}
           <p>{showcase_data[index].history[1].content[1]}</p>
         </div>
       </div>
@@ -228,7 +231,7 @@ export function HistoryCard_2({ index }) {
         />
         <img
           className="history__2-img-overlay"
-          src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/pin4.png'}
+          src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/pin.png'}
           alt="historycard 2 pin"
         />
       </div>
@@ -243,13 +246,16 @@ export function HistoryCard_3({ index }) {
       <p>{showcase_data[index].history[2].content[0]}</p>
       <div className="history__3-link">
         <p>{showcase_data[index].history[2].content[1]}</p>
-        <div className="history__1-button-container">
-          <img
-              src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${showcase_data[index].history[2].tech_stack_img}.png`}
-              onClick={() => window.open(showcase_data[index].history[2].tech_stack)}
-            alt="figma"
-          />
-        </div>
+        {showcase_data[index].history[2].tech_stack.map((element, techIndex) => (
+          element && (
+            <div key={techIndex} className="history__1-button-container">
+              <img
+                src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${element}.png`}
+                alt="techstack"
+              />
+            </div>
+          )
+        ))}
       </div>
     </div>
   );
@@ -272,7 +278,7 @@ export function HistoryCard_4({ index }) {
         />
         <img
           className="history__4-img-overlay"
-          src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/pin4.png'}
+          src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/pin.png'}
           alt="historycard 4 pin"
         />
       </div>
@@ -295,13 +301,16 @@ export function HistoryCard_5({ index }) {
         <p>{showcase_data[index].history[4].content[0]}</p>
         <div className="history__5-card-link">
           <p>{showcase_data[index].history[4].content[1]}</p>
-          <div className="history__1-button-container">
-            <img
-              src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${showcase_data[index].history[4].tech_stack_img}.png`}
-              onClick={() => window.open(showcase_data[index].history[4].tech_stack)}
-              alt="javascript"
-            />
-          </div>
+          {showcase_data[index].history[4].tech_stack.map((element, techIndex) => (
+            element && (
+              <div key={techIndex} className="history__1-button-container">
+                <img
+                  src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${element}.png`}
+                  alt="techstack"
+                />
+              </div>
+            )
+          ))}
         </div>
       </div>
     </div>
