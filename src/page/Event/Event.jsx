@@ -136,7 +136,7 @@ export function Quiz() {
   const [isAnswer, setIsAnswer] = useState(0);
   const [name, setName] = useState('');
   const [studentId, setStudentId] = useState('');
-  const [isWaiting, setIsWaiting] = useState(true); //false로 수정
+  const [isWaiting, setIsWaiting] = useState(false);
 
   if (!remain_goods || Object.keys(remain_goods).length === 0) {
     return <Error />;
@@ -178,7 +178,7 @@ export function Quiz() {
                 state: { result: 'incorrect', goods: null, apply_form: null },
               });
             }
-          }, 10000);
+          }, 15000);
         } catch (error) {
           alert('서버에 문제가 발생했습니다. 다시 시도해 주세요.');
           setIsWaiting(false);
@@ -329,8 +329,10 @@ export function Roulette() {
       setShowSpinButton(false);
     } else if (status === 409) {
       alert('죄송합니다. 룰렛은 한 번만 돌릴 수 있습니다.');
+      navigate('/');
     } else {
       alert('서버에 문제가 생겼습니다. 다시 시도 후 퀴푸에 문의해주세요.');
+      navigate('/');
     }
   };
 
@@ -406,17 +408,7 @@ export function Roulette() {
 
 export function Result() {
   const navigate = useNavigate();
-  // const location = useLocation();
-
-  //테스트 코드
-  const location = {
-    state: {
-      result: 'incorrect',
-      goods: '치킨',
-      apply_form: { name: '나나나', studentId: '1111888444' },
-    },
-  };
-
+  const location = useLocation();
   const { result, goods, apply_form } = location.state || {};
 
   const [kakaoId, setKakaoId] = useState('');
