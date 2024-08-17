@@ -204,7 +204,7 @@ export function Quiz() {
         >
           <p>
             정답은 이 웹사이트 속에 있어요!
-            <button>
+            <button onClick={() => navigate('/')}>
               <img />
               퀴푸 웹 사이트 둘러보기
             </button>
@@ -393,8 +393,19 @@ export function Roulette() {
 
 export function Result() {
   const navigate = useNavigate();
-  const location = useLocation();
+  // const location = useLocation();
+
+  //테스트 코드
+  const location = {
+    state: {
+      result: 'incorrect',
+      goods: '치킨',
+      apply_form: { name: '나나나', studentId: '1111888444' },
+    },
+  };
+
   const { result, goods, apply_form } = location.state || {};
+
   const [kakaoId, setKakaoId] = useState('');
   let goods_img;
   let content;
@@ -431,7 +442,6 @@ export function Result() {
   };
 
   if (result === 'incorrect') {
-    //오답일 경우
     content = (
       <>
         <div className="event-big-block-top">
@@ -446,6 +456,9 @@ export function Result() {
           <div className="event-result-text" style={{ width: '50%' }}>
             <p>
               아쉽게도 정답이 아닙니다! <img />
+            </p>
+            <p>
+              다시 도전해보세요! <img />
             </p>
           </div>
         </div>

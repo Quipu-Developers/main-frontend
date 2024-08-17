@@ -7,7 +7,7 @@ import Logo from '../../component/logo';
 import Footer from '../Footer/Footer';
 
 function JoinQuipu() {
-  const isRecruiting = true; //모집 기간 여부
+  const isRecruiting = false; //모집 기간 여부
 
   const location = useLocation();
   const { selectedPage } = location.state || {};
@@ -229,12 +229,12 @@ function JoinQuipu() {
                 </p>
                 <p
                   onClick={() => {
-                    copyToClipboard('1234567');
+                    copyToClipboard('3333311276288');
                   }}
                 >
                   • 계좌: 카카오뱅크&nbsp;
-                  <span className="account-number">1234567890</span>
-                  &nbsp;(예금주 : 이퀴푸)
+                  <span className="account-number">3333311276288</span>
+                  &nbsp;(예금주 : 김예영)
                 </p>
               </div>
             </div>
@@ -632,7 +632,7 @@ function JoinQuipu() {
           <div className="faq">
             <FAQ
               question="문과인데 가입해도 되나요?"
-              answer="물론입니다! Quipu는 컴퓨터를 사랑하고 배우려는 많은 문과, 이과 분들이 많이 계십니다. 걱정말고 들어오세요!"
+              answer="물론입니다! Quipu는 컴퓨터를 사랑하고 배우려는 많은 문과, 이과 분들이 계십니다. 걱정말고 들어오세요!"
               emoji="🤓"
             />
             <FAQ
