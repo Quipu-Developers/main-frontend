@@ -134,7 +134,7 @@
   & img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
 }
 
@@ -173,11 +173,11 @@
     cursor: pointer;
     font-size: 30px;
     color: black;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s;
 
     &:hover {
       font-size: 40px;
-      color: #333333;
+      color: rgba(194,213,245,0.85);
     }
   }
 }
@@ -276,7 +276,6 @@
 .history__1-container {
   height: 15vw;
   overflow-x: visible;
-  aspect-ratio: 2/1;
   margin: 5vh 0 2vh 0;
   display: flex;
   flex-direction: row;
@@ -321,7 +320,7 @@
 
   & .history__1-card-img {
     height: 9vw;
-    aspect-ratio: 2.5/1;
+    aspect-ratio: 1.5/1;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -331,10 +330,11 @@
     right: 5vw;
 
     & img {
-      width: 60%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       padding: 10px;
-      background-color: #C2D5F5;
+      background-color: rgba(194,213,245,0.85);
     }
   }
 }
@@ -362,7 +362,7 @@
     width: 25px;
     height: 25px;
     border-radius: 7px;
-    color: #e14e1d;
+    background-color: white;
     transition: all 0.3s ease-in-out;
 
     &:hover {
@@ -408,7 +408,7 @@
 
   & img {
     width: 40%;
-    aspect-ratio: 5/3;
+    aspect-ratio: 1.5/1;
     object-fit: cover;
   }
 }
@@ -425,10 +425,10 @@
 
 .history__1-mobile-img {
   width: 40%;
-  aspect-ratio: 2/1;
+  aspect-ratio: 1.5/1;
   object-fit: cover;
   padding: 7px;
-  background-color: #f3d9ffcc;
+  background-color: rgba(194,213,245,0.85);
 }
 
 /* 역사 카드 2 */
@@ -444,7 +444,7 @@
 
 .history__2-img {
   height: 100%;
-  aspect-ratio: 1/1.2;
+  aspect-ratio: 1/1.5;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -477,7 +477,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  background: #C2D5F5;
+  background: rgba(194,213,245,0.85);
 
   position: relative;
   bottom: 2%;
@@ -661,17 +661,17 @@
 
 .history__4-img {
   width: 50%;
-  aspect-ratio: 1/1;
+  aspect-ratio: 1/1.5;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-end;
   position: relative;
-  background: #C2D5F5;
+  background: rgba(194,213,245,0.85);
 
   & .history__4-img-base {
     width: 90%;
-    aspect-ratio: 1/1;
+    aspect-ratio: 1/1.5;
     object-fit: cover;
     position: absolute;
     top: 5%;
@@ -731,7 +731,7 @@
 
 .history__5-img {
   width: 90%;
-  aspect-ratio: 1/1;
+  aspect-ratio: 1.5/1;
   position: relative;
   z-index: 0;
   bottom: 10%;
@@ -739,6 +739,7 @@
 
   & img {
     width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 }
@@ -748,7 +749,7 @@
   display: flex;
   flex-direction: column;
   gap: 7px;
-  background: #C2D5F5;
+  background: rgba(194,213,245,0.85);
   position: relative;
   z-index: 1;
 
