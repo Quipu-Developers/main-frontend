@@ -11,7 +11,7 @@ function Dropdown({ setIndex }) {
     <div className="Dropdown-list">
       {showcase_data.map((item, idx) => (
         <li
-          key={idx} 
+          key={idx}
           onClick={() => {
             setIndex(idx);
           }}
@@ -60,7 +60,7 @@ function ShowcasemainMobile() {
         </ul>
       </div>
       <div className="showcasemainMobile-main">
-        <button onClick={handleIndexClick}>view</button>
+        <button onClick={handleIndexClick}>View This Project</button>
         <div className="showcasemainMobile-section1">
           <div className="showcasemainMobile-gallery1">
             <img src={showcase_data[index].main_img[0]} alt={showcase_data[index].project_name} />
@@ -71,8 +71,8 @@ function ShowcasemainMobile() {
             <img src={showcase_data[index].main_img[1]} alt={showcase_data[index].project_name} />
           </div>
           <div className="section2-text">
-            <div className='section2-text-box'>
-            <p>{showcase_data[index].project_name}</p>
+            <div className="section2-text-box">
+              <p>{showcase_data[index].project_name}</p>
             </div>
           </div>
           <div className="section2-gallery2">
