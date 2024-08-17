@@ -70,16 +70,15 @@ function ShowcasemainMobile() {
           <div className="section2-gallery1">
             <img src={showcase_data[index].main_img[1]} alt={showcase_data[index].project_name} />
           </div>
-          {/* <div className="section2-text">
-            <h4>{showcase_data[index].goal}</h4>
-            <p>{showcase_data[index].this_project}</p>
-          </div> */}
+          <div className="section2-text">
+            <p>{showcase_data[index].project_name}</p>
+          </div>
           <div className="section2-gallery2">
             <img src={showcase_data[index].main_img[2]} alt={showcase_data[index].project_name} />
           </div>
-          {/* <div className="section2-gallery3">
+          <div className="section2-gallery3">
             <img src={showcase_data[index].main_img[3]} alt={showcase_data[index].project_name} />
-          </div> */}
+          </div>
         </div>
         <div className="showcasemainMobile-section3">
           <div className="showcasemainMobile-gallery3">
