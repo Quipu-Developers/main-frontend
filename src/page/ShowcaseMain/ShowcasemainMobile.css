@@ -56,7 +56,7 @@
   font-size: 1rem;
   font-weight: 500;
   color: black;
-  background-color: #ffffff;
+  background-color: whitesmoke;
   width: 28%;
   padding: 1.5% 2%;
   margin: 2vh 2.5% 0 2.5%;
@@ -87,7 +87,7 @@
   left: -1.3px;
   overflow-x: hidden;
   overflow-y: auto;
-  background: #ffffff;
+  background: whitesmoke;
   font-family: 'Lora';
   font-size: 1.1rem;
   border: 1.5px solid #567fbb57;
@@ -142,7 +142,7 @@
 
 .showcasemainMobile-main button:hover {
   background-color: #333333;
-  color: white;
+  color: whitesmoke;
 }
 
 .showcasemainMobile-section1 {
@@ -196,10 +196,10 @@
 
 .section2-text {
   z-index: 1;
-  background-color: white;
+  aspect-ratio: 1.5/1;
+  background-color: whitesmoke;
   display: inline-flex;
   width: 60%;
-  aspect-ratio: 1.5/1;
   max-width: 290px;
   flex-direction: column;
   align-self: flex-end;
@@ -238,7 +238,6 @@
 .section2-gallery3 {
   width: 60%;
   z-index: 1;
-  aspect-ratio: 1.5/1;
   top: 65vh;
   background: white;
   border: 1px solid #0000001a;
@@ -274,46 +273,102 @@
   object-fit: cover;
 }
 
-@media (max-height: 900px) and (min-height: 600px) {
+@media (max-width: 900px) and (min-width: 600px) {
   .showcasemainMobile-section2 {
-    height: 60vh;
+    height: 160vh;
   }
   .section2-gallery1 {
-    height: 17vh;
+    width: 55%;
   }
   .section2-text {
-    top: 14vh;
-    height: 17vh;
+    width: 50%;
+    top: 43vh;
   }
   .section2-gallery2 {
-    height: 17vh;
-    top: 29vh;
+    width: 55%;
+    top: 70vh;
   }
   .section2-gallery3 {
-    height: 17vh;
-    top: 42vh;
+    width: 55%;
+    top: 105vh;
   }
 }
-@media (min-height: 900px) {
+
+@media (max-width: 600px) and (min-width: 500px) {
   .showcasemainMobile-section2 {
-    height: 64vh;
+    height: 110vh;
   }
   .section2-gallery1 {
-    height: 17vh;
+    width: 50%;
   }
   .section2-text {
-    top: 16vh;
-    height: 17vh;
+    width: 50%;
+    top: 25vh;
     & p {
-      font-size: 0.8rem;
+      width: 100%;
+      font-size: 1.4rem;
+      margin: 3%;
     }
   }
   .section2-gallery2 {
-    height: 16vh;
-    top: 31vh;
+    width: 50%;
+    top: 50vh;
   }
   .section2-gallery3 {
-    height: 18vh;
-    top: 44vh;
+    width: 50%;
+    top: 75vh;
   }
+}
+
+@media (max-width: 500px) and (min-width: 400px){
+  .showcasemainMobile-section2 {
+    height: 90vh;
+  }
+  .section2-gallery1 {
+    width: 50%;
+  }
+  .section2-text {
+    width: 50%;
+    top: 20vh;
+    & p {
+      width: 100%;
+      font-size: 1.4rem;
+      margin: 3%;
+    }
+  }
+  .section2-gallery2 {
+    width: 50%;
+    top: 40vh;
+  }
+  .section2-gallery3 {
+    width: 50%;
+    top: 60vh;
+  }
+}
+
+@media (max-width: 400px) and (min-width: 300px){
+  .showcasemainMobile-section2 {
+    height: 50vh;
+  }
+  .section2-gallery1 {
+    width: 50%;
+  }
+  .section2-text {
+    width: 50%;
+    top: 10vh;
+    & p {
+      width: 100%;
+      font-size: 1.4rem;
+      margin: 3%;
+    }
+  }
+  .section2-gallery2 {
+    width: 50%;
+    top: 20vh;
+  }
+  .section2-gallery3 {
+    width: 50%;
+    top: 30vh;
+  }
+
 }

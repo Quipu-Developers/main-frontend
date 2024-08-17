@@ -71,7 +71,9 @@ function ShowcasemainMobile() {
             <img src={showcase_data[index].main_img[1]} alt={showcase_data[index].project_name} />
           </div>
           <div className="section2-text">
+            <div className='section2-text-box'>
             <p>{showcase_data[index].project_name}</p>
+            </div>
           </div>
           <div className="section2-gallery2">
             <img src={showcase_data[index].main_img[2]} alt={showcase_data[index].project_name} />
