@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import './Showcasedetail.css';
 import { FiLink } from 'react-icons/fi';
 import { FaGithub } from 'react-icons/fa';
+import { FaReact } from "react-icons/fa";
 import { FaArrowLeftLong } from 'react-icons/fa6';
 import { showcase_data } from '../../data/showcase_data';
 
@@ -47,13 +48,17 @@ export default function Showcasedetail() {
             {windowWidth <= 900 && <HistoryCard_1_mobile index={index} />}
             <HistoryCard_2 index={index} />
           </div>
-          <div className="showcasedetail-main-lower-row__2">
-            <div className="showcasedetail-main-lower-row__2-left">
-              <HistoryCard_3 index={index} />
-              <HistoryCard_4 index={index} />
+
+          {
+            index === 0 &&
+            <div className="showcasedetail-main-lower-row__2">
+              <div className="showcasedetail-main-lower-row__2-left">
+                <HistoryCard_3 index={index} />
+                <HistoryCard_4 index={index} />
+              </div>
+              <HistoryCard_5 index={index} />
             </div>
-            <HistoryCard_5 index={index} />
-          </div>
+          }
         </div>
       </div>
 
@@ -89,14 +94,23 @@ export function DcCard({ index }) {
         <p style={{ marginBottom: '3%' }}>
           <span>for</span> {showcase_data[index].this_project_for}
         </p>
-        <div className="dc-description-button">
-          <div className="dc-button-container">
-            <FiLink onClick={() => window.open(showcase_data[index].web_url)} />
+        {
+          (showcase_data[index].web_url !== '' | showcase_data[index].github_url !== '') &&
+          <div className="dc-description-button">
+            <div
+              className="dc-button-container"
+              style={{ display: showcase_data[index].web_url === '' ? 'none' : 'flex' }}
+            >
+              <FiLink onClick={() => window.open(showcase_data[index].web_url)} />
+            </div>
+            <div
+              className="dc-button-container"
+              style={{ display: showcase_data[index].github_url === '' ? 'none' : 'flex' }}
+            >
+              <FaGithub onClick={() => window.open(showcase_data[index].github_url)} />
+            </div>
           </div>
-          <div className="dc-button-container">
-            <FaGithub onClick={() => window.open(showcase_data[index].github_url)} />
-          </div>
-        </div>
+        }
       </div>
     </div>
   );
@@ -118,7 +132,7 @@ export function HistoryCard_1({ index }) {
         <div className="history__1-card-link">
           <div className="history__1-button-container">
             <img
-              src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/html.png'}
+              src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/nodejs.png'}
               onClick={() => window.open(showcase_data[index].history[0].tech_stack)}
             />
           </div>
@@ -199,7 +213,7 @@ export function HistoryCard_2({ index }) {
         />
         <img
           className="history__2-img-overlay"
-          src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/pin1.png'}
+          src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/pin4.png'}
           alt="historycard 2 pin"
         />
       </div>
@@ -243,7 +257,7 @@ export function HistoryCard_4({ index }) {
         />
         <img
           className="history__4-img-overlay"
-          src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/pin1.png'}
+          src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/pin4.png'}
           alt="historycard 4 pin"
         />
       </div>
