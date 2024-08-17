@@ -547,6 +547,7 @@
 
   .history__2-img {
     width: 50%;
+    height: auto;
 
     @media (max-height: 600px) {
       width: 30%;
