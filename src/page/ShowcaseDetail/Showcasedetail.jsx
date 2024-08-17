@@ -228,7 +228,7 @@ export function HistoryCard_2({ index }) {
         />
         <img
           className="history__2-img-overlay"
-          src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/pin4.png'}
+          src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/pin.png'}
           alt="historycard 2 pin"
         />
       </div>
@@ -272,7 +272,7 @@ export function HistoryCard_4({ index }) {
         />
         <img
           className="history__4-img-overlay"
-          src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/pin4.png'}
+          src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/pin.png'}
           alt="historycard 4 pin"
         />
       </div>
