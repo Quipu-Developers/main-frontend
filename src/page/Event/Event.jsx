@@ -111,7 +111,15 @@ export function Start() {
       </div>
       <div className="event-small-block-container">
         <div className="event-small-block">서울시립대 학부생 모두 참여가능합니다!</div>
+        <div className="event-bridge-block">
+          <div></div>
+          <div></div>
+        </div>
         <div className="event-small-block">상품이 소진될 때까지 계속 됩니다!</div>
+        <div className="event-bridge-block">
+          <div></div>
+          <div></div>
+        </div>
         <div className="event-small-block">상품 수령은 카카오톡을 통해 해드릴게요!</div>
       </div>
       <button onClick={() => handleEnter()} className="event-custom-button">
@@ -128,7 +136,7 @@ export function Quiz() {
   const [isAnswer, setIsAnswer] = useState(0);
   const [name, setName] = useState('');
   const [studentId, setStudentId] = useState('');
-  const [isWaiting, setIsWaiting] = useState(false);
+  const [isWaiting, setIsWaiting] = useState(true); //false로 수정
 
   if (!remain_goods || Object.keys(remain_goods).length === 0) {
     return <Error />;
@@ -183,9 +191,14 @@ export function Quiz() {
 
   if (isWaiting) {
     return (
-      <div className="event-big-block">
+      <div className="event-big-block loading">
         <h4>결과를 기다리고 있어요 . . .</h4>
-        <img />
+        <div className="loading-images">
+          <img src={process.env.PUBLIC_URL + '/Event-img/loading1.png'} alt="로딩 이미지 1" />
+          <img src={process.env.PUBLIC_URL + '/Event-img/loading2.png'} alt="로딩 이미지 2" />
+          <img src={process.env.PUBLIC_URL + '/Event-img/loading3.png'} alt="로딩 이미지 3" />
+          <img src={process.env.PUBLIC_URL + '/Event-img/loading4.png'} alt="로딩 이미지 4" />
+        </div>
       </div>
     );
   }
