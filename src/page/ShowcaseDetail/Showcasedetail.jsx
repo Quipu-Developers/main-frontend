@@ -101,13 +101,28 @@ export function DcCard({ index }) {
               className="dc-button-container"
               style={{ display: showcase_data[index].web_url === '' ? 'none' : 'flex' }}
             >
-              <FiLink onClick={() => window.open(showcase_data[index].web_url)} />
+              <div className="dc-button">
+                <FiLink onClick={() => window.open(showcase_data[index].web_url)} />
+              </div>
+              <p>Web</p>
             </div>
             <div
               className="dc-button-container"
-              style={{ display: showcase_data[index].github_url === '' ? 'none' : 'flex' }}
+              style={{ display: showcase_data[index].github_url[0] === '' ? 'none' : 'flex' }}
             >
-              <FaGithub onClick={() => window.open(showcase_data[index].github_url)} />
+              <div className="dc-button">
+                <FaGithub onClick={() => window.open(showcase_data[index].github_url[0])} />
+              </div>
+              <p>Frontend</p>
+            </div>
+            <div
+              className="dc-button-container"
+              style={{ display: showcase_data[index].github_url[1] === '' ? 'none' : 'flex' }}
+            >
+              <div className="dc-button">
+                <FaGithub onClick={() => window.open(showcase_data[index].github_url[1])} />
+              </div>
+              <p>Backend</p>
             </div>
           </div>
         }
@@ -132,8 +147,8 @@ export function HistoryCard_1({ index }) {
         <div className="history__1-card-link">
           <div className="history__1-button-container">
             <img
-              src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/nodejs.png'}
-              onClick={() => window.open(showcase_data[index].history[0].tech_stack)}
+              src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${showcase_data[index].history[0].tech_stack_img[0]}.png`}
+              onClick={() => window.open(showcase_data[index].history[0].tech_stack[0])}
             />
           </div>
           <p>{showcase_data[index].history[0].content[1]}</p>
@@ -165,8 +180,8 @@ export function HistoryCard_1_mobile({ index }) {
       <div className="history__1-mobile-bottom">
         <div className="history__1-button-container">
           <img
-            src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/html.png'}
-            onClick={() => window.open(showcase_data[index].history[0].tech_stack)}
+            src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${showcase_data[index].history[0].tech_stack_img[0]}.png`}
+            onClick={() => window.open(showcase_data[index].history[0].tech_stack[0])}
           />
         </div>
         <p>{showcase_data[index].history[0].content[1]}</p>
@@ -189,14 +204,14 @@ export function HistoryCard_2({ index }) {
         <div className="history__2-card-link">
           <div className="history__1-button-container">
             <img
-              src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/js.png'}
+              src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${showcase_data[index].history[1].tech_stack_img[0]}.png`}
               onClick={() => window.open(showcase_data[index].history[1].tech_stack[0])}
               alt="javascript"
             />
           </div>
           <div className="history__1-button-container">
             <img
-              src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/css.png'}
+              src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${showcase_data[index].history[1].tech_stack_img[1]}.png`}
               onClick={() => window.open(showcase_data[index].history[1].tech_stack[1])}
               alt="css"
             />
@@ -230,8 +245,8 @@ export function HistoryCard_3({ index }) {
         <p>{showcase_data[index].history[2].content[1]}</p>
         <div className="history__1-button-container">
           <img
-            src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/figma.png'}
-            onClick={() => window.open(showcase_data[index].history[2].tech_stack)}
+              src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${showcase_data[index].history[2].tech_stack_img}.png`}
+              onClick={() => window.open(showcase_data[index].history[2].tech_stack)}
             alt="figma"
           />
         </div>
@@ -282,7 +297,7 @@ export function HistoryCard_5({ index }) {
           <p>{showcase_data[index].history[4].content[1]}</p>
           <div className="history__1-button-container">
             <img
-              src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/js.png'}
+              src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${showcase_data[index].history[4].tech_stack_img}.png`}
               onClick={() => window.open(showcase_data[index].history[4].tech_stack)}
               alt="javascript"
             />
