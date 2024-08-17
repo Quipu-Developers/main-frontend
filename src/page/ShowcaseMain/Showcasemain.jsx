@@ -47,9 +47,12 @@ function Showcasemain() {
               <div
                 className="btn-hover color-8"
                 key={index}
-                onClick={() => setSelectedIndex(index)}
+                onClick={() => {
+                  setIndex(index);
+                  setSelectedIndex(index);
+                }}
                 style={{
-                  color: selectedIndex === index ? 'null' : 'null', // 선택된 index는 빨간색, 나머지는 검은색
+                  color: selectedIndex === index ? 'whitesmoke' : '#333333', // 선택된 index는 빨간색, 나머지는 검은색
                   cursor: 'pointer'
                 }}
               >
