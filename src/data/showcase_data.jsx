@@ -24,7 +24,7 @@ export const showcase_data = [
           '스터디, 친목 활동, MT 등 매년 진행된 활동을 사진과 함께 기록합니다.',
         ],
         tech_stack: ['HTML', 'CSS'],
-        history_img: ['/ShowcaseDetail-img/image 1.png', '/ShowcaseDetail-img/image 2.png'],
+        history_img: ['/ShowcaseMain-img/main-web/5.png', '/ShowcaseMain-img/main-web/4.png'],
       },
       {
         card_type: 'history_card2',
@@ -34,7 +34,7 @@ export const showcase_data = [
           '사용자들이 한 손으로 웹사이트를 탐색하기가 훨씬 수월해졌습니다.',
         ],
         tech_stack: ['JavaScript', 'CSS'],
-        history_img: '/ShowcaseDetail-img/image 3.png',
+        history_img: '/ShowcaseMain-img/main-web/7.png',
       },
       {
         card_type: 'history_card3',
@@ -54,7 +54,7 @@ export const showcase_data = [
           'Showcase에서는 팀이 개발한 프로젝트를, Interview에서는 프로젝트에 참여한 사람들의 이야기를 볼 수 있습니다.',
         ],
         tech_stack: '',
-        history_img: '/ShowcaseDetail-img/image 4.png',
+        history_img: '/ShowcaseMain-img/main-web/6.png',
       },
       {
         card_type: 'history_card5',
@@ -64,18 +64,18 @@ export const showcase_data = [
           '하나의 폼에서 지원을 받던 예전 방식에서 발생한 혼란을 개선하였습니다.',
         ],
         tech_stack: 'JavaScript',
-        history_img: '/ShowcaseDetail-img/image 5.png',
+        history_img: '/ShowcaseMain-img/main-web/5.png',
       },
     ],
   },
   {
     project_name: 'Backoffice Web',
     main_img: [
-      '/ShowcaseMain-img/image 1.png',
-      '/ShowcaseMain-img/image 2.png',
-      '/ShowcaseMain-img/image 3.png',
-      '/ShowcaseMain-img/image 4.png',
-      '/ShowcaseMain-img/image 5.png',
+      '/ShowcaseMain-img/backoffice-web/1.png',
+      '/ShowcaseMain-img/backoffice-web/2.png',
+      '/ShowcaseMain-img/backoffice-web/2.png',
+      '/ShowcaseMain-img/backoffice-web/2.png',
+      '/ShowcaseMain-img/backoffice-web/5.png',
     ],
     goal: 'Main Web의 Join Quipu를 통해 받은 지원 폼의 내용을 실시간으로 편하게 확인하고 관리하기 위해 관리자 서비스 웹페이지를 만들었습니다.',
     this_project:
