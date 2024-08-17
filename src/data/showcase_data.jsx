@@ -24,7 +24,7 @@ export const showcase_data = [
           '스터디, 친목 활동, MT 등 매년 진행된 활동을 사진과 함께 기록합니다.',
         ],
         tech_stack: ['HTML', 'CSS'],
-        history_img: ['/ShowcaseMain-img/main-web/5.png', '/ShowcaseMain-img/main-web/4.png'],
+        history_img: ['/ShowcaseMain-img/main-web/8.png', '/ShowcaseMain-img/main-web/4.png'],
       },
       {
         card_type: 'history_card2',
