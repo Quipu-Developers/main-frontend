@@ -8,6 +8,7 @@ import { FaArrowLeftLong } from 'react-icons/fa6';
 
 function Showcasemain() {
   const [index, setIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.outerWidth);
   const navigate = useNavigate();
 
@@ -41,10 +42,18 @@ function Showcasemain() {
       <FaArrowLeftLong className="back-button" onClick={() => navigate('/')} />
       <div className="showcasemain-container">
         <div className="showcasemain">
-          <div className="section1">
+          <div className='section1'>
             {showcase_data.map((element, index) => (
-              <div className="showcasemain-list" key={index} onClick={() => setIndex(index)}>
-                {showcase_data[index].project_name}
+              <div
+                className="btn-hover color-8"
+                key={index}
+                onClick={() => setSelectedIndex(index)}
+                style={{
+                  color: selectedIndex === index ? 'null' : 'null', // 선택된 index는 빨간색, 나머지는 검은색
+                  cursor: 'pointer'
+                }}
+              >
+                {element.project_name}
               </div>
             ))}
           </div>
