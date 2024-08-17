@@ -48,8 +48,7 @@ export default function Showcasedetail() {
             <HistoryCard_2 index={index} />
           </div>
 
-          {
-            index === 0 &&
+          {index === 0 && (
             <div className="showcasedetail-main-lower-row__2">
               <div className="showcasedetail-main-lower-row__2-left">
                 <HistoryCard_3 index={index} />
@@ -57,7 +56,7 @@ export default function Showcasedetail() {
               </div>
               <HistoryCard_5 index={index} />
             </div>
-          }
+          )}
         </div>
       </div>
 
@@ -93,8 +92,7 @@ export function DcCard({ index }) {
         <p style={{ marginBottom: '3%' }}>
           <span>for</span> {showcase_data[index].this_project_for}
         </p>
-        {
-          (showcase_data[index].web_url !== '' | showcase_data[index].github_url !== '') &&
+        {(showcase_data[index].web_url !== '') | (showcase_data[index].github_url !== '') && (
           <div className="dc-description-button">
             <div
               className="dc-button-container"
@@ -124,7 +122,7 @@ export function DcCard({ index }) {
               <p>Backend</p>
             </div>
           </div>
-        }
+        )}
       </div>
     </div>
   );
@@ -144,16 +142,17 @@ export function HistoryCard_1({ index }) {
         <h4>{showcase_data[index].history[0].date}</h4>
         <p>{showcase_data[index].history[0].content[0]}</p>
         <div className="history__1-card-link">
-          {showcase_data[index].history[0].tech_stack.map((element, techIndex) => (
-            element && (
-              <div key={techIndex} className="history__1-button-container">
-                <img
-                  src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${element}.png`}
-                  alt="techstack"
-                />
-              </div>
-            )
-          ))}
+          {showcase_data[index].history[0].tech_stack.map(
+            (element, techIndex) =>
+              element && (
+                <div key={techIndex} className="history__1-button-container">
+                  <img
+                    src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${element}.png`}
+                    alt="techstack"
+                  />
+                </div>
+              )
+          )}
           <p>{showcase_data[index].history[0].content[1]}</p>
         </div>
         <div className="history__1-card-img">
@@ -181,16 +180,17 @@ export function HistoryCard_1_mobile({ index }) {
         />
       </div>
       <div className="history__1-mobile-bottom">
-        {showcase_data[index].history[0].tech_stack.map((element, techIndex) => (
-          element && (
-            <div key={techIndex} className="history__1-button-container">
-              <img
-                src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${element}.png`}
-                alt="techstack"
-              />
-            </div>
-          )
-        ))}
+        {showcase_data[index].history[0].tech_stack.map(
+          (element, techIndex) =>
+            element && (
+              <div key={techIndex} className="history__1-button-container">
+                <img
+                  src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${element}.png`}
+                  alt="techstack"
+                />
+              </div>
+            )
+        )}
         <p>{showcase_data[index].history[0].content[1]}</p>
       </div>
       <img
@@ -209,16 +209,17 @@ export function HistoryCard_2({ index }) {
         <h4>{showcase_data[index].history[1].date}</h4>
         <p>{showcase_data[index].history[1].content[0]}</p>
         <div className="history__2-card-link">
-          {showcase_data[index].history[1].tech_stack.map((element, techIndex) => (
-            element && (
-              <div key={techIndex} className="history__1-button-container">
-                <img
-                  src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${element}.png`}
-                  alt="techstack"
-                />
-              </div>
-            )
-          ))}
+          {showcase_data[index].history[1].tech_stack.map(
+            (element, techIndex) =>
+              element && (
+                <div key={techIndex} className="history__1-button-container">
+                  <img
+                    src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${element}.png`}
+                    alt="techstack"
+                  />
+                </div>
+              )
+          )}
           <p>{showcase_data[index].history[1].content[1]}</p>
         </div>
       </div>
@@ -246,16 +247,17 @@ export function HistoryCard_3({ index }) {
       <p>{showcase_data[index].history[2].content[0]}</p>
       <div className="history__3-link">
         <p>{showcase_data[index].history[2].content[1]}</p>
-        {showcase_data[index].history[2].tech_stack.map((element, techIndex) => (
-          element && (
-            <div key={techIndex} className="history__1-button-container">
-              <img
-                src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${element}.png`}
-                alt="techstack"
-              />
-            </div>
-          )
-        ))}
+        {showcase_data[index].history[2].tech_stack.map(
+          (element, techIndex) =>
+            element && (
+              <div key={techIndex} className="history__1-button-container">
+                <img
+                  src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${element}.png`}
+                  alt="techstack"
+                />
+              </div>
+            )
+        )}
       </div>
     </div>
   );
@@ -301,16 +303,17 @@ export function HistoryCard_5({ index }) {
         <p>{showcase_data[index].history[4].content[0]}</p>
         <div className="history__5-card-link">
           <p>{showcase_data[index].history[4].content[1]}</p>
-          {showcase_data[index].history[4].tech_stack.map((element, techIndex) => (
-            element && (
-              <div key={techIndex} className="history__1-button-container">
-                <img
-                  src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${element}.png`}
-                  alt="techstack"
-                />
-              </div>
-            )
-          ))}
+          {showcase_data[index].history[4].tech_stack.map(
+            (element, techIndex) =>
+              element && (
+                <div key={techIndex} className="history__1-button-container">
+                  <img
+                    src={process.env.PUBLIC_URL + `/ShowcaseDetail-img/${element}.png`}
+                    alt="techstack"
+                  />
+                </div>
+              )
+          )}
         </div>
       </div>
     </div>

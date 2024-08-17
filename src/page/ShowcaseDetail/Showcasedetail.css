@@ -7,7 +7,21 @@
   overflow-x: hidden;
   overflow-y: auto;
   word-break: keep-all;
-  background-image: linear-gradient(to right top, #f5f5f5, #f7f7f7, #f8f9f8, #fafafa, #fcfcfc, #f9f8fb, #f5f5fb, #f1f1fa, #e5e7f7, #d7ddf4, #c8d4f1, #b7cbee);
+  background-image: linear-gradient(
+    to right top,
+    #f5f5f5,
+    #f7f7f7,
+    #f8f9f8,
+    #fafafa,
+    #fcfcfc,
+    #f9f8fb,
+    #f5f5fb,
+    #f1f1fa,
+    #e5e7f7,
+    #d7ddf4,
+    #c8d4f1,
+    #b7cbee
+  );
   display: flex;
   flex-direction: column;
 
@@ -31,7 +45,7 @@
   & h1 {
     font-family: 'Lora';
     font-style: italic;
-    font-size: 3.7rem;
+    font-size: 3rem;
     color: #333333;
     margin: 0;
   }
@@ -187,7 +201,7 @@
 
     &:hover {
       font-size: 40px;
-      color: rgba(194,213,245,0.85);
+      color: rgba(194, 213, 245, 0.85);
     }
   }
 }
@@ -344,7 +358,7 @@
       height: 100%;
       object-fit: cover;
       padding: 10px;
-      background-color: rgba(194,213,245,0.5);
+      background-color: rgba(194, 213, 245, 0.5);
     }
   }
 }
@@ -438,7 +452,7 @@
   aspect-ratio: 1.5/1;
   object-fit: cover;
   padding: 7px;
-  background-color: rgba(194,213,245,0.85);
+  background-color: rgba(194, 213, 245, 0.85);
 }
 
 /* 역사 카드 2 */
@@ -487,7 +501,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  background: rgba(194,213,245,0.85);
+  background: rgba(194, 213, 245, 0.85);
 
   position: relative;
   bottom: 2%;
@@ -677,7 +691,7 @@
   justify-content: flex-start;
   align-items: flex-end;
   position: relative;
-  background: rgba(194,213,245,0.85);
+  background: rgba(194, 213, 245, 0.85);
 
   & .history__4-img-base {
     width: 90%;
@@ -759,7 +773,7 @@
   display: flex;
   flex-direction: column;
   gap: 7px;
-  background: rgba(194,213,245,0.85);
+  background: rgba(194, 213, 245, 0.85);
   position: relative;
   z-index: 1;
 

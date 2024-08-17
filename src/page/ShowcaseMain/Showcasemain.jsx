@@ -42,7 +42,7 @@ function Showcasemain() {
       <FaArrowLeftLong className="back-button" onClick={() => navigate('/')} />
       <div className="showcasemain-container">
         <div className="showcasemain">
-          <div className='section1'>
+          <div className="section1">
             {showcase_data.map((element, index) => (
               <div
                 className="btn-hover color-8"
@@ -52,8 +52,8 @@ function Showcasemain() {
                   setSelectedIndex(index);
                 }}
                 style={{
-                  color: selectedIndex === index ? 'whitesmoke' : '#333333', // 선택된 index는 빨간색, 나머지는 검은색
-                  cursor: 'pointer'
+                  color: selectedIndex === index ? 'white' : '#AAAAAA',
+                  cursor: 'pointer',
                 }}
               >
                 {element.project_name}
@@ -70,21 +70,14 @@ function Showcasemain() {
               </div>
             </div>
             <div className="gallery">
-              <div className="gallery2">
-                <h3>{showcase_data[index].goal}</h3>
-              </div>
-            </div>
-            <div className="gallery">
               <div className="gallery3">
                 <img
                   src={showcase_data[index].main_img[1]}
                   alt={showcase_data[index].project_name}
                 />
               </div>
-              <div className="gallery3">
-                <div className="gallery3-text">
-                  <h4>{showcase_data[index].project_name}</h4>
-                </div>
+              <div className="gallery3 text">
+                <h4>{showcase_data[index].project_name}</h4>
               </div>
               <div className="gallery3">
                 <img
@@ -92,11 +85,20 @@ function Showcasemain() {
                   alt={showcase_data[index].project_name}
                 />
               </div>
+
               <div className="gallery3">
                 <img
                   src={showcase_data[index].main_img[3]}
                   alt={showcase_data[index].project_name}
                 />
+              </div>
+            </div>
+            <div className="gallery" style={{ border: 'none', backgroundColor: 'transparent' }}>
+              <div className="gallery2">
+                <h3>&#34;{showcase_data[index].project_summary}&#34;</h3>
+                <h4 className="view-button" onClick={handleIndexClick}>
+                  View This Project
+                </h4>
               </div>
             </div>
             <div className="gallery">
@@ -108,9 +110,6 @@ function Showcasemain() {
               </div>
             </div>
           </div>
-          <h4 className="view-button" onClick={handleIndexClick}>
-            VIEW
-          </h4>
         </div>
       </div>
     </div>
