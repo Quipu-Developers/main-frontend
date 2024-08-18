@@ -178,7 +178,7 @@ export function Quiz() {
                 state: { result: 'incorrect', goods: null, apply_form: { name, studentId } },
               });
             }
-          }, 15000);
+          }, 10000);
         } catch (error) {
           alert('서버에 문제가 발생했습니다. 다시 시도해 주세요.');
           setIsWaiting(false);

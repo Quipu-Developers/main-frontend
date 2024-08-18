@@ -1,6 +1,5 @@
-// import React, { useState, useEffect } from 'react';
-// import { Outlet, useNavigate, HashRouter as Router, Route, Routes } from 'react-router-dom';
-import { Outlet, HashRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Outlet, useNavigate, HashRouter as Router, Route, Routes } from 'react-router-dom';
 import { Element } from 'react-scroll';
 import './App.css';
 import Home from './page/Home/Home';
@@ -16,28 +15,28 @@ import ActivityDetail from './page/ActivityDetail/ActivityDetail';
 import { Event, Start, Quiz, Roulette, Result } from './page/Event/Event';
 import Error from './page/Error/Error';
 import Navbar from './component/navbar';
-// import useScroll from './hooks/useScroll';
+import useScroll from './hooks/useScroll';
 import ScrollToTop from './hooks/ScrollToTop';
 
 function MainLayout() {
-  // const navigate = useNavigate();
-  // const scrollY = useScroll();
-  // const [offsetY, setOffsetY] = useState(0);
+  const navigate = useNavigate();
+  const scrollY = useScroll();
+  const [offsetY, setOffsetY] = useState(0);
 
-  // useEffect(() => {
-  //   const handleOffset = () => {
-  //     setOffsetY(scrollY * 0.2);
-  //   };
-  //   handleOffset();
-  // }, [scrollY]);
+  useEffect(() => {
+    const handleOffset = () => {
+      setOffsetY(scrollY * 0.2);
+    };
+    handleOffset();
+  }, [scrollY]);
 
   return (
     <>
       <Navbar />
       <Outlet />
-      {/* <div className="event-button" style={{ transform: `translateY(${offsetY}px)` }}>
+      <div className="event-button" style={{ transform: `translateY(${offsetY}px)` }}>
         <button onClick={() => navigate('/event')}>Event</button>
-      </div> */}
+      </div>
     </>
   );
 }
