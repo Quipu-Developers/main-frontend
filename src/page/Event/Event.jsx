@@ -78,7 +78,7 @@ export function Start() {
         >
           <p>
             <span>새 학기를 맞이하여 특별한 이벤트를 준비했습니다!&nbsp;</span>
-            퀴즈를 맞추고 룰렛을 돌리세요!
+            퀴즈를 맞히고 룰렛을 돌리세요!
           </p>
         </div>
         <RouletteItem segments={splitSegments} />
