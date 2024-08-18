@@ -480,10 +480,10 @@ export function Result() {
               {apply_form.name}님 축하합니다! <img />
             </p>
             <p>
-              카카오톡 아이디를 남겨주시면<br></br>이벤트 종료 후 수령해드리겠습니다.
+              전화번호를 남겨주시면<br></br>이벤트 종료 후 수령해드리겠습니다.
             </p>
             <div className="event-input-block result">
-              <label>카카오톡 ID: </label>
+              <label>전화번호: </label>
               <input onChange={(e) => setKakaoId(e.target.value)}></input>
             </div>
           </div>
