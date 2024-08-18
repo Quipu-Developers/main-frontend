@@ -27,7 +27,7 @@ export function RecruitBoard() {
         {/* 두번째 행 */}
         <div className="event-recruit-table row">
           <div style={{ backgroundColor: 'rgb(255, 180, 194, 0.2)' }}>
-            <p>UI/UX 디자인&nbsp;프론트엔드&nbsp;백엔드</p>
+            <p>UX/UI디자인&nbsp;프론트엔드&nbsp;백엔드</p>
             <p>백엔드</p>
           </div>
           <div style={{ backgroundColor: 'rgb(54, 194, 206, 0.3)' }}>
