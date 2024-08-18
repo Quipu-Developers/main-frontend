@@ -262,7 +262,6 @@
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  padding: 0 20px;
 }
 
 .event-input-block input {
@@ -272,6 +271,10 @@
   background-color: transparent;
   text-align: center;
   font-size: 1.5rem;
+
+  @media (max-width: 500px) {
+    width: 50vw;
+  }
 }
 
 .event-input-text {

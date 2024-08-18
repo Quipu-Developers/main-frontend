@@ -477,7 +477,7 @@ export function Result() {
           </div>
           <div className="event-result-text">
             <p>
-              축하합니다! <img />
+              {apply_form.name}님 축하합니다! <img />
             </p>
             <p>
               카카오톡 아이디를 남겨주시면<br></br>이벤트 종료 후 수령해드리겠습니다.
