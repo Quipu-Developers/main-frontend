@@ -329,13 +329,12 @@ export function Roulette() {
         setSpin(true);
         setShowSpinButton(false);
       } else if (status === 409) {
-        // // 중복 참여인 경우
-        // const resultType = data.goods === 'Boom' ? 'correct_lose' : 'correct_win';
-        // navigate('/event/result', {
-        //   state: { result: resultType, goods: data.goods, apply_form: apply_form },
-        // });
-        alert('죄송합니다. 룰렛은 한 번만 돌릴 수 있습니다.');
-        navigate('/');
+        // 중복 참여인 경우
+        alert('룰렛은 한 번만 돌릴 수 있습니다. 확인 버튼을 누르면 결과 페이지로 이동됩니다.');
+        const resultType = data.goods === 'Boom' ? 'correct_lose' : 'correct_win';
+        navigate('/event/result', {
+          state: { result: resultType, goods: data.goods, apply_form: apply_form },
+        });
       } else {
         alert('서버에 문제가 생겼습니다. 다시 시도 후 퀴푸에 문의해주세요.');
         navigate('/');
