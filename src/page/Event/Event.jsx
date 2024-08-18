@@ -175,7 +175,7 @@ export function Quiz() {
               });
             } else {
               navigate('/event/result', {
-                state: { result: 'incorrect', goods: null, apply_form: null },
+                state: { result: 'incorrect', goods: null, apply_form: { name, studentId } },
               });
             }
           }, 15000);
@@ -269,12 +269,8 @@ export function Roulette() {
   const [targetLabel, setTargetLabel] = useState(null);
   const [responseData, setResponseData] = useState();
   const [showSpinButton, setShowSpinButton] = useState(true);
-  if (
-    !remain_goods ||
-    Object.keys(remain_goods).length === 0 ||
-    !apply_form ||
-    Object.keys(apply_form).length === 0
-  ) {
+
+  if (!remain_goods || !apply_form) {
     return <Error />;
   }
 
@@ -415,12 +411,8 @@ export function Result() {
   let goods_img;
   let content;
 
-  if (
-    !result ||
-    (goods && Object.keys(goods).length === 0) ||
-    !apply_form ||
-    Object.keys(apply_form).length === 0
-  ) {
+  console.log(result, apply_form);
+  if (!result || !apply_form) {
     return <Error />;
   }
 

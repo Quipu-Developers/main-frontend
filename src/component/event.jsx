@@ -1,15 +1,17 @@
 import { useRef, useEffect } from 'react';
 import '../page/Event/Event.css';
 import { FaMapMarkerAlt } from 'react-icons/fa';
+import { BiLogoInstagramAlt } from 'react-icons/bi';
+import { IoIosMail } from 'react-icons/io';
 
 export function RecruitBoard() {
   return (
     <div className="event-big-block recruit">
       <div className="event-recruit-description">
         <p>
-          퀴푸에서 새로운 회원을 모집하고 있습니다.<br></br>
-          <span>&#34;join quipu&#34;</span>에서 모집 공고를 확인할 수 있습니다.<br></br>많은 관심
-          부탁드립니다!
+          퀴푸에서 새로운 회원을 모집하고 있습니다.<br></br>퀴푸 인스타
+          <span>&nbsp;&#34;@uos_quipu&#34;</span>에서 모집 공고를 확인할 수 있습니다.<br></br>
+          많은 관심 부탁드립니다!
         </p>
       </div>
       <div className="event-recruit-table">
@@ -25,27 +27,24 @@ export function RecruitBoard() {
         {/* 두번째 행 */}
         <div className="event-recruit-table row">
           <div style={{ backgroundColor: 'rgb(255, 180, 194, 0.2)' }}>
-            <p>UI/UX 디자인&nbsp;</p>
-            <img />
-            <p>프론트엔드&nbsp;</p>
-            <img />
-            <p>백엔드&nbsp;</p>
-            <img />
+            <p>UI/UX 디자인&nbsp;프론트엔드&nbsp;백엔드</p>
           </div>
           <div style={{ backgroundColor: 'rgb(54, 194, 206, 0.3)' }}>
-            <p>컴퓨터</p>
-            <img />
-            <p>를 사랑하는 모든 재학생</p>
+            <p>컴퓨터를 사랑하는 모든 재학생</p>
           </div>
         </div>
       </div>
       <div className="event-recruit-info">
         <div>
-          <img />
+          <span>
+            <BiLogoInstagramAlt />
+          </span>
           <p>@uos_quipu</p>
         </div>
         <div>
-          <img />
+          <span>
+            <IoIosMail />
+          </span>
           <p>quipu0316@gmail.com</p>
         </div>
       </div>
