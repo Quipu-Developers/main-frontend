@@ -440,7 +440,7 @@ export function Result() {
   }
 
   const handleKakaoID = async () => {
-    if (kakaoId.trim() === '') {
+    if (kakaoId.trim() !== '') {
       try {
         const { status } = await sendKakaoId(apply_form, kakaoId);
         if (status === 200) {
