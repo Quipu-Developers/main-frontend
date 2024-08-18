@@ -440,14 +440,22 @@ export function Result() {
   }
 
   const handleKakaoID = async () => {
-    const { status } = await sendKakaoId(apply_form, kakaoId);
-    if (status === 200) {
-      alert('제출되었습니다.');
-      navigate('/');
-    } else if (status === 404) {
-      alert('해당 학번을 가진 참여자를 찾을 수 없습니다.');
+    if (kakaoId.trim() === '') {
+      try {
+        const { status } = await sendKakaoId(apply_form, kakaoId);
+        if (status === 200) {
+          alert('제출되었습니다.');
+          navigate('/');
+        } else if (status === 404) {
+          alert('해당 학번을 가진 참여자를 찾을 수 없습니다.');
+        } else {
+          alert('서버에 문제가 생겼습니다. 다시 시도 후 퀴푸에 문의해주세요.');
+        }
+      } catch (error) {
+        alert('서버에 문제가 생겼습니다. 다시 시도 후 퀴푸에 문의해주세요.');
+      }
     } else {
-      alert('서버에 문제가 생겼습니다. 다시 시도 후 퀴푸에 문의해주세요.');
+      alert('전화번호를 입력해주세요.');
     }
   };
 
