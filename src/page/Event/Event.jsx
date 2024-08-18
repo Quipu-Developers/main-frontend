@@ -305,28 +305,40 @@ export function Roulette() {
   splitSegments = splitSegments.sort(() => Math.random() - 0.5);
 
   const handleGetGoods = async (apply_form) => {
-    const { status, data } = await getResult(apply_form);
-    let target_label;
-    if (status === 201) {
-      setResponseData(data);
-      if (data.goods === '메가 커피') {
-        target_label = 'drink';
-      } else if (data.goods === '맘스터치') {
-        target_label = 'hamburger';
-      } else if (data.goods === '배민 만원권') {
-        target_label = 'coupon';
-      } else if (data.goods === '치킨') {
-        target_label = 'chicken';
-      } else if (data.goods === 'Boom') {
-        target_label = 'boom';
+    try {
+      const { status, data } = await getResult(apply_form);
+      let target_label;
+
+      if (status === 201) {
+        // 성공적으로 결과를 받아온 경우
+        setResponseData(data);
+
+        if (data.goods === '메가 커피') {
+          target_label = 'drink';
+        } else if (data.goods === '맘스터치') {
+          target_label = 'hamburger';
+        } else if (data.goods === '배민 만원권') {
+          target_label = 'coupon';
+        } else if (data.goods === '치킨') {
+          target_label = 'chicken';
+        } else if (data.goods === 'Boom') {
+          target_label = 'boom';
+        }
+
+        setTargetLabel(target_label);
+        setSpin(true);
+        setShowSpinButton(false);
+      } else if (status === 409) {
+        // 중복 참여인 경우
+        const resultType = data.goods === 'Boom' ? 'correct_lose' : 'correct_win';
+        navigate('/event/result', {
+          state: { result: resultType, goods: data.goods, apply_form: apply_form },
+        });
+      } else {
+        alert('서버에 문제가 생겼습니다. 다시 시도 후 퀴푸에 문의해주세요.');
+        navigate('/');
       }
-      setTargetLabel(target_label);
-      setSpin(true);
-      setShowSpinButton(false);
-    } else if (status === 409) {
-      alert('죄송합니다. 룰렛은 한 번만 돌릴 수 있습니다.');
-      navigate('/');
-    } else {
+    } catch (error) {
       alert('서버에 문제가 생겼습니다. 다시 시도 후 퀴푸에 문의해주세요.');
       navigate('/');
     }
