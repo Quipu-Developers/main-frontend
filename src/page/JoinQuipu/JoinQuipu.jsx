@@ -7,7 +7,7 @@ import Logo from '../../component/logo';
 import Footer from '../Footer/Footer';
 
 function JoinQuipu() {
-  const isRecruiting = false; //모집 기간 여부
+  const isRecruiting = true; //모집 기간 여부
 
   const location = useLocation();
   const { selectedPage } = location.state || {};
