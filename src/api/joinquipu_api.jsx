@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+const FRONTEND_URL = process.env.REACT_APP_FRONTEND_URL;
 
 export const sendGeneral = async (formData) => {
   try {
@@ -8,6 +9,7 @@ export const sendGeneral = async (formData) => {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
+        Origin: FRONTEND_URL,
       },
     });
     return { status: response.status, data: response.data };
@@ -27,6 +29,7 @@ export const sendDevelopment = async (formData) => {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'multipart/form-data',
+        Origin: FRONTEND_URL,
       },
     });
     return { status: response.status, data: response.data };
