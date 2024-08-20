@@ -25,6 +25,7 @@ export const sendGeneral = async (formData) => {
 
 export const sendDevelopment = async (formData) => {
   try {
+    console.log(formData);
     const response = await axios.post(`${BASE_URL}/data2`, formData, {
       headers: {
         Accept: 'application/json',
