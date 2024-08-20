@@ -111,8 +111,6 @@ function JoinQuipu() {
         motivation: motivation,
       };
 
-      console.log(formData);
-
       res = await sendGeneral(formData);
     }
 
@@ -132,7 +130,6 @@ function JoinQuipu() {
         slack_email: slack_email,
         willing_general_member: willing_general_member,
       };
-      console.log(formData);
 
       res = await sendDevelopment(formData);
     }
