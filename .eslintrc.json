@@ -12,7 +12,7 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "jsx-a11y", "react-hooks", "stylelint"],
+  "plugins": ["react", "jsx-a11y", "react-hooks"],
   "rules": {
     "react/react-in-jsx-scope": "off",
     "no-unused-vars": "warn",
