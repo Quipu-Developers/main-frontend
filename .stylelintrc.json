@@ -1,0 +1,13 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-prettier"],
+  "rules": {
+    "declaration-property-value-disallowed-list": {
+      "justify-content": ["start", "end"],
+      "align-items": ["start", "end"]
+    },
+    "property-no-vendor-prefix": true,
+    "value-no-vendor-prefix": true,
+    "selector-no-vendor-prefix": true,
+    "at-rule-no-vendor-prefix": true
+  }
+}
