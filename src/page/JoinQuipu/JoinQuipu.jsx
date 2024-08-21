@@ -530,6 +530,15 @@ function JoinQuipu() {
                     PDF로 제출해주세요.
                   </div>
                 </div>
+                <div
+                  style={{
+                    color: '#1c0093',
+                    fontSize: '0.85rem',
+                    marginTop: '5px',
+                  }}
+                >
+                  * 최대 파일 크기는 5MB입니다.
+                </div>
               </div>
 
               <div className="form-field">
