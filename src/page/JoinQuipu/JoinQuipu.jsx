@@ -7,7 +7,7 @@ import Logo from '../../component/logo';
 import Footer from '../Footer/Footer';
 
 function JoinQuipu() {
-  const isRecruiting = true; //모집 기간 여부
+  const isRecruiting = true; // 모집 기간 여부
 
   const location = useLocation();
   const { selectedPage } = location.state || {};
@@ -16,9 +16,9 @@ function JoinQuipu() {
   const [hasPaidFee, setHasPaidFee] = useState(false);
 
   const [name, setName] = useState('');
-  const [student_id, setStudent_id] = useState();
+  const [student_id, setStudent_id] = useState('');
   const [major, setMajor] = useState('');
-  const [phone_number, setPhone_number] = useState();
+  const [phone_number, setPhone_number] = useState('');
   const [department, setDepartment] = useState('');
   const [motivation, setMotivation] = useState('');
   const [project_description, setProject_description] = useState('');
@@ -68,7 +68,20 @@ function JoinQuipu() {
   };
 
   const handleUploadPdf = (e) => {
-    setPDF(e.target.files[0]);
+    const file = e.target.files[0];
+
+    // 파일 크기 제한 (예: 5MB)
+    const maxSizeInMB = 5;
+    const maxSizeInBytes = maxSizeInMB * 1024 * 1024;
+
+    if (file.size > maxSizeInBytes) {
+      alert(`파일 크기가 너무 큽니다. ${maxSizeInMB}MB 이하의 파일만 업로드할 수 있습니다.`);
+      // 입력 필드를 초기화하여 파일을 지움
+      e.target.value = null;
+      return;
+    }
+
+    setPDF(file);
   };
 
   useEffect(() => {
@@ -114,7 +127,7 @@ function JoinQuipu() {
       res = await sendGeneral(formData);
     }
 
-    //개발 부원 폼 전송
+    // 개발 부원 폼 전송
     else if (selectedPage === 'development') {
       const formData = {
         name: name,
