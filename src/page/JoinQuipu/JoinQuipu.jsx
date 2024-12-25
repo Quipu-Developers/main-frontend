@@ -7,7 +7,7 @@ import Logo from '../../component/logo';
 import Footer from '../Footer/Footer';
 
 function JoinQuipu() {
-  const isRecruiting = false; // 모집 기간 여부
+  const isRecruiting = true; // 모집 기간 여부
 
   const location = useLocation();
   const { selectedPage } = location.state || {};
@@ -234,7 +234,7 @@ function JoinQuipu() {
                 </p>
                 <br />
                 <p>
-                  • 회비 : <span>20,000원</span>
+                  • 회비 : <span>10,000원</span>
                 </p>
                 <p
                   onClick={() => {
@@ -371,7 +371,7 @@ function JoinQuipu() {
               <div className="join-notice__icon--body">
                 <p>환영합니다!🎉</p>
                 <p>저희 퀴푸 개발팀에 관심을 가져주셔서 감사합니다.</p>
-                <p>대면 킥오프는 9월 13일로 예정되어 있습니다.</p>
+                {/* <p>대면 킥오프는 9월 13일로 예정되어 있습니다.</p> */}
                 <br />
                 <h1>
                   {'<'} 작성방법 {'>'}
@@ -390,7 +390,7 @@ function JoinQuipu() {
                 </h1>
                 <p>제출해주신 지원서는 신중히 검토한 후, </p>
                 <p>
-                  합격 여부를 <span>9월 7일에 문자 메세지로</span> 안내해 드릴 예정입니다.
+                  합격 여부를 <span>1월 3일에 문자 메세지로</span> 안내해 드릴 예정입니다.
                 </p>
                 <p>{'('}이는 지원자분들의 역량을 평가하기 위함이 아니라, </p>
                 <p>
