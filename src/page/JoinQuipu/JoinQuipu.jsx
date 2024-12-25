@@ -30,6 +30,7 @@ function JoinQuipu() {
   const [rows, setRows] = useState(8);
 
   const [pdf, setPDF] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text);
@@ -113,58 +114,67 @@ function JoinQuipu() {
   }, []);
 
   const handleSubmit = async () => {
+    setLoading(true);
     let res;
-    // 일반 부원 폼 전송
-    if (selectedPage === 'general') {
-      const formData = {
-        name: name,
-        student_id: student_id,
-        major: major,
-        phone_number: phone_number,
-        motivation: motivation,
-      };
+    try {
+      // 일반 부원 폼 전송
+      if (selectedPage === 'general') {
+        const formData = {
+          name: name,
+          student_id: student_id,
+          major: major,
+          phone_number: phone_number,
+          motivation: motivation,
+        };
 
-      res = await sendGeneral(formData);
-    }
+        res = await sendGeneral(formData);
+      }
 
-    // 개발 부원 폼 전송
-    else if (selectedPage === 'development') {
-      const formData = {
-        name: name,
-        student_id: student_id,
-        major: major,
-        phone_number: phone_number,
-        department: department,
-        motivation: motivation,
-        project_description: project_description,
-        portfolio_pdf: pdf,
-        github_profile: github_profile,
-        github_email: github_email,
-        slack_email: slack_email,
-        willing_general_member: willing_general_member,
-      };
+      // 개발 부원 폼 전송
+      else if (selectedPage === 'development') {
+        const formData = {
+          name: name,
+          student_id: student_id,
+          major: major,
+          phone_number: phone_number,
+          department: department,
+          motivation: motivation,
+          project_description: project_description,
+          portfolio_pdf: pdf,
+          github_profile: github_profile,
+          github_email: github_email,
+          slack_email: slack_email,
+          willing_general_member: willing_general_member,
+        };
 
-      res = await sendDevelopment(formData);
-    }
+        res = await sendDevelopment(formData);
+      }
 
-    if (res.status === 201) {
-      setModalImg('welcome');
-      setModalMessage('Welcome to Quipu!');
-      setModalSubMessage('신청되었습니다.');
-    } else if (res.status === 400) {
+      if (res.status === 201) {
+        setModalImg('welcome');
+        setModalMessage('Welcome to Quipu!');
+        setModalSubMessage('신청되었습니다.');
+      } else if (res.status === 400) {
+        setModalImg('sad');
+        setModalMessage(`${res.data}`);
+        setModalSubMessage('다시 확인해 주세요.');
+      } else if (res.status === 409) {
+        setModalImg('sad');
+        setModalMessage('이미 제출하셨습니다.');
+        setModalSubMessage('다른 응답을 원하시면 퀴푸에 문의해주세요.');
+      } else {
+        setModalImg('sad');
+        setModalMessage('서버 오류입니다.');
+        setModalSubMessage('다시 시도해보신 후 퀴푸에 문의해주세요.');
+      }
+    } catch (error) {
       setModalImg('sad');
-      setModalMessage(`${res.data}`);
-      setModalSubMessage('다시 확인해 주세요.');
-    } else if (res.status === 409) {
-      setModalImg('sad');
-      setModalMessage('이미 제출하셨습니다.');
-      setModalSubMessage('다른 응답을 원하시면 퀴푸에 문의해주세요.');
-    } else {
-      setModalImg('sad');
-      setModalMessage('서버 오류입니다.');
-      setModalSubMessage('다시 시도해보신 후 퀴푸에 문의해주세요.');
+      setModalMessage('오류가 발생했습니다.');
+      setModalSubMessage('다시 시도해 주세요.');
+    } finally {
+      setLoading(false); // 로딩 종료
+      setShowPopup(true);
     }
-    setShowPopup(true);
   };
 
   useEffect(() => {
@@ -177,6 +187,11 @@ function JoinQuipu() {
 
   return (
     <div className="joinquipu-container">
+      {loading && (
+        <div className="loading-overlay">
+          <img src={`${process.env.PUBLIC_URL}/JoinQuipu-img/loading.gif`} alt="Loading..." />
+        </div>
+      )}
       <NavLink to="/" smooth={true} duration={100}>
         <div className="joinquipu-logo">
           <Logo />
